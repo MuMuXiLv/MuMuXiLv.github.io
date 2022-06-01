@@ -18,7 +18,7 @@
 <meta property="og:image" content="https://s1.328888.xyz/2022/05/26/l6DRS.png">
 <meta property="og:image" content="https://s1.328888.xyz/2022/05/30/5HRag.png">
 <meta property="article:published_time" content="2022-05-26T08:02:27.000Z">
-<meta property="article:modified_time" content="2022-05-31T14:38:04.761Z">
+<meta property="article:modified_time" content="2022-06-01T08:38:25.418Z">
 <meta property="article:author" content="Lv Mengyu">
 <meta property="article:tag" content="Spring">
 <meta name="twitter:card" content="summary">
@@ -191,7 +191,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h1 id="Spring知识点"><a href="#Spring知识点" class="headerlink" title="Spring知识点"></a>Spring知识点</h1><h3 id="IOC"><a href="#IOC" class="headerlink" title="IOC"></a>IOC</h3><p>控制反转，就是创建对象的控制权交给Spring框架，不再由用户使用类的构造方法来new一个对象，IOC的主要实现方式是依赖注入，Spring依赖注入的方式主要有两种，手动注入和自动注入</p>
-<ol>
+<ul>
 <li><p>手动注入（使用配置文件）</p>
 <p>a. set方法注入</p>
 <p>b. 构造方法注入</p>
@@ -200,9 +200,18 @@
 <p>a. xml  （set 和 构造方法）</p>
 <p>b. 注解 @Autowired（可以写在1.属性 2.构造方法 3.普通方法）</p>
 </li>
-</ol>
-<h4 id="BeanFactory-和-ApplicationContext的区别"><a href="#BeanFactory-和-ApplicationContext的区别" class="headerlink" title="BeanFactory 和 ApplicationContext的区别"></a><code>BeanFactory</code> 和 <code>ApplicationContext</code>的区别</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">BeanFactory和ApplicationContext是Spring的两大核心接口，都可以当做Spring的容器。其中ApplicationContext是BeanFactory的子接口。</span><br><span class="line">1. BeanFactory：是Spring里面最底层的接口，包含了各种Bean的定义，读取bean配置文档，管理bean的加载、实例化，控制bean的生命周期，维护bean之间的依赖关系。ApplicationContext接口作为BeanFactory的派生，除了提供BeanFactory所具有的功能外，还提供了更完整的框架功能：</span><br><span class="line">a. 继承MessageSource，因此支持国际化。</span><br><span class="line">b. 统一的资源文件访问方式。</span><br><span class="line">c. 提供在监听器中注册bean的事件。</span><br><span class="line">d. 同时加载多个配置文件。</span><br><span class="line">e. 载入多个（有继承关系）上下文 ，使得每一个上下文都专注于一个特定的层次，比如应用的web层。</span><br><span class="line">2. BeanFactroy采用的是延迟加载形式来注入Bean的，即只有在使用到某个Bean时(调用getBean())，才对该Bean进行加载实例化。这样，我们就不能发现一些存在的Spring的配置问题。如果Bean的某一个属性没有注入，BeanFacotry加载后，直至第一次使用调用getBean方法才会抛出异常。</span><br><span class="line">   而ApplicationContext，它是在容器启动时，一次性创建了所有的Bean。这样，在容器启动时，我们就可以发现Spring中存在的配置错误，这样有利于检查所依赖属性是否注入。ApplicationContext启动后预载入所有的单实例Bean，通过预载入单实例bean ,确保当你需要的时候，你就不用等待，因为它们已经创建好了。相对于基本的BeanFactory，ApplicationContext 唯一的不足是占用内存空间。当应用程序配置Bean较多时，程序启动较慢。</span><br><span class="line">3. BeanFactory通常以编程的方式被创建，ApplicationContext还能以声明的方式创建，如使用ContextLoader。</span><br><span class="line">4. BeanFactory和ApplicationContext都支持BeanPostProcessor、BeanFactoryPostProcessor的使用，但两者之间的区别是：BeanFactory需要手动注册，而ApplicationContext则是自动注册。</span><br></pre></td></tr></table></figure>
-
+</ul>
+<h4 id="BeanFactory-和-ApplicationContext的区别"><a href="#BeanFactory-和-ApplicationContext的区别" class="headerlink" title="BeanFactory 和 ApplicationContext的区别"></a><code>BeanFactory</code> 和 <code>ApplicationContext</code>的区别</h4><p>BeanFactory和ApplicationContext是Spring的两大核心接口，都可以当做Spring的容器。其中ApplicationContext是BeanFactory的子接口。</p>
+<ul>
+<li><p>BeanFactory：是Spring里面最底层的接口，包含了各种Bean的定义，读取bean配置文档，管理bean的加载、实例化，控制bean的生命周期，维护bean之间的依赖关系。ApplicationContext接口作为BeanFactory的派生，除了提供BeanFactory所具有的功能外，还提供了更完整的框架功能：<br>a. 继承MessageSource，因此支持国际化。<br>b. 统一的资源文件访问方式。<br>c. 提供在监听器中注册bean的事件。<br>d. 同时加载多个配置文件。<br>e. 载入多个（有继承关系）上下文 ，使得每一个上下文都专注于一个特定的层次，比如应用的web层。</p>
+</li>
+<li><p>BeanFactroy采用的是延迟加载形式来注入Bean的，即只有在使用到某个Bean时(调用getBean())，才对该Bean进行加载实例化。这样，我们就不能发现一些存在的Spring的配置问题。如果Bean的某一个属性没有注入，BeanFacotry加载后，直至第一次使用调用getBean方法才会抛出异常。<br>而ApplicationContext，它是在容器启动时，一次性创建了所有的Bean。这样，在容器启动时，我们就可以发现Spring中存在的配置错误，这样有利于检查所依赖属性是否注入。ApplicationContext启动后预载入所有的单实例Bean，通过预载入单实例bean ,确保当你需要的时候，你就不用等待，因为它们已经创建好了。相对于基本的BeanFactory，ApplicationContext 唯一的不足是占用内存空间。当应用程序配置Bean较多时，程序启动较慢。</p>
+</li>
+<li><p>BeanFactory通常以编程的方式被创建，ApplicationContext还能以声明的方式创建，如使用ContextLoader。</p>
+</li>
+<li><p>BeanFactory和ApplicationContext都支持BeanPostProcessor、BeanFactoryPostProcessor的使用，但两者之间的区别是：BeanFactory需要手动注册，而ApplicationContext则是自动注册。</p>
+</li>
+</ul>
 <h3 id="AOP"><a href="#AOP" class="headerlink" title="AOP"></a>AOP</h3><p>AOP：面向切面编程，是面向对象编程（OOP）的一种延续。</p>
 <p>OOP 编程思想可以解决大部分的代码重复问题。但是有一些问题是处理不了的。比如在父类 Animal 中的多个方法的相同位置出现了重复的代码，OOP就解决不了。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">// 动物父类 </span><br><span class="line">public class Animal &#123;</span><br><span class="line">	// 身高</span><br><span class="line">	private String height;	</span><br><span class="line">	// 体重</span><br><span class="line">	private double weight;</span><br><span class="line">	public void eat() &#123;</span><br><span class="line">	    // 性能监控代码</span><br><span class="line">	    long start = System.currentTimeMillis();</span><br><span class="line">	    // 业务逻辑代码</span><br><span class="line">	    System.out.println(&quot;I can eat...&quot;);	</span><br><span class="line">	    // 性能监控代码</span><br><span class="line">	    System.out.println(&quot;执行时长：&quot; + (System.currentTimeMillis() - start)/1000f + 			&quot;s&quot;);</span><br><span class="line">	&#125;</span><br><span class="line">	public void run() &#123;</span><br><span class="line">	    // 性能监控代码</span><br><span class="line">	    long start = System.currentTimeMillis();	</span><br><span class="line">	    // 业务逻辑代码</span><br><span class="line">	    System.out.println(&quot;I can run...&quot;);	</span><br><span class="line">	    // 性能监控代码</span><br><span class="line">	    System.out.println(&quot;执行时长：&quot; + (System.currentTimeMillis() - start)/1000f + &quot;s&quot;);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;  </span><br></pre></td></tr></table></figure>
@@ -218,7 +227,6 @@
 <p>AOP就是用来解决这些问题的，提出横向抽取机制，将横切逻辑代码与业务逻辑代码分离。</p>
 <p><img src="https://s1.328888.xyz/2022/05/26/l6DRS.png" alt="l6DRS.png"></p>
 <p>代码拆分比较容易，但问题在于如何在不改变原有业务逻辑的情况下，悄无声息的将横向逻辑代码应用到原有的业务逻辑中，达到和原来一样的效果。</p>
-<p>AOP 解决了什么问题</p>
 <p>通过上面的分析可以发现，AOP 主要用来解决：在不改变原有业务逻辑的情况下，增强横切逻辑代码，根本上解耦合，避免横切逻辑代码重复。</p>
 <h4 id="AOP-为什么叫面向切面编程"><a href="#AOP-为什么叫面向切面编程" class="headerlink" title="AOP 为什么叫面向切面编程"></a>AOP 为什么叫面向切面编程</h4><p><strong>切</strong> ：指的是横切逻辑，原有业务逻辑代码不动，只能操作横切逻辑代码，所以面向横切逻辑</p>
 <p><strong>面</strong> ：横切逻辑代码往往要影响的是很多个方法，每个方法如同一个点，多个点构成一个面。这里有一个面的概念</p>
@@ -265,39 +273,33 @@ public class JdkProxy implements InvocationHandler &#123;
 
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args) &#123;</span><br><span class="line">    CglibProxy proxy = new CglibProxy(new Student(&quot;张三&quot;));</span><br><span class="line">    Student student = (Student) proxy.getProxy();</span><br><span class="line">    student.wakeup();</span><br><span class="line">    student.sleep();</span><br><span class="line"></span><br><span class="line">    proxy = new CglibProxy(new Doctor(&quot;王教授&quot;));</span><br><span class="line">    Doctor doctor = (Doctor) proxy.getProxy();</span><br><span class="line">    doctor.wakeup();</span><br><span class="line">    doctor.sleep();</span><br><span class="line"></span><br><span class="line">    proxy = new CglibProxy(new Dog(&quot;旺旺&quot;));</span><br><span class="line">    Dog dog = (Dog) proxy.getProxy();</span><br><span class="line">    dog.wakeup();</span><br><span class="line">    dog.sleep();</span><br><span class="line"></span><br><span class="line">    proxy = new CglibProxy(new Cat(&quot;咪咪&quot;));</span><br><span class="line">    Cat cat = (Cat) proxy.getProxy();</span><br><span class="line">    cat.wakeup();</span><br><span class="line">    cat.sleep();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h3 id="Bean的生命周期"><a href="#Bean的生命周期" class="headerlink" title="Bean的生命周期"></a>Bean的生命周期</h3><ol>
-<li><p><strong>生成BeanDefinition</strong> Spring在启动的时候会进行扫描，找到符合条件的类装载进BeanDefinitionMap中</p>
-</li>
-<li><p><strong>合并BeanDefinition</strong> Spring中支持父子BeanDefinition，和Java父子类类似</p>
+<h3 id="Bean的生命周期"><a href="#Bean的生命周期" class="headerlink" title="Bean的生命周期"></a>Bean的生命周期</h3><ul>
+<li><strong>生成BeanDefinition</strong> Spring在启动的时候会进行扫描，找到符合条件的类装载进BeanDefinitionMap中</li>
+<li><strong>合并BeanDefinition</strong> Spring中支持父子BeanDefinition，和Java父子类类似</li>
+</ul>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;bean id=&quot;parent&quot; class=&quot;com.zhouyu.service.Parent&quot; scope=&quot;prototype&quot;/&gt;</span><br><span class="line">&lt;bean id=&quot;child&quot; class=&quot;com.zhouyu.service.Child&quot;/&gt;</span><br></pre></td></tr></table></figure>
 
 <p>这么定义的情况下，child是单例Bean。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;bean id=&quot;parent&quot; class=&quot;com.zhouyu.service.Parent&quot; scope=&quot;prototype&quot;/&gt;</span><br><span class="line">&lt;bean id=&quot;child&quot; class=&quot;com.zhouyu.service.Child&quot; parent=&quot;parent&quot;/&gt;</span><br></pre></td></tr></table></figure>
 
 <p>但这种情况下，child是原型Bean。因为child的父BeanDefinition是parent，所以会继承parent上所定义的scope属性。而在根据child来生成Bean对象之前，需要进行BeanDefinition的合并，得到完整的child的BeanDefinition。</p>
-</li>
+<ul>
 <li><p><strong>加载类</strong>  BeanDefinition合并之后，就可以去创建Bean对象了，而创建Bean就必须实例化对象，而实例化就必须先加载当前BeanDefinition所对应的class</p>
 </li>
 <li><p><strong>实例化</strong>   推断构造方法，根据BeanDefinition创建对象</p>
 </li>
 <li><p><strong>设置对象属性</strong>  此处会处理@Autowired(byType)、@Resourse(byName)、@Value等注解，并注入所有的属性。</p>
 </li>
-<li><p><strong>执行Aware</strong>   完成了属性赋值之后，Spring会执行一些回调，包括：</p>
-<ol>
-<li>BeanNameAware：回传beanName给bean对象。</li>
-<li>BeanClassLoaderAware：回传classLoader给bean对象。</li>
-<li>BeanFactoryAware：回传beanFactory给对象。</li>
-</ol>
+<li><p><strong>执行Aware</strong>   完成了属性赋值之后，Spring会执行一些回调（回调的作用是让bean具有意识，让它知道自己是一个bean，比如说让它拥有beanName属性，并且可以按照自己的意愿进行修改这些属性），包括：</p>
+<p>a. BeanNameAware：回传beanName给bean对象。</p>
+<p>b. BeanClassLoaderAware：回传classLoader给bean对象。</p>
+<p>c. BeanFactoryAware：回传beanFactory给对象。</p>
 </li>
 <li><p><strong>初始化前</strong> 初始化前调用**BeanPostProcessor.postProcessBeforeInitialization()**（BeanPostProcessor接口中的方法）</p>
 </li>
 <li><p><strong>初始化</strong>    </p>
-<ol>
-<li><p>查看当前Bean对象是否实现了InitializingBean接口，如果实现了就调用其afterPropertiesSet()方法</p>
-</li>
-<li><p>执行BeanDefinition中指定的初始化方法</p>
-</li>
-</ol>
+<p>a. 查看当前Bean对象是否实现了InitializingBean接口，如果实现了就调用其afterPropertiesSet()方法</p>
+<p>b. 执行BeanDefinition中指定的初始化方法</p>
 </li>
 <li><p><strong>初始化后</strong> 初始化后调用<strong>BeanPostProcessor.postProcessAfterInitialization()<strong>。可以在这个步骤中，对Bean最终进行处理，Spring中的</strong>AOP就是基于初始化后实现</strong>的，<strong>初始化后返回的对象才是最终的Bean对象</strong></p>
 </li>
@@ -305,45 +307,40 @@ public class JdkProxy implements InvocationHandler &#123;
 </li>
 <li><p><strong>关闭容器</strong>  如果Bean实现了DisposableBean接口，则会回调该接口的destroy()方法。如果Bean配置了destroy-method方法，就会执行destroy-method配置的方法。至此整个Bean的生命周期结束。</p>
 </li>
-</ol>
+</ul>
 <h3 id="Spring事务"><a href="#Spring事务" class="headerlink" title="Spring事务"></a>Spring事务</h3><p>事务：要么一起成功，要么一起失败</p>
 <p>隔离级别：读未提交，读已提交，可重复读，串行化</p>
 <p>脏读、不可重复读、幻读</p>
 <p>事务丢失：</p>
-<ol>
-<li><p>第一类事务丢失（回滚丢失）</p>
+<ul>
+<li>第一类事务丢失（回滚丢失）</li>
+</ul>
 <p>对于第一类事务丢失，就是比如A和B同时在执行一个数据，然后B事务已经提交了，然后A事务回滚了，这样B事务的操作就因为A事务回滚而丢失了。（举例，账户上一共有100块钱，然后A事务转出50块，这个时候B事务往账户里转入50块，A事务此时回滚，B事务的操作就因为A事务回滚而丢失了）</p>
-</li>
-<li><p>第二类事务丢失（提交覆盖丢失）</p>
+<ul>
+<li>第二类事务丢失（提交覆盖丢失）</li>
+</ul>
 <p>对于第二类事务丢失，也称为覆盖丢失，就是A和B一起执行一个数据，两个同时取到一个数据，然后B事务首先提交，但是A事务接下来又提交，就覆盖了B事务。</p>
-</li>
-</ol>
 <h5 id="编程式事务"><a href="#编程式事务" class="headerlink" title="编程式事务"></a>编程式事务</h5><p>主要两种用法：</p>
-<ol>
-<li><p>通过PlatformTransactionManager控制事务</p>
+<ul>
+<li>通过PlatformTransactionManager控制事务</li>
+</ul>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">@Test</span><br><span class="line">    public void test1() throws Exception &#123;</span><br><span class="line">        //定义一个数据源</span><br><span class="line">        DataSource dataSource = new DataSource();</span><br><span class="line">        dataSource.setDriverClassName(&quot;com.mysql.jdbc.Driver&quot;);</span><br><span class="line">        dataSource.setUrl(&quot;jdbc:mysql://localhost:3306/int?characterEncoding=UTF-8&amp;serverTimezone=UTC&quot;);</span><br><span class="line">        dataSource.setUsername(&quot;root&quot;);</span><br><span class="line">        dataSource.setPassword(&quot;123456&quot;);</span><br><span class="line">        dataSource.setInitialSize(5);</span><br><span class="line">        //定义一个JdbcTemplate，用来方便执行数据库增删改查</span><br><span class="line">        JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);</span><br><span class="line">        //1.定义事务管理器，给其指定一个数据源（可以把事务管理器想象为一个人，这个人来负责事务的控制操作）</span><br><span class="line">        PlatformTransactionManager platformTransactionManager = new DataSourceTransactionManager(dataSource);</span><br><span class="line">        //2.定义事务属性：TransactionDefinition，</span><br><span class="line">        // TransactionDefinition可以用来配置事务的属性信息，比如事务隔离级别、事务超时时间、事务传播方式、是否是只读事务等等。</span><br><span class="line">        TransactionDefinition transactionDefinition = new DefaultTransactionDefinition();</span><br><span class="line">        //3.开启事务：调用platformTransactionManager.getTransaction开启事务操作，得到事务状态(TransactionStatus)对象</span><br><span class="line">        TransactionStatus transactionStatus = platformTransactionManager.getTransaction(transactionDefinition);</span><br><span class="line">        //4.执行业务操作，下面就执行2个插入操作</span><br><span class="line">        try &#123;</span><br><span class="line">            System.out.println(&quot;before:&quot; + jdbcTemplate.queryForList(&quot;SELECT * from t_user&quot;));</span><br><span class="line">            jdbcTemplate.update(&quot;insert into t_user (name) values (?)&quot;, &quot;test1-1&quot;);</span><br><span class="line">            jdbcTemplate.update(&quot;insert into t_user (name) values (?)&quot;, &quot;test1-2&quot;);</span><br><span class="line">            //5.提交事务：platformTransactionManager.commit</span><br><span class="line">            platformTransactionManager.commit(transactionStatus);</span><br><span class="line">        &#125; catch (Exception e) &#123;</span><br><span class="line">            //6.回滚事务：platformTransactionManager.rollback</span><br><span class="line">            platformTransactionManager.rollback(transactionStatus);</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(&quot;after:&quot; + jdbcTemplate.queryForList(&quot;SELECT * from t_user&quot;));</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 
 <p>上述代码主要有5个步骤</p>
-<ol>
-<li><p>定义事务管理器PlatformTransactionManager。事务管理器相当于一个管理员，这个管理员就是用来帮你控制事务的，比如开启事务，提交事务，回滚事务等等。spring中使用PlatformTransactionManager这个接口来表示事务管理器</p>
-</li>
-<li><p>定义事务属性TransactionDefinition。定义事务属性，比如事务隔离级别、事务超时时间、事务传播方式、是否是只读事务等等。spring中使用TransactionDefinition接口来表示事务的定义信息，有个子类比较常用：DefaultTransactionDefinition。</p>
-</li>
-<li><p>开启事务。调用事务管理器的getTransaction方法，即可以开启一个事务。这个方法会返回一个TransactionStatus表示事务状态的一个对象，通过TransactionStatus提供的一些方法可以用来控制事务的一些状态，比如事务最终是需要回滚还是需要提交。在getTransaction之后，spring内部会执行一些操作，大致流程如下：</p>
+<p>a. 定义事务管理器PlatformTransactionManager。事务管理器相当于一个管理员，这个管理员就是用来帮你控制事务的，比如开启事务，提交事务，回滚事务等等。spring中使用PlatformTransactionManager这个接口来表示事务管理器</p>
+<p>b. 定义事务属性TransactionDefinition。定义事务属性，比如事务隔离级别、事务超时时间、事务传播方式、是否是只读事务等等。spring中使用TransactionDefinition接口来表示事务的定义信息，有个子类比较常用：DefaultTransactionDefinition。</p>
+<p>c. 开启事务。调用事务管理器的getTransaction方法，即可以开启一个事务。这个方法会返回一个TransactionStatus表示事务状态的一个对象，通过TransactionStatus提供的一些方法可以用来控制事务的一些状态，比如事务最终是需要回滚还是需要提交。在getTransaction之后，spring内部会执行一些操作，大致流程如下：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">/有一个全局共享的threadLocal对象 resources</span><br><span class="line">static final ThreadLocal&lt;Map&lt;Object, Object&gt;&gt; resources = new NamedThreadLocal&lt;&gt;(&quot;Transactional resources&quot;);</span><br><span class="line">//获取一个db的连接</span><br><span class="line">DataSource datasource = platformTransactionManager.getDataSource();</span><br><span class="line">Connection connection = datasource.getConnection();</span><br><span class="line">//设置手动提交事务</span><br><span class="line">connection.setAutoCommit(false);</span><br><span class="line">Map&lt;Object, Object&gt; map = new HashMap&lt;&gt;();</span><br><span class="line">map.put(datasource,connection);</span><br><span class="line">resources.set(map);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 <p>上面代码，将数据源datasource和connection映射起来放在了ThreadLocal中，ThreadLocal大家应该比较熟悉，用于在同一个线程中共享数据；后面我们可以通过resources这个ThreadLocal获取datasource其对应的connection对象。</p>
-</li>
-<li><p>执行业务操作 我们使用jdbcTemplate插入了2条记录。大家看一下创建JdbcTemplate的代码，需要指定一个datasource</p>
+<p>d. 执行业务操作 我们使用jdbcTemplate插入了2条记录。大家看一下创建JdbcTemplate的代码，需要指定一个datasource</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);</span><br><span class="line"></span><br><span class="line">PlatformTransactionManager platformTransactionManager = new DataSourceTransactionManager(dataSource);</span><br></pre></td></tr></table></figure>
 
 <p>上述代码中两者用到的dataSource是同一个。事务管理器开启事务的时候，会创建一个连接，将datasource和connection映射之后丢在了ThreadLocal中，而JdbcTemplate内部执行db操作的时候，也需要获取连接，JdbcTemplate会以自己内部的datasource去上面的threadlocal中找有没有关联的连接，如果有直接拿来用，若没找到将重新创建一个连接，而此时是可以找到的，那么JdbcTemplate就参与到spring的事务中了。</p>
-</li>
-<li><p>提交或回滚</p>
-</li>
-</ol>
-</li>
-<li><p>TransactionTemplate</p>
+<p>e. 提交或回滚</p>
+<ul>
+<li>TransactionTemplate</li>
+</ul>
 <p>方式1中部分代码是可以重用的，所以spring对其进行了优化，采用模板方法模式就其进行封装，主要省去了提交或者回滚事务的代码。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">@Test</span><br><span class="line">    public void test2() throws Exception &#123;</span><br><span class="line">        //定义一个数据源</span><br><span class="line">        DataSource dataSource = new DataSource();</span><br><span class="line">        dataSource.setDriverClassName(&quot;com.mysql.jdbc.Driver&quot;);</span><br><span class="line">        dataSource.setUrl(&quot;jdbc:mysql://localhost:3306/int?characterEncoding=UTF-8&amp;serverTimezone=UTC&quot;);</span><br><span class="line">        dataSource.setUsername(&quot;root&quot;);</span><br><span class="line">        dataSource.setPassword(&quot;123456&quot;);</span><br><span class="line">        dataSource.setInitialSize(5);</span><br><span class="line">        //定义一个JdbcTemplate，用来方便执行数据库增删改查</span><br><span class="line">        JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);</span><br><span class="line">        //1.定义事务管理器，给其指定一个数据源（可以把事务管理器想象为一个人，这个人来负责事务的控制操作）</span><br><span class="line">        PlatformTransactionManager platformTransactionManager = new DataSourceTransactionManager(dataSource);</span><br><span class="line">        //2.定义事务属性：TransactionDefinition，TransactionDefinition可以用来配置事务的属性信息，比如事务隔离级别、事务超时时间、事务传播方式、是否是只读事务等等。</span><br><span class="line">        DefaultTransactionDefinition  transactionDefinition = new DefaultTransactionDefinition();</span><br><span class="line">        transactionDefinition.setTimeout(10);</span><br><span class="line">        //3.创建TransactionTemplate对象</span><br><span class="line">        TransactionTemplate transactionTemplate = new TransactionTemplate(platformTransactionManager,transactionDefinition);/**</span><br><span class="line">         * 4.通过TransactionTemplate提供的方法执行业务操作</span><br><span class="line">         * 主要有2个方法：</span><br><span class="line">         * （1）.executeWithoutResult(Consumer&lt;TransactionStatus&gt; action)：没有返回值的，需传递一个Consumer对象，在accept方法中做业务操作</span><br><span class="line">         * （2）.&lt;T&gt; T execute(TransactionCallback&lt;T&gt; action)：有返回值的，需要传递一个TransactionCallback对象，在doInTransaction方法中做业务操作</span><br><span class="line">         * 调用execute方法或者executeWithoutResult方法执行完毕之后，事务管理器会自动提交事务或者回滚事务。</span><br><span class="line">         * 那么什么时候事务会回滚，有2种方式：</span><br><span class="line">         * （1）transactionStatus.setRollbackOnly();将事务状态标注为回滚状态</span><br><span class="line">         * （2）execute方法或者executeWithoutResult方法内部抛出异常</span><br><span class="line">         * 什么时候事务会提交？</span><br><span class="line">         * 方法没有异常 &amp;&amp; 未调用过transactionStatus.setRollbackOnly();</span><br><span class="line">         */</span><br><span class="line">        transactionTemplate.executeWithoutResult(new Consumer&lt;TransactionStatus&gt;() &#123;</span><br><span class="line">            @Override</span><br><span class="line">            public void accept(TransactionStatus transactionStatus) &#123;</span><br><span class="line">                jdbcTemplate.update(&quot;insert into t_user (name) values (?)&quot;, &quot;transactionTemplate-1&quot;);</span><br><span class="line">                jdbcTemplate.update(&quot;insert into t_user (name) values (?)&quot;, &quot;transactionTemplate-2&quot;);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">        System.out.println(&quot;after:&quot; + jdbcTemplate.queryForList(&quot;SELECT * from t_user&quot;));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
@@ -352,8 +349,8 @@ public class JdkProxy implements InvocationHandler &#123;
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">transactionTemplate.executeWithoutResult(new Consumer&lt;TransactionStatus&gt;() &#123;</span><br><span class="line">    @Override</span><br><span class="line">    public void accept(TransactionStatus transactionStatus) &#123;</span><br><span class="line">        //执行业务操作</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 
 <p>execute：有返回值场景，需要传递一个TransactionCallback对象，在doInTransaction方法中做业务操作</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Integer result = transactionTemplate.execute(new TransactionCallback&lt;Integer&gt;() &#123;</span><br><span class="line">    @Nullable</span><br><span class="line">    @Override</span><br><span class="line">    public Integer doInTransaction(TransactionStatus status) &#123;</span><br><span class="line">        return jdbcTemplate.update(&quot;insert into t_user (name) values (?)&quot;, &quot;executeWithoutResult-3&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></li>
-</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Integer result = transactionTemplate.execute(new TransactionCallback&lt;Integer&gt;() &#123;</span><br><span class="line">    @Nullable</span><br><span class="line">    @Override</span><br><span class="line">    public Integer doInTransaction(TransactionStatus status) &#123;</span><br><span class="line">        return jdbcTemplate.update(&quot;insert into t_user (name) values (?)&quot;, &quot;executeWithoutResult-3&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
 <h5 id="声明式事务"><a href="#声明式事务" class="headerlink" title="声明式事务"></a>声明式事务</h5><p>将事务管理代码从业务代码中抽离出来，以声明的方式来实现事务管理。将事务管理作为横切关注点，通过AOP方式模块化。</p>
 <p>导入tx约束</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">xmlns:tx=&quot;http://www.springframework.org/schema/tx&quot;</span><br><span class="line"> </span><br><span class="line">http://www.springframework.org/schema/tx</span><br><span class="line">http://www.springframework.org/schema/tx/spring-tx.xsd&quot;&gt;</span><br></pre></td></tr></table></figure>
@@ -374,27 +371,6 @@ public class JdkProxy implements InvocationHandler &#123;
 <p>三级缓存（singletonFactories）：Map&lt;beanName : 原始对象&gt; AOP的时候会用到原始对象、beandefinition、beanName</p>
 <p>实际上三级缓存的Map存的是一个lambda表达式 Map&lt;beanName : lambda(beanName, bd, 原始对象)&gt;</p>
 <p><img src="https://s1.328888.xyz/2022/05/30/5HRag.png" alt="5HRag.png"></p>
-<p>循环依赖 假设AService中需要注入BService属性，而且BService中也需要注入AService属性，那么就会出现循环依赖问题。如果仅通过</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">AService的生命周期：</span><br><span class="line"></span><br><span class="line">0. creatingSet[&#x27;aService&#x27;]  //在这个集合中的beanName所指代的bean正在创建bean</span><br><span class="line"></span><br><span class="line">1. 实例化（new AService() --&gt; 原始对象--&gt;三级缓存中Map&lt;beanName : lambda(beanName,beandefinition,bean原始对象)&gt;）</span><br><span class="line"></span><br><span class="line">2. 填充BService属性--&gt;单例池中去找BService对应的bean对象--&gt;没有找到--&gt;</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
       
 
