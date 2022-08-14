@@ -8,27 +8,26 @@
   <link rel="dns-prefetch" href="http://example.com">
   <title>MySQL log | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="MySQL 三大日志 redolog（事务日志、重做日志，在磁盘上）redo log（重做日志）是InnoDB存储引擎独有的，它让MySQL拥有了崩溃恢复能力。比如 MySQL 实例挂了或宕机了，重启时，InnoDB存储引擎会使用redo log恢复数据，保证数据的持久性与完整性。  MySQL是以页的形式存储数据的，查询一条数据，会从硬盘中把一页的数据加载出来，加载出来的数据叫做数据页（也叫脏页">
+  <meta name="description" content="MySQL 三大日志   redolog（事务日志、重做日志，在磁盘上）redo log（重做日志）是InnoDB存储引擎独有的，它让MySQL拥有了崩溃恢复能力。比如 MySQL 实例挂了或宕机了，重启时，InnoDB存储引擎会使用redo log恢复数据，保证数据的持久性与完整性。  MySQL是以页的形式存储数据的，查询一条数据，会从硬盘中把一页的数据加载出来，加载出来的数据叫做数据页（也叫">
 <meta property="og:type" content="article">
 <meta property="og:title" content="MySQL log">
 <meta property="og:url" content="http://example.com/2022/07/19/MySQL-log/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="MySQL 三大日志 redolog（事务日志、重做日志，在磁盘上）redo log（重做日志）是InnoDB存储引擎独有的，它让MySQL拥有了崩溃恢复能力。比如 MySQL 实例挂了或宕机了，重启时，InnoDB存储引擎会使用redo log恢复数据，保证数据的持久性与完整性。  MySQL是以页的形式存储数据的，查询一条数据，会从硬盘中把一页的数据加载出来，加载出来的数据叫做数据页（也叫脏页">
+<meta property="og:description" content="MySQL 三大日志   redolog（事务日志、重做日志，在磁盘上）redo log（重做日志）是InnoDB存储引擎独有的，它让MySQL拥有了崩溃恢复能力。比如 MySQL 实例挂了或宕机了，重启时，InnoDB存储引擎会使用redo log恢复数据，保证数据的持久性与完整性。  MySQL是以页的形式存储数据的，查询一条数据，会从硬盘中把一页的数据加载出来，加载出来的数据叫做数据页（也叫">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://guide-blog-images.oss-cn-shenzhen.aliyuncs.com/github/javaguide/01.png">
-<meta property="og:image" content="https://guide-blog-images.oss-cn-shenzhen.aliyuncs.com/github/javaguide/02.png">
-<meta property="og:image" content="https://guide-blog-images.oss-cn-shenzhen.aliyuncs.com/github/javaguide/03.png">
-<meta property="og:image" content="https://guide-blog-images.oss-cn-shenzhen.aliyuncs.com/github/javaguide/05.png">
-<meta property="og:image" content="https://guide-blog-images.oss-cn-shenzhen.aliyuncs.com/github/javaguide/01-20220305234724956.png">
-<meta property="og:image" content="https://guide-blog-images.oss-cn-shenzhen.aliyuncs.com/github/javaguide/02-20220305234738688.png">
-<meta property="og:image" content="https://guide-blog-images.oss-cn-shenzhen.aliyuncs.com/github/javaguide/03-20220305234742460.png">
-<meta property="og:image" content="https://guide-blog-images.oss-cn-shenzhen.aliyuncs.com/github/javaguide/04-20220305234747840.png">
-<meta property="og:image" content="https://guide-blog-images.oss-cn-shenzhen.aliyuncs.com/github/javaguide/05-20220305234754405.png">
-<meta property="og:image" content="https://guide-blog-images.oss-cn-shenzhen.aliyuncs.com/github/javaguide/06-20220305234801592.png">
-<meta property="og:image" content="https://guide-blog-images.oss-cn-shenzhen.aliyuncs.com/github/javaguide/03-20220305235104445.png">
-<meta property="og:image" content="https://guide-blog-images.oss-cn-shenzhen.aliyuncs.com/github/javaguide/04-20220305234956774.png">
-<meta property="og:image" content="https://guide-blog-images.oss-cn-shenzhen.aliyuncs.com/github/javaguide/05-20220305234937243.png">
-<meta property="og:image" content="https://guide-blog-images.oss-cn-shenzhen.aliyuncs.com/github/javaguide/06-20220305234907651.png">
+<meta property="og:image" content="https://img1.imgtp.com/2022/08/14/uQoMSUHQ.png">
+<meta property="og:image" content="https://img1.imgtp.com/2022/08/14/mzn8zske.png">
+<meta property="og:image" content="https://img1.imgtp.com/2022/08/14/yjBLkqR1.png">
+<meta property="og:image" content="https://img1.imgtp.com/2022/08/14/mIksYB6B.png">
+<meta property="og:image" content="https://img1.imgtp.com/2022/08/14/V0y4F6Rm.png">
+<meta property="og:image" content="https://img1.imgtp.com/2022/08/14/VtXtWY7B.png">
+<meta property="og:image" content="https://img1.imgtp.com/2022/08/14/0ETi4PE3.png">
+<meta property="og:image" content="https://img1.imgtp.com/2022/08/14/gGShtpjO.png">
+<meta property="og:image" content="https://img1.imgtp.com/2022/08/14/nZFmB2KC.png">
+<meta property="og:image" content="https://img1.imgtp.com/2022/08/14/Eiprzljy.png">
+<meta property="og:image" content="https://img1.imgtp.com/2022/08/14/CtppnWiR.png">
+<meta property="og:image" content="https://img1.imgtp.com/2022/08/14/2T6uK8AW.png">
+<meta property="og:image" content="https://img1.imgtp.com/2022/08/14/N0Ci4bFR.png">
 <meta property="og:image" content="https://s1.328888.xyz/2022/07/20/lYF5R.png">
 <meta property="og:image" content="https://s1.328888.xyz/2022/07/20/lYuE6.png">
 <meta property="og:image" content="https://s1.328888.xyz/2022/07/20/lYh6r.png">
@@ -38,10 +37,10 @@
 <meta property="og:image" content="https://img1.imgtp.com/2022/07/20/zuw1BonG.png">
 <meta property="og:image" content="https://img1.imgtp.com/2022/07/20/AUfpCP3v.png">
 <meta property="article:published_time" content="2022-07-19T01:58:19.000Z">
-<meta property="article:modified_time" content="2022-07-21T02:49:45.817Z">
+<meta property="article:modified_time" content="2022-08-14T14:30:49.699Z">
 <meta property="article:author" content="Lv Mengyu">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://guide-blog-images.oss-cn-shenzhen.aliyuncs.com/github/javaguide/01.png">
+<meta name="twitter:image" content="https://img1.imgtp.com/2022/08/14/uQoMSUHQ.png">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -209,11 +208,13 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="MySQL-三大日志"><a href="#MySQL-三大日志" class="headerlink" title="MySQL 三大日志"></a>MySQL 三大日志</h1><p><img src="https://guide-blog-images.oss-cn-shenzhen.aliyuncs.com/github/javaguide/01.png" alt="img"></p>
+        <h1 id="MySQL-三大日志"><a href="#MySQL-三大日志" class="headerlink" title="MySQL 三大日志"></a>MySQL 三大日志</h1><ul>
+<li><img src="https://img1.imgtp.com/2022/08/14/uQoMSUHQ.png" alt="1660487039675.png"></li>
+</ul>
 <h3 id="redolog（事务日志、重做日志，在磁盘上）"><a href="#redolog（事务日志、重做日志，在磁盘上）" class="headerlink" title="redolog（事务日志、重做日志，在磁盘上）"></a>redolog（事务日志、重做日志，在磁盘上）</h3><p><code>redo log</code>（重做日志）是<code>InnoDB</code>存储引擎独有的，它让<code>MySQL</code>拥有了崩溃恢复能力。比如 <code>MySQL</code> 实例挂了或宕机了，重启时，<code>InnoDB</code>存储引擎会使用<code>redo log</code>恢复数据，保证数据的持久性与完整性。</p>
-<p><img src="https://guide-blog-images.oss-cn-shenzhen.aliyuncs.com/github/javaguide/02.png" alt="img"></p>
+<p><img src="https://img1.imgtp.com/2022/08/14/mzn8zske.png" alt="1660487060942.png"></p>
 <p>MySQL是以页的形式存储数据的，查询一条数据，会从硬盘中把一页的数据加载出来，加载出来的数据叫做数据页（也叫脏页），会放到buffer poll中。然后下次再查询时，会先到缓冲池中查找，没有命中就再去硬盘加载，减少硬盘IO开销，提升性能。然后更新数据的时候，发现缓冲池中有需要更新的数据，就直接再缓冲池中更新。然后把“某个数据页上做了什么修改”记录到Redo log buffer中，接着刷盘到redo log中。</p>
-<p><img src="https://guide-blog-images.oss-cn-shenzhen.aliyuncs.com/github/javaguide/03.png" alt="img"></p>
+<p><img src="https://img1.imgtp.com/2022/08/14/yjBLkqR1.png" alt="1660487079536.png"></p>
 <p>理想情况，事务一提交就会进行刷盘操作，但实际上，刷盘的时机是根据策略来进行的。</p>
 <h4 id="刷盘时机"><a href="#刷盘时机" class="headerlink" title="刷盘时机"></a>刷盘时机</h4><p><code>InnoDB</code> 存储引擎为 <code>redo log</code> 的刷盘策略提供了 <code>innodb_flush_log_at_trx_commit</code> 参数，它支持三种策略：</p>
 <p>在计算机的操作系统中用户空间缓冲区的数据是无法直接写入磁盘的，中间必需经过操作系统缓冲区（OS Buffer）。因此，redo log buffer写入redo log file，实际上会先写入OS Buffer，然后再调用fsync()将其刷入到redo log file。</p>
@@ -223,7 +224,8 @@
 <li>2：实时写，延时刷。表示每次事务提交时都只把 redo log buffer 内容写入 page cache。每次提交事务都将redo log buffer写入os buffer，但并不会马上调用fsync()刷入磁盘，而是间隔1秒调fsync()刷盘。相对于每次提交都写盘和每隔1秒写盘，实时写os buffer延时刷盘是一个数据一致性与性能的之间的折中方案。</li>
 </ul>
 <p><code>innodb_flush_log_at_trx_commit</code> 参数默认为 1 ，也就是说当事务提交时会调用 <code>fsync</code> 对 redo log 进行刷盘</p>
-<p>除了后台线程每秒<code>1</code>次的轮询操作，还有一种情况，当 <code>redo log buffer</code> 占用的空间即将达到 <code>innodb_log_buffer_size</code> 一半的时候，后台线程会主动刷盘。<img src="https://guide-blog-images.oss-cn-shenzhen.aliyuncs.com/github/javaguide/05.png" alt="img"></p>
+<p>除了后台线程每秒<code>1</code>次的轮询操作，还有一种情况，当 <code>redo log buffer</code> 占用的空间即将达到 <code>innodb_log_buffer_size</code> 一半的时候，后台线程会主动刷盘。</p>
+<p><img src="https://img1.imgtp.com/2022/08/14/mIksYB6B.png" alt="1660487127783.png"></p>
 <p>现在我们来思考一个问题： <strong>只要每次把修改后的数据页直接刷盘不就好了，还有 redo log 什么事？</strong></p>
 <p>它们不都是刷盘么？差别在哪里？</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span> Byte = 8bit</span><br><span class="line"><span class="number">1</span> KB = <span class="number">1024</span> Byte</span><br><span class="line"><span class="number">1</span> MB = <span class="number">1024</span> KB</span><br><span class="line"><span class="number">1</span> GB = <span class="number">1024</span> MB</span><br><span class="line"><span class="number">1</span> TB = <span class="number">1024</span> GB</span><br></pre></td></tr></table></figure>
@@ -240,7 +242,7 @@
 <p>主备：备机只用来同步主机的数据，不对外提供服务</p>
 <p>主从：相较于备机，从机要对外提供读的操作</p>
 <p>主主：两台都是主机，同时对外提供读写操作（涉及到分布式ID的问题）</p>
-<p><img src="https://guide-blog-images.oss-cn-shenzhen.aliyuncs.com/github/javaguide/01-20220305234724956.png" alt="img"></p>
+<p><img src="https://img1.imgtp.com/2022/08/14/V0y4F6Rm.png" alt="1660487161222.png"></p>
 <p><code>binlog</code>会记录所有涉及更新数据的逻辑操作，并且是顺序写。</p>
 <h4 id="记录格式"><a href="#记录格式" class="headerlink" title="记录格式"></a>记录格式</h4><p><code>binlog</code> 日志有三种格式，可以通过<code>binlog_format</code>参数指定。</p>
 <ul>
@@ -249,10 +251,10 @@
 <li><strong>mixed</strong></li>
 </ul>
 <p>指定<code>statement</code>，记录的内容是<code>SQL</code>语句原文，比如执行一条<code>update T set update_time=now() where id=1</code>，记录的内容如下。</p>
-<p><img src="https://guide-blog-images.oss-cn-shenzhen.aliyuncs.com/github/javaguide/02-20220305234738688.png" alt="img"></p>
+<p><img src="https://img1.imgtp.com/2022/08/14/VtXtWY7B.png" alt="1660487197219.png"></p>
 <p>同步数据时，会执行记录的<code>SQL</code>语句，但是有个问题，<code>update_time=now()</code>这里会获取当前系统时间，直接执行会导致与原库的数据不一致。</p>
 <p>为了解决这种问题，我们需要指定为<code>row</code>，记录的内容不再是简单的<code>SQL</code>语句了，还包含操作的具体数据，记录内容如下。</p>
-<p><img src="https://guide-blog-images.oss-cn-shenzhen.aliyuncs.com/github/javaguide/03-20220305234742460.png" alt="img"></p>
+<p><img src="https://img1.imgtp.com/2022/08/14/0ETi4PE3.png" alt="1660487214122.png"></p>
 <p><code>row</code>格式记录的内容看不到详细信息，要通过<code>mysqlbinlog</code>工具解析出来。</p>
 <p><code>update_time=now()</code>变成了具体的时间<code>update_time=1627112756247</code>，条件后面的@1、@2、@3 都是该行数据第 1 个~3 个字段的原始值（<strong>假设这张表只有 3 个字段</strong>）。</p>
 <p>这样就能保证同步数据的一致性，通常情况下都是指定为<code>row</code>，这样可以为数据库的恢复与同步带来更好的可靠性。</p>
@@ -263,18 +265,18 @@
 <p>因为一个事务的<code>binlog</code>不能被拆开，无论这个事务多大，也要确保一次性写入，所以系统会给每个线程分配一个块内存作为<code>binlog cache</code>。</p>
 <p>我们可以通过<code>binlog_cache_size</code>参数控制单个线程 binlog cache 大小，如果存储内容超过了这个参数，就要暂存到磁盘（<code>Swap</code>）。</p>
 <p><code>binlog</code>日志刷盘流程如下</p>
-<p><img src="https://guide-blog-images.oss-cn-shenzhen.aliyuncs.com/github/javaguide/04-20220305234747840.png" alt="img"></p>
+<p><img src="https://img1.imgtp.com/2022/08/14/gGShtpjO.png" alt="1660487232334.png"></p>
+<p><strong>上图的 write，是指把日志写入到文件系统的 page cache，并没有把数据持久化到磁盘，所以速度比较快</strong></p>
 <ul>
-<li><strong>上图的 write，是指把日志写入到文件系统的 page cache，并没有把数据持久化到磁盘，所以速度比较快</strong></li>
 <li><strong>上图的 fsync，才是将数据持久化到磁盘的操作</strong></li>
 </ul>
 <p><code>write</code>和<code>fsync</code>的时机，可以由参数<code>sync_binlog</code>控制，默认是<code>0</code>。</p>
 <p>为<code>0</code>的时候，表示每次提交事务都只<code>write</code>，由系统自行判断什么时候执行<code>fsync</code>。</p>
-<p><img src="https://guide-blog-images.oss-cn-shenzhen.aliyuncs.com/github/javaguide/05-20220305234754405.png" alt="img"></p>
+<p><img src="https://img1.imgtp.com/2022/08/14/nZFmB2KC.png" alt="1660487274274.png"></p>
 <p>虽然性能得到提升，但是机器宕机，<code>page cache</code>里面的 binlog 会丢失。</p>
 <p>为了安全起见，可以设置为<code>1</code>，表示每次提交事务都会执行<code>fsync</code>，就如同 <strong>redo log 日志刷盘流程</strong> 一样。</p>
 <p>最后还有一种折中方式，可以设置为<code>N(N&gt;1)</code>，表示每次提交事务都<code>write</code>，但累积<code>N</code>个事务后才<code>fsync</code>。</p>
-<p><img src="https://guide-blog-images.oss-cn-shenzhen.aliyuncs.com/github/javaguide/06-20220305234801592.png" alt="img"></p>
+<p><img src="https://img1.imgtp.com/2022/08/14/Eiprzljy.png" alt="1660487303300.png"></p>
 <p>在出现<code>IO</code>瓶颈的场景里，将<code>sync_binlog</code>设置成一个比较大的值，可以提升性能。</p>
 <p>同样的，如果机器宕机，会丢失最近<code>N</code>个事务的<code>binlog</code>日志。</p>
 <h3 id="两阶段提交"><a href="#两阶段提交" class="headerlink" title="两阶段提交"></a>两阶段提交</h3><p><code>redo log</code>（重做日志）让<code>InnoDB</code>存储引擎拥有了崩溃恢复能力。</p>
@@ -285,14 +287,13 @@
 <p>我们以<code>update</code>语句为例，假设<code>id=2</code>的记录，字段<code>c</code>值是<code>0</code>，把字段<code>c</code>值更新成<code>1</code>，<code>SQL</code>语句为<code>update T set c=1 where id=2</code>。</p>
 <p>假设执行过程中写完<code>redo log</code>日志后，<code>binlog</code>日志写期间发生了异常，会出现什么情况呢？</p>
 <p>由于<code>binlog</code>没写完就异常，这时候<code>binlog</code>里面没有对应的修改记录。因此，之后用<code>binlog</code>日志恢复数据时，就会少这一次更新，恢复出来的这一行<code>c</code>值是<code>0</code>，而原库因为<code>redo log</code>日志恢复，这一行<code>c</code>值是<code>1</code>，最终数据不一致。</p>
-<p><img src="https://guide-blog-images.oss-cn-shenzhen.aliyuncs.com/github/javaguide/03-20220305235104445.png" alt="img"></p>
 <p>为了解决两份日志之间的逻辑一致问题，<code>InnoDB</code>存储引擎使用<strong>两阶段提交</strong>方案。</p>
 <p>原理很简单，将<code>redo log</code>的写入拆成了两个步骤<code>prepare</code>和<code>commit</code>，这就是<strong>两阶段提交</strong>。</p>
-<p><img src="https://guide-blog-images.oss-cn-shenzhen.aliyuncs.com/github/javaguide/04-20220305234956774.png" alt="img"></p>
+<p><img src="https://img1.imgtp.com/2022/08/14/CtppnWiR.png" alt="1660487346955.png"></p>
 <p>使用<strong>两阶段提交</strong>后，写入<code>binlog</code>时发生异常也不会有影响，因为<code>MySQL</code>根据<code>redo log</code>日志恢复数据时，发现<code>redo log</code>还处于<code>prepare</code>阶段，并且没有对应<code>binlog</code>日志，就会回滚该事务。</p>
-<p><img src="https://guide-blog-images.oss-cn-shenzhen.aliyuncs.com/github/javaguide/05-20220305234937243.png" alt="img"></p>
+<p><img src="https://img1.imgtp.com/2022/08/14/2T6uK8AW.png" alt="1660487388405.png"></p>
 <p>再看一个场景，<code>redo log</code>设置<code>commit</code>阶段发生异常，那会不会回滚事务呢？</p>
-<p><img src="https://guide-blog-images.oss-cn-shenzhen.aliyuncs.com/github/javaguide/06-20220305234907651.png" alt="img"></p>
+<p><img src="https://img1.imgtp.com/2022/08/14/N0Ci4bFR.png" alt="1660487416038.png"></p>
 <p>并不会回滚事务，它会执行上图框住的逻辑，虽然<code>redo log</code>是处于<code>prepare</code>阶段，但是能通过事务<code>id</code>找到对应的<code>binlog</code>日志，所以<code>MySQL</code>认为是完整的，就会提交事务恢复数据。</p>
 <h3 id="undo-log（回滚日志）"><a href="#undo-log（回滚日志）" class="headerlink" title="undo log（回滚日志）"></a>undo log（回滚日志）</h3><p>undo log是mysql中比较重要的事务日志之一，顾名思义，undo log是一种用于撤销回退的日志，在事务没提交之前，MySQL会先记录更新前的数据到 undo log日志文件里面，当事务回滚时或者数据库崩溃时，可以利用 undo log来进行回退。</p>
 <p>undo log的两个功能：</p>

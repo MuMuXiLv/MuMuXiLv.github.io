@@ -6,27 +6,40 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>ElasticSearch | Hexo</title>
+  <title>操作系统 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="ElasticSearchElasticsearch 是一个分布式、高扩展、高实时的搜索与数据分析引擎。 它能很方便的使大量数据具有搜索、分析和探索的能力。 应用场景 日志记录和分析 采集和组合公共数据 全文检索 数据可视化  倒排索引倒排索引：以关键词作为key，包含关键词的文档作为Value 假设我们有两个文档，都有一个content字段 doc_1：The quick brown fox j">
+  <meta name="description" content="操作系统Linux常用指令 Linux 中查看进程运行状态的指令 查看进程运行状态：ps命令。(process status，提供了进程的一次性查看，所提供的查看结果是不动态连续的，如果想对进程时间监控，应该用top工具) grep命令（global search regular expression and print out the line，全面检索正则表达式并把行打印出来）能使用正则表达式">
 <meta property="og:type" content="article">
-<meta property="og:title" content="ElasticSearch">
-<meta property="og:url" content="http://example.com/2022/07/18/ElasticSearch/index.html">
+<meta property="og:title" content="操作系统">
+<meta property="og:url" content="http://example.com/2022/08/03/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="ElasticSearchElasticsearch 是一个分布式、高扩展、高实时的搜索与数据分析引擎。 它能很方便的使大量数据具有搜索、分析和探索的能力。 应用场景 日志记录和分析 采集和组合公共数据 全文检索 数据可视化  倒排索引倒排索引：以关键词作为key，包含关键词的文档作为Value 假设我们有两个文档，都有一个content字段 doc_1：The quick brown fox j">
+<meta property="og:description" content="操作系统Linux常用指令 Linux 中查看进程运行状态的指令 查看进程运行状态：ps命令。(process status，提供了进程的一次性查看，所提供的查看结果是不动态连续的，如果想对进程时间监控，应该用top工具) grep命令（global search regular expression and print out the line，全面检索正则表达式并把行打印出来）能使用正则表达式">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://img2018.cnblogs.com/blog/1635748/201909/1635748-20190921150908711-86418854.png">
-<meta property="og:image" content="https://img2018.cnblogs.com/blog/1635748/201909/1635748-20190927093518925-1292450326.png">
-<meta property="og:image" content="https://img2018.cnblogs.com/blog/1604064/201903/1604064-20190314171955461-1909418546.png">
-<meta property="og:image" content="https://img2018.cnblogs.com/blog/1604064/201903/1604064-20190314172113702-1908039906.png">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/1bdc6c30d1be9b1bff83a683c64d2ac7.png">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/f82dff1f5faa43b59217e8fdc516c1a0.png">
-<meta property="article:published_time" content="2022-07-18T07:08:17.000Z">
-<meta property="article:modified_time" content="2022-07-31T13:52:10.710Z">
+<meta property="og:image" content="https://images2018.cnblogs.com/blog/1278921/201808/1278921-20180824145229244-282350435.png">
+<meta property="og:image" content="https://images2018.cnblogs.com/blog/1278921/201808/1278921-20180824145308881-1188604794.png">
+<meta property="og:image" content="https://images2018.cnblogs.com/blog/1278921/201808/1278921-20180824145404760-1689296590.png">
+<meta property="og:image" content="https://www.runoob.com/wp-content/uploads/2014/08/file-permissions-rwx.jpg">
+<meta property="og:image" content="https://img1.imgtp.com/2022/08/03/3mosIgSw.png">
+<meta property="og:image" content="https://i.bmp.ovh/imgs/2022/08/04/0720f0c56b478d24.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210710203636111.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1F1YW50dW1Zb3U=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210710204712455.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1F1YW50dW1Zb3U=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img2020.cnblogs.com/blog/727485/202107/727485-20210705142138066-445927118.png">
+<meta property="og:image" content="https://img2020.cnblogs.com/blog/727485/202107/727485-20210705142209604-405492653.png">
+<meta property="og:image" content="https://img-blog.csdn.net/20180512145036990">
+<meta property="og:image" content="https://img2020.cnblogs.com/blog/727485/202107/727485-20210705142324609-1852302717.png">
+<meta property="og:image" content="https://img2020.cnblogs.com/blog/727485/202107/727485-20210705142341111-31060538.png">
+<meta property="og:image" content="https://img2020.cnblogs.com/blog/727485/202107/727485-20210705142354535-1103997675.png">
+<meta property="og:image" content="https://img2020.cnblogs.com/blog/727485/202107/727485-20210705142426066-2057623426.png">
+<meta property="og:image" content="https://img-blog.csdn.net/20150923210221157">
+<meta property="og:image" content="https://img2020.cnblogs.com/blog/727485/202107/727485-20210705142440467-101211835.png">
+<meta property="og:image" content="https://s1.328888.xyz/2022/08/08/01BZi.png">
+<meta property="og:image" content="https://img2020.cnblogs.com/blog/727485/202107/727485-20210705142526370-28542583.png">
+<meta property="og:image" content="https://img2020.cnblogs.com/blog/727485/202107/727485-20210705142557380-332373689.png">
+<meta property="article:published_time" content="2022-08-03T06:10:38.000Z">
+<meta property="article:modified_time" content="2022-08-08T14:59:37.150Z">
 <meta property="article:author" content="Lv Mengyu">
-<meta property="article:tag" content="中间件">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://img2018.cnblogs.com/blog/1635748/201909/1635748-20190921150908711-86418854.png">
+<meta name="twitter:image" content="https://images2018.cnblogs.com/blog/1278921/201808/1278921-20180824145229244-282350435.png">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -163,14 +176,14 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-ElasticSearch" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-操作系统" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      ElasticSearch
+      操作系统
     </h1>
   
 
@@ -186,268 +199,298 @@
         
         <!--显示阅读次数完毕-->
         
-        <a href="/2022/07/18/ElasticSearch/" class="archive-article-date">
-  	<time datetime="2022-07-18T07:08:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-07-18</time>
+        <a href="/2022/08/03/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" class="archive-article-date">
+  	<time datetime="2022-08-03T06:10:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-08-03</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="ElasticSearch"><a href="#ElasticSearch" class="headerlink" title="ElasticSearch"></a>ElasticSearch</h1><p>Elasticsearch 是一个<strong>分布式、高扩展、高实时的搜索与数据分析引擎</strong>。 它能很方便的使大量数据具有搜索、分析和探索的能力。</p>
-<h2 id="应用场景"><a href="#应用场景" class="headerlink" title="应用场景"></a>应用场景</h2><ol>
-<li>日志记录和分析</li>
-<li>采集和组合公共数据</li>
-<li>全文检索</li>
-<li>数据可视化</li>
-</ol>
-<h2 id="倒排索引"><a href="#倒排索引" class="headerlink" title="倒排索引"></a>倒排索引</h2><p>倒排索引：以关键词作为key，包含关键词的文档作为Value</p>
-<p>假设我们有两个文档，都有一个content字段</p>
-<p>doc_1：The quick brown fox jumped over the lazy dog</p>
-<p>doc_2：Quick brown foxes jump over lazy dogs in summer</p>
-<p>首先在es底层分词器会对doc进行分词，得到一个个term（单词），然后建立一个映射关系，记录存在各个单词的文档。首先我们分析一下各个单词存在的文档。</p>
-<img src="https://img2018.cnblogs.com/blog/1635748/201909/1635748-20190921150908711-86418854.png" width=50%>
-
-<p>因为每个doc都是id唯一标识的，所以会简历一个映射关系。</p>
-<img src="https://img2018.cnblogs.com/blog/1635748/201909/1635748-20190927093518925-1292450326.png" width=30%>
-
-<p>当es建立了这种映射关系，当我们搜索一个单词的时候，就不需要遍历每个文档了。而且es的倒排索引进行term优化，比如说大小写转换、近义词转换、时态转换、单复数转换等等。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">1 大小写转换：Quick --&gt; quick</span><br><span class="line">2 近义词转换：mother --&gt; mom</span><br><span class="line">3 时态转换：jumped --&gt; jump</span><br><span class="line">4 单复数转换：dogs --&gt; dog</span><br><span class="line">......</span><br><span class="line">注意：不同的分词器的分词方式和算法都是不尽相同的。要注意这一点。</span><br></pre></td></tr></table></figure>
-
-<p>当es进行了term优化后，上面的倒排索引就变成了</p>
-<img src = "https://img2018.cnblogs.com/blog/1635748/201909/1635748-20190921152042226-82774019.png" width = 30%>
-
-
-
-<p>每一个文档都对应一个ID。倒排索引<strong>会按照指定语法对每一个文档进行分词</strong>，然后维护一张表，列举所有文档中出现的terms以及它们出现的文档ID和出现频率。搜索时同样会对关键词进行同样的分词分析，然后查表得到结果。</p>
-<p>假设有下列几条数据：</p>
-<p>ID    Name    Age    Sex<br>1     Kate    24     Female<br>2     John    24     Male<br>3     Bill    29     Male</p>
-<p>ID是Elasticsearch自建的文档id，那么Elasticsearch建立的索引如下：</p>
-<p>Name:<br>Term Posting List<br>Kate 1<br>John 2<br>Bill 3</p>
-<p>Age:<br>Term Posting List<br>24 [1,2]<br>29 3</p>
-<p>Sex:<br>Term Posting List<br>Female 1<br>Male [2,3]</p>
-<p>Elasticsearch分别为每个<strong>field</strong>都建立了一个倒排索引，Kate, John, 24, Female这些叫term，而 [1,2] 就是Posting List。Posting list就是一个int的数组，存储了所有符合某个term的文档id。通过posting list这种索引方式可以很快进行查找，比如要找age&#x3D;24的人。</p>
-<p><strong>Term Dictionary</strong></p>
-<p>Elasticsearch为了能快速找到某个term，将所有的term排序，二分法查找term，logN的查找效率，就像通过字典查找一样，这就是Term Dictionary。类似于传统数据库的B-Tree的，但是Term Dictionary较B-Tree的查询快。</p>
-<p><strong>Term Index</strong></p>
-<p>B-Tree通过减少磁盘寻道次数来提高查询性能，Elasticsearch也是采用同样的思路，直接通过内存查找term，不读磁盘，但是如果term太多，term dictionary也会很大，放内存不现实，于是有了<strong>Term Index</strong>，就像字典里的索引页一样，A开头的有哪些，term，分别在哪页，term index其实是一颗 (trie) 前缀树</p>
-<p><img src="https://img2018.cnblogs.com/blog/1604064/201903/1604064-20190314171955461-1909418546.png" alt="img"></p>
-<p>这棵树不会包含所有的term，它包含的是term的一些前缀。通过term index可以快速地定位到term dictionary的某个offset，然后从这个位置再往后顺序查找。</p>
-<p><img src="https://img2018.cnblogs.com/blog/1604064/201903/1604064-20190314172113702-1908039906.png" alt="img"></p>
-<p>所以term index不需要存下所有的term，而仅仅是他们的一些前缀与Term Dictionary的block之间的映射关系，再结合FST(Finite State Transducers)的压缩技术，可以使term index缓存到内存中。从term index查到对应的term dictionary的block位置之后，再去磁盘上找term，大大减少了磁盘随机读的次数。</p>
-<p>假设我们现在要将mop, moth, pop, star, stop, top (term index里的term前缀) 映射到序号：0，1，2，3，4，5 (term dictionary的block位置)。最简单的做法就是定义个Map，大家找到自己的位置取值即可，但从内存占用少的角度考虑，FST更节省空间。</p>
-<h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><ol>
-<li><p>集群：es是分布式的，由多个节点构成集群</p>
-</li>
-<li><p>节点：一个运行中的 Elasticsearch 实例称为一个节点，而集群是由一个或者多个拥有相同 <strong>cluster.name</strong> 配置的节点组成， 它们共同承担数据和负载的压力。</p>
-<p>ES集群中的节点有三种不同的类型：</p>
-<ul>
-<li>主节点：负责管理集群范围内的所有变更，例如增加、删除索引，或者增加、删除节点等。 主节点并不需要涉及到文档级别的变更和搜索等操作。可以通过属性node.master进行设置。</li>
-<li>数据节点：存储数据和其对应的倒排索引。默认每一个节点都是数据节点（包括主节点），可以通过node.data属性进行设置。</li>
-<li>协调节点：如果node.master和node.data属性均为false，则此节点称为协调节点，用来响应客户请求，均衡每个节点的负载。</li>
-</ul>
-<p><strong>一个节点不等于一台服务器</strong></p>
-</li>
-<li><p>索引：ES将数据存储在一个或者多个索引中，索引相当于SQL中的一个数据库。索引由其名称(必须为全小写字符)进行标识，并通过引用此名称完成文档的创建、搜索、更新及删除操作。一个ES集群中可以按需创建任意数目的索引。</p>
-</li>
-<li><p>类型：类型是索引内部的<strong>逻辑</strong>分区(category&#x2F;partition)，其意义完全取决于用户需求。因此，一个索引内部可定义一个或多个类型(type)。例如，在索引中，可以定义一个用于存储用户数据的类型，一个存储日志数据的类型，以及一个存储评论数据的类型。类比传统的关系型数据库领域来说，类型相当于 “表” 。</p>
-<p>Elasticsearch：<strong>index</strong>   –&gt;  <strong>type</strong>     –&gt;   <strong>doc</strong>   –&gt;  <strong>field</strong></p>
-<p>MySQL:          数据库  –&gt;   数据表 –&gt;    行     –&gt;  列</p>
-<p>为什么在ES 7.X中去除了类型这个概念？</p>
-<ul>
-<li><p>原因</p>
-<p>因为 Elasticsearch 设计初期，是直接查考了关系型数据库的设计模式，存在了 type（数据表）的概念。但是，其<strong>搜索引擎</strong>是<strong>基于 Lucene</strong> 的，这种 “<strong>基因</strong>” 决定了 type 是多余的。 Lucene 的<strong>全文检索功能</strong>之所以快，是因为 <strong>倒排索引</strong> 的存在。而这种倒排索引的生成是基于 index 的，而并非 type。多个type 反而会减慢搜索的速度。为了保持 Elasticsearch “<strong>一切为了搜索</strong>” 的宗旨，适当的做些改变（去除 type）也是无可厚非的，也是值得的。</p>
-<p>为何不是在 6.X 版本开始就直接去除 type，而是要逐步去除type？</p>
-<p>因为历史原因，前期 Elasticsearch 支持一个 index 下存在多个 type的，而且，有很多项目在使用 Elasticsearch 作为数据库。如果直接去除 type 的概念，不仅是<strong>很多应用 Elasticsearch 的项目</strong>将<strong>面临 业务、功能和代码的大改</strong>，而且对于 <strong>Elasticsearch 官方</strong>来说，<strong>也是一个巨大的挑战</strong>（这个是伤筋动骨的大手术，很多涉及到 type 源码是要修改的）。所以，权衡利弊，采取<strong>逐步过渡</strong>的方式，最终，推迟到 7.X 版本才完成 “<strong>去除 type</strong>”  这个 <strong>革命性的变革</strong>。</p>
-</li>
-</ul>
-</li>
-<li><p>文档（Document）</p>
-<p>文档是索引和搜索的原子单位，它是包含了一个或多个域（Field，列字段）的容器，基于JSON格式进行表示。文档由一个或多个域组成，每个域拥有一个名字及一个或多个值，有多个值的域通常称为 “多值域” 。每个文档可以存储不同的域集，但同一类型下的文档至应该有某种程度上的相似之处。</p>
-<p><strong>document路由原理（一个index会分为多个分片，因此涉及到document存到哪个分片上的问题）</strong></p>
-<p>①路由算法：shard &#x3D; hash(routing) % number_of_primary_shards</p>
-<p>②决定一个document在哪个shard上，最重要的一个值就是routing值，默认是_id，也可手动指定，相同的routing值，每次过来，从hash函数中，产出的hash值一定是相同的<br>例：手动指定一个routing value，比如 put &#x2F;index&#x2F;type&#x2F;id?routing&#x3D;user_id<br>③这就是primary shard数量不可变的原因（通过路由算法存放一个数据后，假设有3个primary_shards，然后hash(routing)&#x3D;21，那么shard&#x3D;0，所以数据被存放到P0，如果此时添加一个primary_shards，我们想要获取刚才加入的这个数据，此时再使用路由算法，算出来shard&#x3D;21%4&#x3D;1，但在P1找不到这个数据，间接的导致数据丢失）。</p>
-</li>
-<li><p>分片：</p>
-<p>一个索引中的数据保存在多个分片中，相当于水平分表。一个分片便是一个Lucene 的实例，它本身就是一个完整的搜索引擎。我们的文档被存储和索引到分片内，但是应用程序是直接与索引而不是与分片进行交互。</p>
-<p>ES实际上就是利用分片来实现分布式。分片是数据的容器，文档保存在分片内，<strong>分片又被分配到集群内的各个节点里</strong>。 当你的集群规模扩大或者缩小时， ES会自动的在各节点中迁移分片，使得数据仍然均匀分布在集群里。</p>
-<p>一个分片可以是主分片或者副本分片。 <strong>索引内任意一个文档都归属于一个主分片</strong>，所以主分片的数目决定着索引能够保存的最大数据量。一个副本分片只是一个主分片的拷贝。副本分片作为硬件故障时<strong>保护数据不丢失的冗余备份</strong>，并为搜索和返回文档等读操作提供服务。</p>
-<p>如果当前插入大量数据，那么会对es集群造成一定的压力，所以在插入大量数据前，也就是在建立索引的时候，我们最好把副本数设置为0；<strong>等数据建立完索引之后，在手动的将副本数更改到2，这样可以提高数据的索引效率</strong></p>
-<p>在索引建立的时候就已经确定了主分片数，但是副本分片数可以随时修改。默认情况下，一个索引会有5个主分片，而其副本可以有任意数量。</p>
-<p>主分片和副本分片的状态决定了集群的健康状态。每一个节点上都只会保存主分片或者其对应的一个副本分片，相同的副本分片不会存在于同一个节点中。如果集群中只有一个节点，则副本分片将不会被分配，此时集群健康状态为yellow，存在丢失数据的风险。</p>
-<p>a. es处理的最小单元，它只是保存了索引中所有数据的一部分。</p>
-<p>b. 一个分片是一个Lucene索引</p>
-<p>c.一个包含倒排索引的文件记录</p>
-<p>d.分片越多搜索越慢</p>
-<p>分片：扩展和容灾（和kafka的分区很像） </p>
-<p>索引和搜索数据：</p>
-<p>索引文档（相当于写）请求到一个节点，文档会通过hash随机到一个主分片，然后从主分片同步到副本分片。副本分片越多，索引数据越慢，因为所有的数据都完成才算完成</p>
-<p>搜索请求到一个节点，节点请求到本节点的一个分片，到其他节点的另一个分片，所有分片都返回结果到发起节点，发起节点返回搜索结果到请求方。不同节点上的主分片+副本分片的总数越多，请求被分摊的越均匀，并发搜索性能越好。如果节点数很少，分片都集中到少数节点上，搜索速度会变慢，因为增加了开销，实际没有分摊负载。单个搜索无法通过分片加速，因为分片搜索是有额外的开销的，所以尽管把搜索均衡到了不同节点上一定程度上提高了搜索性能，但是还是不能提高单个搜索的速度。</p>
-</li>
-<li><p>分段</p>
-<p>a. lucene索引再分割成小单元</p>
-<p>b. 分段越多搜索越慢</p>
-<p>c. 分段不会被修改</p>
-<p>d. 索引新的文档会创建新的分段</p>
-<p>e. 分段会持续地被合并</p>
-<p>f. 删除文档的时候不会真的删除</p>
-</li>
-</ol>
-<h2 id="写数据"><a href="#写数据" class="headerlink" title="写数据"></a>写数据</h2><p>当用户向一个节点提交了索引一个新文档的请求，该节点会根据路由选择确定新文档所在的分区，而每个节点都会保存每个分区所在节点的信息，协调节点会将请求发送给对应的节点，注意这个请求会发送给主分片，等主分片完成索引，会并行将请求发送到其所有副本分片，保证每个分片都持有最新数据。</p>
-<ul>
-<li><p>协调节点默认使用文档 ID 参与计算（也支持通过 routing），以便为路由提供合适的分片：shard &#x3D; hash(document_id) % (num_of_primary_shards)</p>
-</li>
-<li><p>当分片所在的节点接收到来自协调节点的请求后，会将请求写入到 Memory Buffer，然后定时（默认是每隔 1 秒）写入到 Filesystem Cache，这个从 Memory Buffer 到 Filesystem Cache 的过程就叫做 refresh；</p>
-</li>
-<li><p>当然在某些情况下，存在 Momery Buffer 和 Filesystem Cache 的数据可能会丢失， ES 是通过 <strong>translog</strong>的机制来保证数据的可靠性的。其实现机制是接收到请求后，同时也会写入到 translog 中，当 Filesystemcache 中的数据写入到磁盘中时，才会清除掉，这个过程叫做 flush；</p>
-</li>
-<li><p>在 flush 过程中，内存中的缓冲将被清除，内容被写入一个新段，段的 fsync 将创建一个新的提交点，并将内容刷新到磁盘，旧的 translog 将被删除并开始一个新的 translog。</p>
-</li>
-<li><p>flush 触发的时机是定时触发（默认 30 分钟）或者 translog 变得太大（默认为 512M）时；</p>
-<img src="https://img-blog.csdnimg.cn/img_convert/1bdc6c30d1be9b1bff83a683c64d2ac7.png" width=70%></li>
-</ul>
-<h2 id="读数据"><a href="#读数据" class="headerlink" title="读数据"></a>读数据</h2><p>可以通过 <code>doc id</code> 来查询，会根据 <code>doc id</code> 进行 hash，判断出来当时把 <code>doc id</code> 分配到了哪个 shard 上面去，从那个 shard 去查询。</p>
-<ul>
-<li>客户端发送请求到<strong>任意</strong>一个 node，成为 <code>coordinate node</code> 。</li>
-<li><code>coordinate node</code> 对 <code>doc id</code> 进行哈希路由，将请求转发到对应的 node，此时会使用 <code>round-robin</code> <strong>随机轮询算法</strong>，在 <code>primary shard</code> 以及其所有 replica 中随机选择一个，让读请求负载均衡（保证读请求能够分摊到不同的shard上）。</li>
-<li>接收请求的 node 返回 document 给 <code>coordinate node</code> 。</li>
-<li><code>coordinate node</code> 返回 document 给客户端。</li>
-</ul>
-<h2 id="更新和删除数据"><a href="#更新和删除数据" class="headerlink" title="更新和删除数据"></a>更新和删除数据</h2><ul>
-<li>删除和更新也都是写操作，但是 Elasticsearch 中的文档是不可变的，因此不能被删除或者改动以展示其变更；</li>
-<li>磁盘上的每个段都有一个相应的.del 文件。当删除请求发送后，文档并没有真的被删除，而是在.del文件中被标记为删除。该文档依然能匹配查询，但是会在结果中被过滤掉。当段合并时，在.del 文件中被标记为删除的文档将不会被写入新段。</li>
-<li>在新的文档被创建时， Elasticsearch 会为该文档指定一个版本号，当执行更新时，旧版本的文档在.del文件中被标记为删除，新版本的文档被索引到一个新段。旧版本的文档依然能匹配查询，但是会在结果中被过滤掉。</li>
-</ul>
-<h2 id="搜索数据"><a href="#搜索数据" class="headerlink" title="搜索数据"></a>搜索数据</h2><p>es 最强大的是做<a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=%E5%85%A8%E6%96%87%E6%A3%80%E7%B4%A2&spm=1001.2101.3001.7020">全文检索</a>，就是比如你有三条数据：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">java真好玩儿啊</span><br><span class="line">java好难学啊</span><br><span class="line">j2ee特别牛Copy to clipboardErrorCopied</span><br></pre></td></tr></table></figure>
-
-<p>你根据 <code>java</code> 关键词来搜索，将包含 <code>java</code> 的 <code>document</code> 给搜索出来。es 就会给你返回：java真好玩儿啊，java好难学啊。</p>
-<ul>
-<li><p>客户端发送请求到一个 <code>coordinate node</code> 。</p>
-</li>
-<li><p>协调节点将搜索请求转发到<strong>所有</strong>的 shard 对应的 <code>primary shard</code> 或 <code>replica shard</code> ，都可以。如果并行搜索的话，如果有比较多的副本shard，这样搜索请求就会被分摊到多个shard上，提高效率</p>
-</li>
-<li><p>query phase：每个 shard 将自己的搜索结果（其实就是一些 <code>doc id</code> ）返回给协调节点，由协调节点进行数据的合并、排序、分页等操作，产出最终结果。</p>
-</li>
-<li><p>fetch phase：接着由协调节点根据 <code>doc id</code> 去各个节点上<strong>拉取实际</strong>的 <code>document</code> 数据，最终返回给客户端。</p>
-<img src="https://img-blog.csdnimg.cn/f82dff1f5faa43b59217e8fdc516c1a0.png" width = 70%></li>
-</ul>
-<h2 id="Elasticsearch-的-master-选举流程？"><a href="#Elasticsearch-的-master-选举流程？" class="headerlink" title="Elasticsearch 的 master 选举流程？"></a>Elasticsearch 的 master 选举流程？</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">conf/elasticsearch.yml:</span><br><span class="line">    node.master: <span class="literal">true</span>/<span class="literal">false</span></span><br><span class="line">    node.data: <span class="literal">true</span>/<span class="literal">false</span></span><br></pre></td></tr></table></figure>
-
-<p>一个ElasticSearch集群是由多个节点构成的，节点又可以根据上述两个参数分为四种类型。</p>
-<p>当node.master&#x3D;true时，表示该接待你是一个master的候选节点，可以参与选举，在ES的文档中常被称作master-eligible node。ES在正常运行时只能有一个master，多于一个就发生了脑裂。当node.data为true时，这个节点作为一个数据节点，会存储分配在该node上的shard的数据并负责这些shard的写入、查询等。任何一个集群内的node<strong>都可以执行任何请求</strong>，其会负责将<strong>请求转发给对应的node</strong>进行处理，所以当node.master和node.data都为false时，这个节点可以作为一个类似proxy的节点，接受请求并进行转发、结果聚合等。</p>
-<h3 id="节点发现"><a href="#节点发现" class="headerlink" title="节点发现"></a>节点发现</h3><p>ZenDiscovery是ES自己实现的一套用于节点发现和选主等功能的模块，没有依赖Zookeeper等工具。</p>
-<p>简单来说，节点发现依赖以下配置：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">conf/elasticsearch.yml:</span><br><span class="line">    discovery.zen.ping.unicast.hosts: [<span class="number">1.1</span><span class="number">.1</span><span class="number">.1</span>, <span class="number">1.1</span><span class="number">.1</span><span class="number">.2</span>, <span class="number">1.1</span><span class="number">.1</span><span class="number">.3</span>]</span><br></pre></td></tr></table></figure>
-
-<p>这个配置可以看作是，在本节点到每个hosts中的节点建立一条边，当整个集群所有的node形成一个联通图时，所有节点都可以知道集群中有哪些节点，不会形成孤岛。</p>
-<h3 id="Master选举"><a href="#Master选举" class="headerlink" title="Master选举"></a>Master选举</h3><p>上面提到，集群中可能会有多个master-eligible node，此时就要进行master选举，保证只有一个当选master。如果有多个node当选为master，则集群会出现脑裂，脑裂会破坏数据的一致性，导致集群行为不可控，产生各种非预期的影响。</p>
-<p>为了避免产生脑裂，ES采用了常见的分布式系统思路，保证选举出的master被多数派(quorum)的master-eligible node认可，以此来保证只有一个master。这个quorum通过以下配置进行配置：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">conf/elasticsearch.yml:</span><br><span class="line">    discovery.zen.minimum_master_nodes: <span class="number">2</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="master选举谁发起，什么时候发起？"><a href="#master选举谁发起，什么时候发起？" class="headerlink" title="master选举谁发起，什么时候发起？"></a>master选举谁发起，什么时候发起？</h4><p>master选举当然是由master-eligible节点发起，当一个master-eligible节点发现满足以下条件时发起选举：</p>
+        <h1 id="操作系统"><a href="#操作系统" class="headerlink" title="操作系统"></a>操作系统</h1><h2 id="Linux常用指令"><a href="#Linux常用指令" class="headerlink" title="Linux常用指令"></a>Linux常用指令</h2><ol>
+<li><p>Linux 中查看进程运行状态的指令</p>
+<p>查看进程运行状态：ps命令。(process status，提供了进程的一次性查看，所提供的查看结果是不动态连续的，如果想对进程时间监控，应该用top工具)</p>
+<p>grep命令（global search regular expression and print out the line，全面检索正则表达式并把行打印出来）能使用<strong>正则表达式搜索文本</strong>，并把匹配的行打印出来。</p>
+<p><code>ps -aux|grep PID</code> 用来查看某PID进程状态。</p>
+<p>ps -aux 输出格式：<code>USER PID %CPU %MEM VSZ RSS TTY STAT START TIME COMMAND</code></p>
+<p>ps的所有指令：</p>
 <ol>
-<li>该master-eligible节点的当前状态不是master。</li>
-<li>该master-eligible节点通过ZenDiscovery模块的ping操作询问其已知的集群其他节点，没有任何节点连接到master。</li>
-<li>包括本节点在内，当前已有超过minimum_master_nodes个节点没有连接到master。</li>
+<li>ps a 显示现行终端机下的所有程序，包括其他用户的程序。<br>2）ps -A 显示所有程序。<br>3）ps c 列出程序时，显示每个程序真正的指令名称，而不包含路径，参数或常驻服务的标示。<br>4）ps -e 此参数的效果和指定”A”参数相同。<br>5）ps e 列出程序时，显示每个程序所使用的环境变量。<br>6）ps f 用ASCII字符显示树状结构，表达程序间的相互关系。<br>7）ps -H 显示树状结构，表示程序间的相互关系。<br>8）ps -N 显示所有的程序，除了执行ps指令终端机下的程序之外。<br>9）ps s 采用程序信号的格式显示程序状况。<br>10）ps S 列出程序时，包括已中断的子程序资料。<br>11）ps -t 指定终端机编号，并列出属于该终端机的程序的状况。<br>12）ps u 以用户为主的格式来显示程序状况。<br>13）ps x 显示所有程序，不以终端机来区分。</li>
 </ol>
-<p>总结一句话，即当一个节点发现包括自己在内的多数派的master-eligible节点认为集群没有master时，就可以发起master选举。</p>
-<h4 id="当需要选举master时，选举谁？"><a href="#当需要选举master时，选举谁？" class="headerlink" title="当需要选举master时，选举谁？"></a>当需要选举master时，选举谁？</h4><p>根据源码来进行分析</p>
-<p>首先是选举谁的问题，如下面源码所示，选举的是排序后的第一个MasterCandidate（即master-eligible node）。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> MasterCandidate <span class="title function_">electMaster</span><span class="params">(Collection&lt;MasterCandidate&gt; candidates)</span> &#123;</span><br><span class="line">        <span class="keyword">assert</span> <span class="title function_">hasEnoughCandidates</span><span class="params">(candidates)</span>;</span><br><span class="line">        List&lt;MasterCandidate&gt; sortedCandidates = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;(candidates);</span><br><span class="line">        sortedCandidates.sort(MasterCandidate::compare);</span><br><span class="line">        <span class="keyword">return</span> sortedCandidates.get(<span class="number">0</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>查看<strong>内存使用</strong>情况：free命令</p>
+<p><img src="https://images2018.cnblogs.com/blog/1278921/201808/1278921-20180824145229244-282350435.png" alt="img"></p>
+<p>如果加上 -h 选项，输出的结果会友好很多：</p>
+<p><img src="https://images2018.cnblogs.com/blog/1278921/201808/1278921-20180824145308881-1188604794.png" alt="img"></p>
+<p>有时我们需要持续的观察内存的状况，此时可以使用 -s 选项并指定间隔的秒数：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ free -h -s 3</span><br></pre></td></tr></table></figure>
 
-<p>那么是按照什么排序的？</p>
-<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="built_in">int</span> <span class="title">compare</span>(<span class="params">MasterCandidate c1, MasterCandidate c2</span>)</span> &#123;</span><br><span class="line">   <span class="comment">// we explicitly swap c1 and c2 here. the code expects &quot;better&quot; is lower in a sorted</span></span><br><span class="line">   <span class="comment">// list, so if c2 has a higher cluster state version, it needs to come first.</span></span><br><span class="line">    <span class="built_in">int</span> ret = Long.compare(c2.clusterStateVersion, c1.clusterStateVersion);</span><br><span class="line">    <span class="keyword">if</span> (ret == <span class="number">0</span>) &#123;</span><br><span class="line">        ret = compareNodes(c1.getNode(), c2.getNode());</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ret;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="https://images2018.cnblogs.com/blog/1278921/201808/1278921-20180824145404760-1689296590.png" alt="img"></p>
+<p>上面的命令每隔 3 秒输出一次内存的使用情况，直到你按下 ctrl + c。</p>
+</li>
+<li><p>tar 解压文件的参数</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"># 五个命令中必选一个</span><br><span class="line">   	-c：建立压缩</span><br><span class="line">   	-x：解压</span><br><span class="line">   	-t：查看内容</span><br><span class="line">   	-r：向压缩归档文件末尾追加文件</span><br><span class="line">   	-u：更新原压缩包中的文件</span><br><span class="line"># 这几个参数是可选的</span><br><span class="line">   	-z：有 gzip 属性的</span><br><span class="line">   	-j：有 bz2 属性的</span><br><span class="line">   	-Z：有 compress 属性的</span><br><span class="line">   	-v：显示所有过程</span><br><span class="line">   	-o：将文件解开到标准输出</span><br><span class="line"># -f参数是必须的</span><br><span class="line">	</span><br></pre></td></tr></table></figure>
 
-<p>如上面源码所示，先根据节点的<strong>clusterStateVersion</strong>比较，<strong>clusterStateVersion</strong>越大，优先级越高。clusterStateVersion相同时，进入compareNodes，其内部按照节点的Id比较(Id为节点第一次启动时随机生成)。</p>
-<p>总结一下：</p>
-<ol>
-<li><p>当clusterStateVersion越大，优先级越高。这是为了保证新Master拥有最新的<strong>clusterState</strong>(即集群的meta)，避免已经commit的meta变更丢失。因为Master当选后，就会以这个版本的clusterState为基础进行更新。(一个例外是集群全部重启，所有节点都没有meta，需要先选出一个master，然后master再通过持久化的数据进行meta恢复，再进行meta同步)。</p>
-<p>clusterstateversion是集群状态数字版本号，每次更新version+1。</p>
+<p>压缩：tar –cvf jpg.tar *.jpg  &#x2F;&#x2F;将目录里所有jpg文件打包成tar.jpg</p>
+<p>​			tar –czf jpg.tar.gz *.jpg &#x2F;&#x2F;将目录里所有jpg文件打包成jpg.tar后，并且将其用gzip压缩，生成一个gzip压缩过的包，命名为jpg.tar.gz</p>
+<p>解压：tar –xvf file.tar &#x2F;&#x2F;解压 tar包</p>
+<p>​			tar -xzvf file.tar.gz &#x2F;&#x2F;解压tar.gz</p>
 </li>
-<li><p>当clusterStateVersion相同时，<strong>节点的Id越小，优先级越高。即总是倾向于选择Id小的Node</strong>，这个Id是节点第一次启动时生成的一个随机字符串。之所以这么设计，应该是为了让选举结果尽可能稳定，不要出现都想当master而选不出来的情况。</p>
-</li>
-</ol>
-<h4 id="什么时候选举成功？"><a href="#什么时候选举成功？" class="headerlink" title="什么时候选举成功？"></a>什么时候选举成功？</h4><p>当一个master-eligible node(我们假设为Node_A)发起一次选举时，它会按照上述排序策略选出一个它认为的master。</p>
-<ul>
-<li>假设Node_A选Node_B当Master：</li>
-</ul>
-<p>Node_A会向Node_B发送join请求，那么此时：</p>
-<p>(1) 如果Node_B已经成为Master，Node_B就会把Node_A加入到集群中，然后发布最新的cluster_state, 最新的cluster_state就会包含Node_A的信息。相当于一次正常情况的新节点加入。对于Node_A，等新的cluster_state发布到Node_A的时候，Node_A也就完成join了。</p>
-<p>(2) 如果Node_B在竞选Master，那么Node_B会把这次join当作一张选票。对于这种情况，Node_A会等待一段时间，看Node_B是否能成为真正的Master，直到超时或者有别的Master选成功。</p>
-<p>(3) 如果Node_B认为自己不是Master(现在不是，将来也选不上)，那么Node_B会拒绝这次join。对于这种情况，Node_A会开启下一轮选举。</p>
-<ul>
-<li>假设Node_A选自己当Master：</li>
-</ul>
-<p>此时NodeA会等别的node来join，即等待别的node的选票，当收集到超过半数的选票时，认为自己成为master，然后变更cluster_state中的master node为自己，并向集群发布这一消息。</p>
-<p>按照上述流程，我们描述一个简单的场景来帮助大家理解：</p>
-<p>假如集群中有3个master-eligible node，分别为Node_A、Node_B、Node_C，选举优先级也分别为Node_A、Node_B、Node_C。三个node都认为当前没有master，于是都各自发起选举，选举结果都为Node_A(因为选举时按照优先级排序，如上文所述)。于是Node_A开始等join(选票)，Node_B、Node_C都向Node_A发送join，当Node_A接收到一次join时，加上它自己的一票，就获得了两票了(超过半数)，于是Node_A成为Master。此时cluster_state(集群状态)中包含两个节点，当Node_A再收到另一个节点的join时，cluster_state包含全部三个节点。</p>
-<ul>
-<li>Elasticsearch的选主是ZenDiscovery模块负责的，主要包含Ping（节点之间通过这个RPC来发现彼此）和Unicast（单播模块包含-一个主机列表以控制哪些节点需要ping通）这两部分。</li>
-<li>对所有可以成为master的节点（node master: true）根据nodeId字典排序，每次选举每个节点都把自己所知道节点排一次序，然后选出第一个（第0位）节点，暂且认为它是master节点。</li>
-<li>如果对某个节点的投票数达到一定的值（可以成为master节点数n&#x2F;2+1）并且该节点自己也选举自己，那这个节点就是master。否则重新选举一直到满足上述条件。</li>
-<li>master节点的职责主要包括集群、节点和索引的管理，不负责文档级别的管理；data节点可以关闭http功能。</li>
-</ul>
-<h2 id="Elasticsearch-集群脑裂问题？"><a href="#Elasticsearch-集群脑裂问题？" class="headerlink" title="Elasticsearch 集群脑裂问题？"></a>Elasticsearch 集群脑裂问题？</h2><p>脑裂问题，就是同一个集群中的不同节点，对于集群的状态，有了不一样的理解。</p>
-<p>由于并发访问量的提高，导致了我们两个节点的集群（分片数默认为5，副本为1，没有固定的master，都是集群中的节点，又做data又做master）状态变成了red，出现了大量的坏片，并且坏掉的都是主分片及其副本。分析发现，是ES集群出现了脑裂问题（俗称精神分裂），即集群中不同的节点对于master的选择出现了分歧，出现了多个master竞争，导致主分片和副本的识别也发生了分歧，对一些分歧中的分片标识为了坏片。</p>
-<ul>
-<li>“脑裂”问题可能的成因：</li>
-</ul>
-<p>网络问题：集群间的网络延迟导致一些节点访问不到master，认为master挂掉了从而选举出新的master，<strong>并对master上的分片和副本标红，分配新的主分片。</strong><br>节点负载：主节点的角色既为master又为data，访问量较大时可能会导致ES停止响应造成大面积延迟，此时其他节点得不到主节点的响应认为主节点挂掉了，会重新选取主节点。<br>内存回收：data 节点上的ES进程占用的内存较大，引发JVM的大规模内存回收，造成ES进程失去响应。</p>
-<ul>
-<li>脑裂问题解决方案：</li>
-</ul>
-<p>减少误判：discovery.zen ping_timeout 节点状态的响应时间，默认为3s，可以适当调大，如果master在该响应时间的范围内没有做出响应应答，判断该节点已经挂掉了。调大参数（如6s，discovery.zen.ping_timeout:6），可适当减少误判。</p>
-<p>选举触发：discovery.zen.minimum.master_nodes：1，该参数是用于控制选举行为发生的最小集群主节点数量。当备选主节点的个數大于等于该参数的值，且备选主节点中有该参数个节点认为主节点挂了，进行选举。官方建议为(n &#x2F; 2) +1，n为主节点个数（即有资格成为主节点的节点个数）。</p>
-<p>角色分离：即master节点与data节点分离，限制角色</p>
-<p>主节点配置为：node master: true，node data: false<br>从节点配置为：node master: false，node data: true</p>
-<h2 id="ES-调优"><a href="#ES-调优" class="headerlink" title="ES 调优"></a>ES 调优</h2><h3 id="设计阶段调优"><a href="#设计阶段调优" class="headerlink" title="设计阶段调优"></a>设计阶段调优</h3><p>（1）根据业务增量需求，采取基于日期模板创建索引，通过 roll over API 滚动索引；（<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_33941350/article/details/88012291">(31条消息) 高效管理 Elasticsearch 中基于时间的索引_weixin_33941350的博客-CSDN博客</a>）</p>
-<p>基于模板+时间+rollover api 滚动创建索引，举例：设计阶段定义：blog 索引的模板格式为：blog_index_时间戳的形式，每天递增数据。这样做的好处：不至于数据量激增导致单个索引数据量非常大，接近于上线 2 的32 次幂-1，索引存储达到了 TB+甚至更大。一旦单个索引很大，存储等各种风险也随之而来，所以要提前考虑+及早避免。</p>
-<p>（2）使用别名进行索引管理；</p>
-<p>（3）每天凌晨定时对索引做 force_merge 操作，以释放空间；</p>
-<p>（4）采取冷热分离机制，热数据存储到 SSD，提高检索效率；冷数据定期进行 shrink操作，以缩减存储；</p>
-<p>​	冷热数据分离存储，热数据（比如最近 3 天或者一周的数据），其余为冷数据。对于冷数据不会再写入新数据，可以考虑定期 force_merge 加 shrink 压缩操作，节省存储空间和检索效率。</p>
-<p>（5）采取 curator 进行索引的生命周期管理；</p>
-<p>（6）仅针对需要分词的字段，合理的设置分词器；</p>
-<p>（7）Mapping 阶段充分结合各个字段的属性，是否需要检索、是否需要存储等。……..  </p>
-<p>知识点—<strong>冷热分离</strong>（冷热数据是按照时间推移来区分的）</p>
-<p>冷数据（考虑低成本存储）：</p>
-<ol>
-<li>不允许更新，偶尔被查询</li>
-<li>对访问的响应时间要求不高，通常在1~10秒内都可以接受</li>
-</ol>
-<p>热数据（考虑读写性能）：</p>
-<ol>
-<li><p>被频繁查询或更新</p>
-</li>
-<li><p>对访问的响应时间要求很高，通常在10毫秒以内</p>
-</li>
-</ol>
-<p>因为通常情况下，为了支持热数据的操作特性，需要有较好的硬件配置，比如高性能CPU、大内存、SSD硬盘等等。随着时间的推移，系统里会积累越来越多的历史数据，如果依然采用高配置机器来存放这些使用频率非常低的数据，势必会带来非常高的成本。当然，如果数据量很小或者不计成本，那完全不需要考虑冷热区分，采用一个单体系统就可以应对所有事情了，比如MySQL。</p>
-<h3 id="写入调优"><a href="#写入调优" class="headerlink" title="写入调优"></a>写入调优</h3><p>（1）写入前副本数设置为 0；</p>
-<p>（2）写入前关闭 refresh_interval 设置为-1，禁用刷新机制；</p>
-<p>​		执行刷新操作的频率，这会使索引的最近更改对搜索可见，默认为1s，可以设置-1为禁用刷新，对于写入速率要求较高的场景，可以适当的加大对应的时长，减小磁盘io和segment的生成；</p>
-<p>（3）写入过程中：采取 bulk 批量写入；</p>
-<p>​		批量请求显然会大大提升写入速率，且这个速率是可以量化的，官方建议每次批量的数据物理字节数5-15MB是一个比较不错的起点，注意这里说的是物理字节数大小。文档计数对批量大小来说不是一个好指标。比如说，如果你每次批量索引 1000 个文档，记住下面的事实： 1000 个 1 KB 大小的文档加起来是 1 MB 大。 1000 个 100 KB 大小的文档加起来是 100 MB 大。 这可是完完全全不一样的批量大小了。批量请求需要在协调节点上加载进内存，所以批量请求的物理大小比文档计数重要得多。 从 5–15 MB 开始测试批量请求大小，缓慢增加这个数字，直到你看不到性能提升为止。然后开始增加你的批量写入的并发度（多线程等等办法）。 用iostat 、 top 和 ps 等工具监控你的节点，观察资源什么时候达到瓶颈。如果你开始收到 EsRejectedExecutionException ，你的集群没办法再继续了：至少有一种资源到瓶颈了。或者减少并发数，或者提供更多的受限资源（比如从机械磁盘换成 SSD），或者添加更多节点。</p>
-<p>（4）写入后恢复副本数和刷新间隔；</p>
-<p>（5）尽量使用自动生成的 id。</p>
-<p>​		当写入端使用特定的id将数据写入es时，es会去检查对应的index下是否存在相同的id，这个操作会随着文档数量的增加而消耗越来越大，所以如果业务上没有强需求，建议使用es自动生成的id，加快写入速率</p>
-<h3 id="查询调优"><a href="#查询调优" class="headerlink" title="查询调优"></a>查询调优</h3><p>（1）禁用 wildcard；</p>
-<p>（2）禁用批量 terms（成百上千的场景）；</p>
-<p>（3）充分利用倒排索引机制，能 keyword 类型尽量 keyword；</p>
-<p>（4）数据量大时候，可以先基于时间敲定索引再检索；</p>
-<p>（5）设置合理的路由机制</p>
-<h3 id="其他调优"><a href="#其他调优" class="headerlink" title="其他调优"></a>其他调优</h3><p>部署调优，业务调优等。</p>
-<h2 id="对于-GC-方面，在使用-Elasticsearch-时要注意什么？"><a href="#对于-GC-方面，在使用-Elasticsearch-时要注意什么？" class="headerlink" title="对于 GC 方面，在使用 Elasticsearch 时要注意什么？"></a><strong>对于 GC 方面，在使用 Elasticsearch 时要注意什么？</strong></h2><p>（1）倒排词典的索引需要常驻内存，无法 GC，需要监控 data node 上 segmentmemory 增长趋势。</p>
-<p>（2）各类缓存，field cache, filter cache, indexing cache, bulk queue 等等，要设置合理的大小，并且要应该根据最坏的情况来看 heap 是否够用，也就是各类缓存全部占满的时候，还有 heap 空间可以分配给其他任务吗？避免采用 clear cache等“自欺欺人”的方式来释放内存。</p>
-<p>（3）避免返回大量结果集的搜索与聚合。确实需要大量拉取数据的场景，可以采用scan &amp; scroll api 来实现。</p>
-<p>（4）cluster stats 驻留内存并无法水平扩展，超大规模集群可以考虑分拆成多个集群通过 tribe node 连接。</p>
-<p>（5）想知道 heap 够不够，必须结合实际应用场景，并对集群的 heap 使用情况做持续的监控。</p>
-<p>（6）根据监控数据理解内存需求，合理配置各类circuit breaker，将内存溢出风险降低到最低</p>
-<h2 id="在并发情况下，Elasticsearch-如果保证读写一致？"><a href="#在并发情况下，Elasticsearch-如果保证读写一致？" class="headerlink" title="在并发情况下，Elasticsearch 如果保证读写一致？"></a><strong>在并发情况下，Elasticsearch 如果保证读写一致？</strong></h2><p>（1）可以通过版本号使用乐观并发控制，以确保新版本不会被旧版本覆盖，由应用层来处理具体的冲突；</p>
-<p>（2）另外对于写操作，一致性级别支持 quorum&#x2F;one&#x2F;all，默认为 quorum，即只有当大多数分片可用时才允许写操作。但即使大多数可用，也可能存在因为网络等原因导致写入副本失败，这样该副本被认为故障，分片将会在一个不同的节点上重建。</p>
-<p>（3）对于读操作，可以设置 replication 为 sync(默认)，这使得操作在主分片和副本分片都完成后才会返回；如果设置 replication 为 async 时，也可以通过设置搜索请求参数_preference 为 primary 来查询主分片，确保文档是最新版本。</p>
+<li><p>如何修改文件权限</p>
+<p>① 文件权限描述</p>
+<p>​	 Linux中的基本权限有9个，分别是owner&#x2F;group&#x2F;others三种身份各有自己的read&#x2F;write&#x2F;execute权限</p>
+<p>② 修改权限指令： chomd</p>
+<img src="https://www.runoob.com/wp-content/uploads/2014/08/file-permissions-rwx.jpg" width = 70%>
 
+<p>③ chmod语法：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">chmod [-R] xyz 文件或目录</span><br><span class="line">选项与参数：</span><br><span class="line">	xyz： 就是数字模型的权限属性，为 rwx 属性数值的相加。</span><br><span class="line">	-R：进行递归（recursive）的持续变更，亦即连同次目录下的所有文件都会变更</span><br><span class="line">例：</span><br><span class="line">	chmod 770 dy.c	# 即修改 dy.c 文件的权限为 770</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>如何以root权限运行某个程序</p>
+<p>su：(switch user 切换用户)</p>
+<p>sudo：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo chown root app(文件名)</span><br><span class="line">sudo chmod u+s app(文件名)</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h2 id="进程与线程"><a href="#进程与线程" class="headerlink" title="进程与线程"></a>进程与线程</h2><h3 id="进程的状态"><a href="#进程的状态" class="headerlink" title="进程的状态"></a>进程的状态</h3><p><img src="https://img1.imgtp.com/2022/08/03/3mosIgSw.png" alt="1659531458064.png"></p>
+<p>​	<strong>上图interrupt的箭头方向反了。</strong></p>
+<ol>
+<li><p>创建状态（new）</p>
+<p>进程正在被创建，还未到就绪状态</p>
+</li>
+<li><p>就绪状态 （ready）</p>
+<p>进程已经处于准备运行状态，即进程已经获得了除了处理器之外的一切所需资源，一旦得到处理器资源即可运行。</p>
+</li>
+<li><p>运行状态（running）</p>
+<p>进程正在处理器上运行</p>
+</li>
+<li><p>阻塞状态（waiting）</p>
+<p>进程正在等待某一事件而暂停运行如等待某资源为可用或者等待IO操作完成。即使处理器空闲，这个进程也不能运行。</p>
+</li>
+<li><p>结束状态（terminated）</p>
+<p>进程正在从系统中消失。可能是进程正常结束或其他原因中断退出运行。</p>
+</li>
+</ol>
+<h3 id="进程间的通信方式（7种）"><a href="#进程间的通信方式（7种）" class="headerlink" title="进程间的通信方式（7种）"></a>进程间的通信方式（7种）</h3><p>每个进程有不同的用户地址空间，任何一个进程的全局变量其他进程都看不到，进程之间的数据交换必须依赖内核，进程1将数据拷贝到内核缓冲区，然后进程2从内核缓冲区将数据读走，内核提供的这种机制叫做<strong>进程间通信</strong>（IPC）。</p>
+<h4 id="管道-x2F-匿名管道（pipe）"><a href="#管道-x2F-匿名管道（pipe）" class="headerlink" title="管道&#x2F;匿名管道（pipe）"></a>管道&#x2F;匿名管道（pipe）</h4><ul>
+<li><p>管道是<strong>半双工</strong>的，数据只能向一个方向流动；需要双方通信时，需要建立起两个管道。</p>
+</li>
+<li><p>只能用于<strong>父子进程或者兄弟进程之间</strong>(具有亲缘关系的进程);</p>
+</li>
+<li><p>单独构成一种独立的文件系统：管道对于管道两端的进程而言，就是一个文件，但它不是普通的文件，它不属于某种文件系统，而是自立门户，单独构成一种文件系统，并且只存在与内存中。</p>
+</li>
+<li><p>数据的读出和写入：一个进程向管道中写的内容被管道另一端的进程读出。写入的内容每次都添加在管道缓冲区的末尾，并且每次都是从缓冲区的头部读出数据。</p>
+<p><strong>总结：匿名，只能在有亲缘关系的进程之间通信，半双工，存在于内存，当在一端写数据时必须确定另一端有进程</strong></p>
+</li>
+</ul>
+<h4 id="有名管道（FIFO）"><a href="#有名管道（FIFO）" class="headerlink" title="有名管道（FIFO）"></a>有名管道（FIFO）</h4><p>​		提供了一个<strong>路径名与之关联</strong>，以有名管道的文件形式存在于文件系统中，那么即使与有名管道不存在亲缘关系的进程，只要可以访问该路径，就能够彼此通过有名管道相互通信。</p>
+<p><strong>总结：有名管道以文件的形式存储在磁盘上，进程可以通过访问路径名来与创建线程进行通信，但是由于管道是一种特殊的文件，因此使用前需要用open()打开，如果以读写方式（O_RDWR）打开则一定不会阻塞；以只读（O_RDONLY）方式打开时，调用open()的函数会被阻塞直到其他某个进程为写而打开它为止；如果以只写方式（O_WRONLY）打开时同样也会被阻塞，直到有以读方式打开该管道</strong></p>
+<h4 id="信号"><a href="#信号" class="headerlink" title="信号"></a>信号</h4><p>信号的生命周期：</p>
+<p>① 信号被某个进程产生，并设置此信号传递的对象（一般为对应进程的PID），并传递给操作系统</p>
+<p>② 操作系统判断PID所对应的进程是否被阻塞，若阻塞，就先保留该信号，一旦不阻塞，传递给对应进程</p>
+<p>③ 对应进程接收到信号后，保存上下文，暂停当前代码的执行，执行对应的中断服务程序</p>
+<h4 id="消息队列"><a href="#消息队列" class="headerlink" title="消息队列"></a>消息队列</h4><p>存在于内核中的消息链表，在读写数据时，不需要另外某个进程在队列上等待消息的到达。</p>
+<h4 id="共享内存"><a href="#共享内存" class="headerlink" title="共享内存"></a>共享内存</h4><p>​		多个进程通过读写同一内存进行通信。每个进程都有属于自己的<strong>进程控制块</strong>和<strong>地址空间</strong>，并且都有一个与之对应的<strong>页表</strong>，负责将进程的<strong>虚拟地址</strong>与<strong>物理地址</strong>进行映射，通过<strong>内存管理单元（MMU）</strong>进行管理。两个不同的虚拟地址通过页表映射到物理空间的<strong>同一区域</strong>，它们所指向的这块区域即共享内存。</p>
+<p>当两个进程通过页表将虚拟地址映射到物理地址时，在物理地址中有一块共同的内存区，即共享内存，这块内存可以被两个进程同时看到。这样当一个进程进行写操作，另一个进程读操作就可以实现进程间通信。但是，我们要确保一个进程在写的时候不能被读，因此我们使用<strong>信号量来实现同步与互斥</strong>。</p>
+<h4 id="信号量"><a href="#信号量" class="headerlink" title="信号量"></a>信号量</h4><p>​		信号量是用来解决进程之间的<strong>同步与互斥</strong>问题的一种进程之间的通信机制，包括一个称为<strong>信号量的变量</strong>和该信号量下<strong>等待资源的进程等待队列</strong>，以及对信号量进行的两个原子操作。信号量对应于某一种资源，取一个非负的整形值。信号量的值是<strong>指当前可用的资源数量</strong>。</p>
+<p>由于信号量只有两种操作，一种是等待信号，另一种是发送信号。即P和V，它们的行为如下：</p>
+<ul>
+<li>P(sv)：如果sv的值大于零，就给它减1；如果它的值为零，就挂起该进程的执行。</li>
+<li>V(sv)：如果有其他进程因等待sv而被挂起，就让它恢复运行，如果没有进程因等待sv而挂起，就给它加1。</li>
+</ul>
+<h4 id="套接字"><a href="#套接字" class="headerlink" title="套接字"></a>套接字</h4><p>​		套接字是<strong>支持TCP&#x2F;IP的网络通信</strong>的基本操作单元，可以看做是不同主机之间的进程进行双向通信的端点，简单的说就是通信的两方的一种约定，用套接字中的相关函数来完成通信过程。</p>
+<h3 id="线程间的同步方式"><a href="#线程间的同步方式" class="headerlink" title="线程间的同步方式"></a>线程间的同步方式</h3><p>​	线程同步是两个或者多个<strong>共享关键资源的线程</strong>的并发执行。（共享是一个动词）</p>
+<h4 id="互斥量"><a href="#互斥量" class="headerlink" title="互斥量"></a>互斥量</h4><p>采用互斥对象机制，只有拥有互斥对象的线程可以拥有访问公共资源的权限。因为互斥对象一般只有一个，就能保证公共资源不会被多个线程同时访问，例如Java的synchronized和各种Lock都是采用这种机制。</p>
+<h4 id="信号量-1"><a href="#信号量-1" class="headerlink" title="信号量"></a>信号量</h4><p>允许同一时刻多个线程访问统一资源，但是会控制统一时刻访问资源的最大线程数量，由信号量变量（sv）确定。</p>
+<h4 id="事件"><a href="#事件" class="headerlink" title="事件"></a>事件</h4><p><strong>wait&#x2F;notify 通过通知操作的方式来保证多线程同步。</strong>事件一般用来控制线程的先后顺序。</p>
+<p>事件被分为：手动置位和自动置位。手动置位是同时向所有该事件的等待线程发信号通知，某一操作已经做完了，使他们都处于有信号的状态，都成为可调度线程；<strong>自动置位</strong>是向某一线程<strong>发信号，使它为有信号状态，成为可调度线程</strong>。</p>
+<h3 id="进程调度"><a href="#进程调度" class="headerlink" title="进程调度"></a>进程调度</h3><p>进程调度是指<strong>操作系统</strong>按照某种策略或规则<strong>选择进程占用CPU进行运行</strong>的过程。</p>
+<h4 id="调度的时机（什么时候会发生进程调度？）"><a href="#调度的时机（什么时候会发生进程调度？）" class="headerlink" title="调度的时机（什么时候会发生进程调度？）"></a>调度的时机（什么时候会发生进程调度？）</h4><ol>
+<li>正在执行的进程执行完毕</li>
+<li>执行中的进程因提出IO请求或者发出等事件而暂停执行</li>
+<li>时间片完成</li>
+<li>高优先者进入</li>
+</ol>
+<h4 id="调度的方式"><a href="#调度的方式" class="headerlink" title="调度的方式"></a>调度的方式</h4><ol>
+<li><p>先来先服务（FCFS）调度算法</p>
+<p>从就绪队列中选择最先进入队列的进程为之分配资源</p>
+</li>
+<li><p>短作业优先的调度算法</p>
+<p>从就绪队列中选择一个估计运行时间最短的进程为之分配资源</p>
+</li>
+<li><p>时间片轮转调度算法</p>
+</li>
+<li><p>多级反馈队列调度算法</p>
+</li>
+<li><p>优先级调度算法</p>
+<p>① 高优先权优先调度算法</p>
+<p>② 高响应比优先调度算法 优先级&#x3D;（服务时间+等待时间）&#x2F;服务时间&#x3D;1+等待时间&#x2F;服务时间</p>
+<p>等待时间一定时，服务时间越短，优先级越高，有利于短作业</p>
+<p>服务时间一定时，等待时间越长，优先级越高，有利于先到先服务</p>
+<p>对于长作业，作业的优先级会随着等待时间的增加而增加，因此该算法既照顾了短作业，又考虑了作业到达的先后顺序，不会使长作业长时间得不到响应。</p>
+</li>
+</ol>
+<h3 id="死锁"><a href="#死锁" class="headerlink" title="死锁"></a>死锁</h3><p>​	多个进程&#x2F;线程同时被阻塞，他们其中的一个或者全部都在等待某个资源被释放。由于进程&#x2F;线程被无限期的阻塞，因此程序不可能正常终止。</p>
+<h4 id="死锁产生的必要条件"><a href="#死锁产生的必要条件" class="headerlink" title="死锁产生的必要条件"></a>死锁产生的必要条件</h4><ol>
+<li>互斥：资源必须在一个时间只能有一个进程可以使用。</li>
+<li>占有并等待：一个进程至少占有一个资源并等待另一资源，而该资源被其他进程所占有</li>
+<li>非抢占：资源不能被抢占，只有等持有该资源的进程执行完任务后，资源才可以被释放</li>
+<li>循环等待：一组等待进程，循环占有资源并等待其他线程释放资源</li>
+</ol>
+<h4 id="解决死锁的方法"><a href="#解决死锁的方法" class="headerlink" title="解决死锁的方法"></a>解决死锁的方法</h4><h5 id="预防：限制并发进程对资源的请求"><a href="#预防：限制并发进程对资源的请求" class="headerlink" title="预防：限制并发进程对资源的请求"></a>预防：限制并发进程对资源的请求</h5><p>一般通过破坏2和4来预防死锁。</p>
+<ol>
+<li><p><strong>静态分配策略</strong>破坏第二个条件（占有并等待）。<strong>在执行前获取到该进程所需要的所有资源</strong>。</p>
+</li>
+<li><p><strong>层次分配策略</strong>破坏第四个条件（循环等待）。一个进程得到某个资源后，只能再申请更高一级的资源；而在释放的时候也要先释放较高层的资源。</p>
+</li>
+</ol>
+<h5 id="避免：对资源的使用情况做出预测，避免死锁产生"><a href="#避免：对资源的使用情况做出预测，避免死锁产生" class="headerlink" title="避免：对资源的使用情况做出预测，避免死锁产生"></a>避免：对资源的使用情况做出预测，避免死锁产生</h5><p><strong>银行家算法</strong>：当一个进程申请使用资源的时候，银行家算法先试探分配给该进程资源，然后通过安全性算法判断分配后系统是否处于安全状态</p>
+<p>（预测分配后系统是否安全）</p>
+<h5 id="检测：检测死锁的发生，精确的确定与死锁有关的进程和资源"><a href="#检测：检测死锁的发生，精确的确定与死锁有关的进程和资源" class="headerlink" title="检测：检测死锁的发生，精确的确定与死锁有关的进程和资源"></a>检测：检测死锁的发生，精确的确定与死锁有关的进程和资源</h5><p>系统定时运行“死锁检测”程序，判断系统是否发生了死锁，如果发生了再去解除它。</p>
+<img src="https://i.bmp.ovh/imgs/2022/08/04/0720f0c56b478d24.png" width = 70%>
+
+<p>如果进程—资源图无环路，未发生死锁；有环路而且每个资源只有一份，发生死锁；有环路但有资源有多份，要具体分析。</p>
+<h5 id="解除：将进程从死锁状态下解脱出来"><a href="#解除：将进程从死锁状态下解脱出来" class="headerlink" title="解除：将进程从死锁状态下解脱出来"></a>解除：将进程从死锁状态下解脱出来</h5><ol>
+<li>立即结束所有的进程，重新启动操作系统</li>
+<li>撤销涉及死锁的进程，解除死锁后继续运行。但是这种方法也会付出很大的代价，可能其中的一些进程已经计算了很长时间。</li>
+<li>逐个撤销涉及死锁的进程，直到解除死锁</li>
+<li>抢占资源</li>
+</ol>
+<h2 id="内存管理"><a href="#内存管理" class="headerlink" title="内存管理"></a>内存管理</h2><p>内存管理(Memory Management)是操作系统设计中最重要和最复杂的内容之一。虽然计算机硬件一直在飞速发展，内存容量也在不断增长，但是仍然不可能将所有用户进程和系统所需要的全部程序和数据放入主存中，所以操作系统必须将内存空间进行合理地划分和有效地动态分配。操作系统对内存的划分和动态分配，就是内存管理的概念。</p>
+<h3 id="内存管理功能"><a href="#内存管理功能" class="headerlink" title="内存管理功能"></a>内存管理功能</h3><ol>
+<li><p>内存的分配与回收：malloc、free 创建进程后为他们分配内存空间，当结束后内存空间也会被回收</p>
+</li>
+<li><p>地址转换：将程序中的逻辑地址转换为内存中的物理地址</p>
+</li>
+<li><p>内存空间的扩充：利用虚拟存储技术或自动覆盖技术，从逻辑上扩充内存</p>
+<p><strong>覆盖技术</strong>：解决程序大小超过物理内存总和的问题，内存中分为一个“<strong>固定区</strong>”和若干个“<strong>覆盖区</strong>”，需要常驻内存的段放在“固定区”中，调入后就不再调出（除非运行结束）</p>
+<p>将程序分为多个段（多个模块）常用的段常驻内存，不常用的段<strong>在需要时</strong>调入内存。</p>
+<img src="https://img-blog.csdnimg.cn/20210710203636111.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1F1YW50dW1Zb3U=,size_16,color_FFFFFF,t_70" width = 70%>
+
+<p><strong>交换技术</strong>：</p>
+<p>设计思想：内存空间紧张时，系统将内存中某些进程暂时换出外存，把外存中某些已具备运行条件的进程换入内存（进程在内存与磁盘间动态调度）<br>中级调度（内存调度），就是要决定将哪个处于挂起状态的进程重新调入内存。<br>暂时换出外存等待的进程状态为挂起状态（挂起态， suspend）挂起态又可以进一步细分为就绪挂起、阻塞挂起两种状态</p>
+<img src="https://img-blog.csdnimg.cn/20210710204712455.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1F1YW50dW1Zb3U=,size_16,color_FFFFFF,t_70" width=70%>
+
+
+</li>
+<li><p>存储保护：保证各个作业在自己的内存中运行，互不干扰</p>
+<p>(内存保护)内存分配前，需要保护<strong>操作系统不受用户进程的影响</strong>，同时保护<strong>用户进程不受其他用户进程的影响</strong>。通过釆用<strong>重定位寄存器</strong>和<strong>界地址寄存器</strong>来实现这种保护。重定位寄存器含<strong>最小的物理地址值</strong>，界地址寄存器含<strong>逻辑地址</strong>值。每个逻辑地址值必须小于界地址寄存器；内存管理机构动态地将逻辑地址与界地址寄存器进行比较，如果未发生地址越界，则加上重定位寄存器的值后映射成物理地址，再送交内存单元。每一个逻辑地址都需要与这两个寄存器进行核对，以保证操作系统和其他用户程序及数据不被该进程的运行所影响。</p>
+</li>
+</ol>
+<h3 id="逻辑地址和物理地址"><a href="#逻辑地址和物理地址" class="headerlink" title="逻辑地址和物理地址"></a>逻辑地址和物理地址</h3><p><strong>逻辑地址</strong>：CPU所生成的地址。<a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=%E9%80%BB%E8%BE%91%E5%9C%B0%E5%9D%80&spm=1001.2101.3001.7020">逻辑地址</a>是内部和编程使用的、并不唯一。例如，你在进行C语言指针编程中，可以读取指针变量本身值(&amp;操作)，实际上这个值就是逻辑地址，它是<strong>相对于当前进程数据段的地址</strong>（偏移地址），不和绝对物理地址相干。</p>
+<p><strong>物理地址</strong>：加载到<strong>内存地址<a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=%E5%AF%84%E5%AD%98%E5%99%A8&spm=1001.2101.3001.7020">寄存器</a>中</strong>的地址，内存单元的真正地址。在前端总线上传输的内存地址都是物理内存地址，编号从0开始一直到可用物理内存的最高端。这些数字被北桥(Nortbridge chip)映射到实际的内存条上。物理地址是明确的、最终用在总线上的编号，不必转换，不必分页，也没有特权级检查(no translation, no paging, no privilege checks)。</p>
+<p>物理地址&#x3D;重定位寄存器中的地址+逻辑地址</p>
+<h3 id="内存管理机制"><a href="#内存管理机制" class="headerlink" title="内存管理机制"></a>内存管理机制</h3><h4 id="连续分配管理方式"><a href="#连续分配管理方式" class="headerlink" title="连续分配管理方式"></a>连续分配管理方式</h4><h5 id="单一连续分配"><a href="#单一连续分配" class="headerlink" title="单一连续分配"></a>单一连续分配</h5><p>内存分为<strong>系统区和用户区</strong>，系统区提供给操作系统使用，通常在低地址部分；用户区提供给用户使用，是内存中除系统区之外的内存空间。<strong>这种方式无需进行内存保护。</strong></p>
+<p>优点：简单、不会产生外部碎片；</p>
+<p>缺点：只能用于单用户、单任务的操作系统中，有内部碎片，存储器的效率极低。</p>
+<h5 id="固定分区分配"><a href="#固定分区分配" class="headerlink" title="固定分区分配"></a>固定分区分配</h5><p>将用户内存空间划分为若干个固定大小的区域，每个区域装入一道作业。当有空闲分区后，就可以从外存的后备作业队列中，选择适当大小的作业装入该分区，如此循环。</p>
+<p>该分配方式分为两种方法：</p>
+<ol>
+<li>分区大小相等</li>
+<li>分区大小不等</li>
+</ol>
+<p><img src="https://img2020.cnblogs.com/blog/727485/202107/727485-20210705142138066-445927118.png" alt="img"></p>
+<p>特点：可能程序太大放不进任何一个分区内，需要使用覆盖技术进行扩容。会产生内部碎片</p>
+<h5 id="动态分区分配"><a href="#动态分区分配" class="headerlink" title="动态分区分配"></a>动态分区分配</h5><p>这种分区方法不预先将内存划分，而是在<strong>进程装入内存</strong>时，根据进程的大小动态地建立分区，并使分区的大小正好适合进程的需要。因此系统中分区的大小和数目是可变的。<strong>动态分区在开始分配时是很好的，但是之后会导致内存中出现许多小的内存块，产生外部碎片。</strong></p>
+<p><img src="https://img2020.cnblogs.com/blog/727485/202107/727485-20210705142209604-405492653.png" alt="img"></p>
+<h4 id="非连续分配管理方式"><a href="#非连续分配管理方式" class="headerlink" title="非连续分配管理方式"></a>非连续分配管理方式</h4><h5 id="分页存储管理"><a href="#分页存储管理" class="headerlink" title="分页存储管理"></a>分页存储管理</h5><p>分页存储管理方式中，又根据<strong>运行作业时是否要把作业的所有页面都装入内存才能运行</strong>分为<strong>基本分页存储管理方式</strong>和<strong>请求分页存储管理方式</strong>。</p>
+<p>固定分区会产生内部碎片，动态分区会产生外部碎片，这两种技术对内存的利用率都比较低。我们希望内存的使用能尽量避免碎片的产生。</p>
+<p>这就引入了分页的思想：把<strong>主存空间</strong>划分为<strong>大小相等且固定的块，块相对较小，作为主存的基本单位</strong>。每个<strong>进程也以块为单位进行划分</strong>，进程在执行时，以块为单位逐个申请主存中的块空间。</p>
+<p>由于块很小，这样<strong>只会在为最后一个不完整的进程块分配内存时会产生内部碎片</strong>，这种碎片相对于进程来说是非常小的。</p>
+<p><strong>基本概念</strong></p>
+<p>内存中的块称为<strong>页框</strong>，进程中的块称为<strong>页</strong>。进程在执行时需要申请内存时，为每一页匹配一个页框。为方便地址转换，页面的大小应为2的整数幂。同时页面大小应适中，如果页面太小，每个进程的页面数量就会增加，那么页表就过长，占用大量内存，而且会增加逻辑地址到物理地址转换的开销。页面过大又会使页内碎片增大，降低内存使用率。</p>
+<p><strong>按字节编址</strong>，假设用来存放页的地址长度为32位（即进程有4G），其中0-11位为页内地址，因此每页大小为4kB；12-31为页号，地址空间最多允许有2^20页。</p>
+<h6 id="页表"><a href="#页表" class="headerlink" title="页表"></a>页表</h6><p>我们对数据页进行编址时，每页大小为4kB，而我们应该对每页都设置一个页表中的页表项与之对应，那么也就是一共有2^20个<strong>页表项</strong>。</p>
+<p>页表项：在页表中，一个<strong>页号</strong>以及与其对应的<strong>物理块号</strong>称之为一个页表项。（红框框起来的部分）</p>
+<p><img src="https://img-blog.csdn.net/20180512145036990" alt="img"></p>
+<p>页表项大小为4B，也就是32位，其中页号占20位，那么物理块号应该占12位，也就是页框号有2^12个。我们可以发现页框号的数目要小于页数，说明划分进程为页，每一页都有自己的代号，但调入内存时并不是把全部进程都调入。</p>
+<p>我们知道页表项大小为4B，数量为2^20个，那么页表占用的内存等于4B*2^20&#x3D;4MB，并且这4MB的内存必须连续。但是对于内存来说4M已经是一个不小的内存，没必要让所有的页表项都存储在内存中，因为进程在一段时间内只会访问某些特定的进程页。(后面引入二级页表的概念，在后面会提到)</p>
+<h6 id="地址变换机构"><a href="#地址变换机构" class="headerlink" title="地址变换机构"></a>地址变换机构</h6><p><img src="https://img2020.cnblogs.com/blog/727485/202107/727485-20210705142324609-1852302717.png" alt="img"></p>
+<p>系统中一般会设置一个页表寄存器，其中存放页表的起始地址F以及页表长度M(即该进程一共有多少页)。当进程未执行时，页表的起始位置和页表长度存放在进程控制块中，进程执行时，才将页表起始位置和长度存入页表寄存器。设页面大小为L，逻辑地址A到物理地址E的转换过程如下：</p>
+<ol>
+<li>计算页号P&#x3D;A&#x2F;L和页内偏移量W&#x3D;A%L；</li>
+<li>判断页号P和页表长度M的大小，如果P&gt;&#x3D;M，说明越界，就产生越界中断；否则继续执行；</li>
+<li>页表中页号P对应的页表项地址&#x3D;页表起始地址F+页号P*页表项长度，取出页表项中的物理块号b。</li>
+<li>计算E&#x3D;b*L+W，用得到的物理地址E去访问内存。</li>
+</ol>
+<h6 id="分页存储管理方式存在的两个问题"><a href="#分页存储管理方式存在的两个问题" class="headerlink" title="分页存储管理方式存在的两个问题"></a>分页存储管理方式存在的两个问题</h6><ol>
+<li><p>每个访问操作都涉及到逻辑地址到物理地址的转换，因此地址转换要足够快，否则访问速度会降低。</p>
+<p><strong>具有<u>快表</u>的地址变换机构</strong></p>
+<p>根据上面介绍的地址变换过程可知，若页表全部存在内存中，则存取一个数据或者一条指令至少要访问两次内存：一次时访问页表，确定所存取的数据或指令的<strong>物理地址</strong>，第二次才根据地址存取数据和指令。</p>
+<p>为此，在地址变换机构中增设了一个具有并行查找能力的高速缓冲存储器—<strong>快表（TLB）</strong>，用来存放<strong>当前访问的若干页表项</strong>，以加快地址变换的过程。而与此对应，内存中的页表一般称为慢表。</p>
+<p><img src="https://img2020.cnblogs.com/blog/727485/202107/727485-20210705142341111-31060538.png" alt="img"></p>
+<p>在具有快表的分页机制中，地址的变换过程为：</p>
+<ol>
+<li>CPU给出逻辑地址后，由硬件进行地址转换并将页号送入高速缓存寄存器，并将页号和快表中的所有页号做比较</li>
+<li>如果找到了匹配的页号，说明访问的页表项在快表中，就直接从快表中取出该页对应的页框号，与页内偏移量拼接形成物理地址，这样数据仅通过一次访存便可实现。</li>
+<li>如果没有找到，就需要访问主存中的页表，在读出页表项之后，同时将其存到快表中，以便后面有可能的再次访问。但若快表已满，则必须按照一定的算法对旧的页表项进行替换。</li>
+</ol>
+<p>一般快表的命中率可以达到90%以上，这样，分页带来的速度损失就降低到10%以下。<strong>快表主要利用了局部性原理</strong>。</p>
+</li>
+<li><p>每个进程引入了页表，用于存储映射机制，页表不能太大，否则内存利用率会降低。<strong>（时间换空间）</strong></p>
+<p>由于引入了分页管理，进程在执行的过程中不需要将所有页都调入内存页框中，而只要将保存有映射关系的页表调入内存即可。但我们仍然需要考虑页表的大小。</p>
+<p>举例：逻辑地址有32位，页面大小为4kB，页表项大小为</p>
+<p>，那么该进程的页表大小为4B*2^20，约100w个页表项，每个进程的页表大小为4M，这明显不符合实际条件。而即使不考虑对全部逻辑地址空间进行映射的情况，一个逻辑地址空间稍大的进程，其页表大小也可能是过大的。</p>
+<p>再假设一个40Mb的进程，页表项也就有40kb，如果将所有的页表项内容全部保存在内存中，那么需要10个内存页框来保存（一个页框保存4kB）。整个进程大约有1w个页面，而在实际执行中只需要几十个页面进入内存页框就可以运行，但如果把10个页面大小的页框全部装入内存，这相对实际执行时的几十个进程页面的大小来说，降低了内存利用率。从另一方面来说，这10页的页表项也并不需要同时保存在内存中，大多数情况下，映射所需要的页表项都在页表的同一页面中。</p>
+<p>将页表映射的思想进一步延伸，就可以得到二级分页：将页表的10页空间也进行地址映射，建立上一级页表，用于存储页表的映射关系。这里对页表的10个页面进行映射只需要10个页表项，所以上一级页表只需要1页就足够，可以存储2^10&#x3D;1024个页表项。在进程执行时，只需要将这个上一级页表调入内存即可，进程的页表和进程本身的页面，可以在后面的执行中再调入内存。</p>
+<p>在32位系统中，全部32位逻辑地址空间，按字节编码，每页2^12字节，也就是4kB，共有2^20个页面，这些页面也就是会有2^20个页表项，每个页表项是32bit，也就是4B。我们知道一个页面可以放置4kB的数据，也就是1个页面可以存放2^10个页表项，那么<strong>一共需要2^10个页面去存放这些页表项</strong>，我们就可以为这2^10个页面构建上级页表，也就恰好是一个页面就可以存放。</p>
+<p><img src="https://img2020.cnblogs.com/blog/727485/202107/727485-20210705142354535-1103997675.png" alt="img"></p>
+</li>
+</ol>
+<p>举例：32位系统中进程分页的工作过程：假定内核已经给一个正在运行的进程分配的逻辑地址空间是0x20000000到0x2003FFFF，这个空间由64个页面（0x00-0x3F）组成。在进程运行时，我们不需要知道全部这些页的页框的物理地址，很可能其中很多页还不在主存中。这里我们只注意在进程运行到某一页时，硬件是如何计算得到这一页的页框的物理地址即可。现在进程需要读逻辑地址0x20021406中的字节内容，这个逻辑地址按如下进行处理：<br>逻辑地址： 0x20021406 (0010 0000 0000 0010 0001 0100 0000 0110 B)<br>顶级页表字段：0x80 (00 1000 0000 B)<br>二级页表字段：0x21 (00 0010 0001B)<br>页内偏移量字段：0x406  (0100 0000 0110 B)</p>
+<h5 id="分段存储管理"><a href="#分段存储管理" class="headerlink" title="分段存储管理"></a>分段存储管理</h5><p>段式管理方式<strong>按照用户进程中的自然段划分逻辑空间</strong>。例如，用户进程由<strong>主程序、两个子程序、栈和一段数据</strong>组成，于是可以把这个用户进程划分为5个段，每段从0开始编址，并分配一段连续的地址空间（<strong>段内要求连续，段间不要求连续，因此整个作业的地址空间是二维的</strong>）。其逻辑地址由段号S与段内偏移量W两部分组成。</p>
+<p>如图，段号为16位，段内偏移量为16位，则一个作业最多可有2^16&#x3D;65536个段，最大段长为64KB。</p>
+<p><img src="https://img2020.cnblogs.com/blog/727485/202107/727485-20210705142426066-2057623426.png" alt="img"></p>
+<p><img src="https://img-blog.csdn.net/20150923210221157" alt="img"></p>
+<p>在页式系统中，逻辑地址的页号和页内偏移量对用户是透明的，但在段式系统中，段号和段内偏移量必须由用户显示提供，在高级程序设计语言中，这个工作由编译程序完成。</p>
+<h6 id="段表"><a href="#段表" class="headerlink" title="段表"></a>段表</h6><p>每个进程都有一张逻辑空间与内存空间映射的段表，其中每一个段表项对应进程的一个段，段表项记录该段在内存中的起始地址和段的长度。段表的内容如图所示。<br><img src="https://img2020.cnblogs.com/blog/727485/202107/727485-20210705142440467-101211835.png" alt="img"></p>
+<p>在配置了段表后，执行中的进程可以通过查找段表，找到每个段所对应的内存区。</p>
+<img src="https://s1.328888.xyz/2022/08/08/01BZi.png">
+
+<h5 id="段页式存储管理"><a href="#段页式存储管理" class="headerlink" title="段页式存储管理"></a>段页式存储管理</h5><p>页式存储管理能有效地提高<strong>内存利用率</strong>，而分段存储管理能<strong>反映程序的逻辑结构</strong>并有利于段的共享。如果将这两种存储管理方法结合起来，就形成了段页式存储管理方式。</p>
+<p>在段页式系统中，作业的地址空间首先被分成若干个逻辑段，每段都有自己的段号，然后再将每一段分成若干个大小固定的页。对内存空间的管理仍然和分页存储管理一样，将其分成若干个和页面大小相同的存储块，对内存的分配以存储块为单位。</p>
+<p><img src="https://img2020.cnblogs.com/blog/727485/202107/727485-20210705142526370-28542583.png" alt="img"></p>
+<p>​		为了实现地址变换，系统为每个进程建立一张段表，而每个分段有一张页表。段表表项中至少包括段号、页表长度和页表起始地址，页表表项中至少包括页号和块号。</p>
+<p><img src="https://img2020.cnblogs.com/blog/727485/202107/727485-20210705142557380-332373689.png" alt="img"></p>
+<h5 id="分页和分段机制的共同点和区别"><a href="#分页和分段机制的共同点和区别" class="headerlink" title="分页和分段机制的共同点和区别"></a>分页和分段机制的共同点和区别</h5><ol>
+<li>共同点<ul>
+<li>分页机制和分段机制都是为了提高内存利用率，减少内存碎片。</li>
+<li>页和段都是离散存储的，所以两者都是离散分配内存的方式。但是，每个页和段中的内存是连续的。</li>
+</ul>
+</li>
+<li>区别<ul>
+<li>页的大小是固定的，由操作系统决定；而段的大小不固定，<strong>取决于我们当前运行的程序</strong>。</li>
+<li>分页仅仅是为了满足操作系统内存管理的需求，而段是逻辑信息的单位，在程序中可以体现为代码段，数据段，能够更好满足用户的需要。</li>
+</ul>
+</li>
+</ol>
+<h3 id="CPU寻址"><a href="#CPU寻址" class="headerlink" title="CPU寻址"></a>CPU寻址</h3><p>每个CPU的寻址能力是要看其地址线的数量，<strong>32位CPU一般有32根地址总线，那么就一共可以寻232个地址&#x3D;也就是4x1024x1024x1024&#x3D;4G个地址，1个地址对应1字节的存储单位，对应到内存上就是4GB（4GByte）</strong></p>
+<ol>
+<li><p>寻址方式：现代的处理器使用的都是一种叫做虚拟地址寻址的寻址方式。</p>
+</li>
+<li><p>内存管理单元（MMU）：CPU内部的一个硬件，负责完成虚拟地址到物理地址的转换。</p>
+<p>TLB( Translation Look- aside buffer)专门用于缓存内存中的页表项,一般在MMU单元内部。</p>
+</li>
+</ol>
+<h6 id="为什么要使用虚拟地址空间？"><a href="#为什么要使用虚拟地址空间？" class="headerlink" title="为什么要使用虚拟地址空间？"></a>为什么要使用虚拟地址空间？</h6><p>如果不使用虚拟地址空间，程序直接访问和操作的都是物理内存。</p>
+<ol>
+<li>用户程序可以访问任意内存，寻址内存的每一个字节，这样就有意无意地破坏操作系统，造成操作系统崩溃。</li>
+<li>想要同时运行多个程序特别困难，例如想同时运行一个微信和一个QQ音乐都不行。例如：微信在运行的时候给内存地址1xxx赋值，QQ音乐也同样给内存地址1xxx赋值，那么QQ音乐对内存的赋值就会覆盖掉微信之前所赋的值，这就造成了微信程序的崩溃。</li>
+</ol>
+<h6 id="使用虚拟地址访问内存的优势"><a href="#使用虚拟地址访问内存的优势" class="headerlink" title="使用虚拟地址访问内存的优势"></a>使用虚拟地址访问内存的优势</h6><ol>
+<li>程序可以使用<strong>相邻</strong>的虚拟地址访问物理内存中<strong>不相邻</strong>的大物理缓冲区。</li>
+<li>程序可以使用虚拟地址来访问<strong>大于</strong>可用物理内存的内存缓冲区。当物理内存的供应量变小时，内存管理器会将物理内存页保存到磁盘中。数据页和代码页会根据需要在内存和磁盘之间移动。</li>
+<li>不同进程之间的虚拟地址<strong>相互隔离</strong>。一个进程中的代码无法更改另一个进程正在使用的物理内存。</li>
+</ol>
+<h2 id="虚拟内存"><a href="#虚拟内存" class="headerlink" title="虚拟内存"></a>虚拟内存</h2><h3 id="虚拟内存和虚拟地址空间"><a href="#虚拟内存和虚拟地址空间" class="headerlink" title="虚拟内存和虚拟地址空间"></a>虚拟内存和虚拟地址空间</h3><p>​	前面提到了虚拟地址，实际上虚拟地址空间和虚拟内存并不是一个概念。</p>
+<h4 id="虚拟内存-1"><a href="#虚拟内存-1" class="headerlink" title="虚拟内存"></a>虚拟内存</h4><p>​		虚拟内存是在磁盘上划分出一块空间由操作系统管理，当内存耗尽时充当内存来用。</p>
+<h4 id="虚拟地址空间"><a href="#虚拟地址空间" class="headerlink" title="虚拟地址空间"></a>虚拟地址空间</h4><p>​		操作系统会给每个进程分配一个虚拟地址空间（vitural address），每个进程包含的栈、堆、代码段这些都会从这个地址空间中被分配一个地址，这个地址就被称为虚拟地址。MMU会将虚拟地址转换为物理地址。</p>
+<p>​		CPU在寻址的时候，按照虚拟地址来寻址，通过MMU将虚拟地址转换为物理地址。因为只有程序的一部分加入了内存中，那么就会出现所寻找的地址不在内存中的情况。如果在内存不足的情况下，就会通过<strong>页面调度算法</strong>来将内存中的页面置换出来，将外存中的页面加入到内存中，使程序继续正常运行。</p>
+<h4 id="页面置换算法"><a href="#页面置换算法" class="headerlink" title="页面置换算法"></a>页面置换算法</h4><ol>
+<li>OPT页面置换算法（最佳页面置换算法）：所选择的被淘汰页面将是以后永不使用的，或者是在长时间内不再被访问的，这样可以保证最低的缺页率。</li>
+<li>FIFO页面置换算法（先进先出页面置换算法）：总先淘汰最先进入内存的页面，即选择在内存中驻留时间最久的页面进行淘汰。</li>
+<li>LRU页面置换算法（最近最久未使用页面置换算法）</li>
+<li>LFU页面置换算法（最少使用页面置换算法）</li>
+</ol>
+<h2 id="IO管理"><a href="#IO管理" class="headerlink" title="IO管理"></a>IO管理</h2>
       
 
       
@@ -476,17 +519,6 @@
     <div class="article-info article-info-index">
       
       
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">中间件</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
       
 
       
@@ -537,7 +569,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2022/07/18/ElasticSearch/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2022/08/03/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -551,18 +583,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2022/07/18/%E5%88%86%E5%B8%83%E5%BC%8F/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          分布式
-        
-      </div>
-    </a>
   
-  
-    <a href="/2022/06/30/socket/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">socket</div>
+    <a href="/2022/08/01/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">排序算法</div>
       <i class="icon-circle-right"></i>
     </a>
   

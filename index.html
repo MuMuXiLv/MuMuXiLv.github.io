@@ -153,6 +153,437 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-操作系统" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/08/03/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">操作系统</a>
+    </h1>
+  
+
+        <!--显示阅读次数-->
+        
+        <!--显示阅读次数完毕-->
+        
+        <a href="/2022/08/03/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" class="archive-article-date">
+  	<time datetime="2022-08-03T06:10:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-08-03</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="操作系统"><a href="#操作系统" class="headerlink" title="操作系统"></a>操作系统</h1><h2 id="Linux常用指令"><a href="#Linux常用指令" class="headerlink" title="Linux常用指令"></a>Linux常用指令</h2><ol>
+<li><p>Linux 中查看进程运行状态的指令</p>
+<p>查看进程运行状态：ps命令。(process status，提供了进程的一次性查看，所提供的查看结果是不动态连续的，如果想对进程时间监控，应该用top工具)</p>
+<p>grep命令（global search regular expression and print out the line，全面检索正则表达式并把行打印出来）能使用<strong>正则表达式搜索文本</strong>，并把匹配的行打印出来。</p>
+<p><code>ps -aux|grep PID</code> 用来查看某PID进程状态。</p>
+<p>ps -aux 输出格式：<code>USER PID %CPU %MEM VSZ RSS TTY STAT START TIME COMMAND</code></p>
+<p>ps的所有指令：</p>
+<ol>
+<li>ps a 显示现行终端机下的所有程序，包括其他用户的程序。<br>2）ps -A 显示所有程序。<br>3）ps c 列出程序时，显示每个程序真正的指令名称，而不包含路径，参数或常驻服务的标示。<br>4）ps -e 此参数的效果和指定”A”参数相同。<br>5）ps e 列出程序时，显示每个程序所使用的环境变量。<br>6）ps f 用ASCII字符显示树状结构，表达程序间的相互关系。<br>7）ps -H 显示树状结构，表示程序间的相互关系。<br>8）ps -N 显示所有的程序，除了执行ps指令终端机下的程序之外。<br>9）ps s 采用程序信号的格式显示程序状况。<br>10）ps S 列出程序时，包括已中断的子程序资料。<br>11）ps -t 指定终端机编号，并列出属于该终端机的程序的状况。<br>12）ps u 以用户为主的格式来显示程序状况。<br>13）ps x 显示所有程序，不以终端机来区分。</li>
+</ol>
+</li>
+<li><p>查看<strong>内存使用</strong>情况：free命令</p>
+<p><img src="https://images2018.cnblogs.com/blog/1278921/201808/1278921-20180824145229244-282350435.png" alt="img"></p>
+<p>如果加上 -h 选项，输出的结果会友好很多：</p>
+<p><img src="https://images2018.cnblogs.com/blog/1278921/201808/1278921-20180824145308881-1188604794.png" alt="img"></p>
+<p>有时我们需要持续的观察内存的状况，此时可以使用 -s 选项并指定间隔的秒数：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ free -h -s 3</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://images2018.cnblogs.com/blog/1278921/201808/1278921-20180824145404760-1689296590.png" alt="img"></p>
+<p>上面的命令每隔 3 秒输出一次内存的使用情况，直到你按下 ctrl + c。</p>
+</li>
+<li><p>tar 解压文件的参数</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"># 五个命令中必选一个</span><br><span class="line">   	-c：建立压缩</span><br><span class="line">   	-x：解压</span><br><span class="line">   	-t：查看内容</span><br><span class="line">   	-r：向压缩归档文件末尾追加文件</span><br><span class="line">   	-u：更新原压缩包中的文件</span><br><span class="line"># 这几个参数是可选的</span><br><span class="line">   	-z：有 gzip 属性的</span><br><span class="line">   	-j：有 bz2 属性的</span><br><span class="line">   	-Z：有 compress 属性的</span><br><span class="line">   	-v：显示所有过程</span><br><span class="line">   	-o：将文件解开到标准输出</span><br><span class="line"># -f参数是必须的</span><br><span class="line">	</span><br></pre></td></tr></table></figure>
+
+<p>压缩：tar –cvf jpg.tar *.jpg  &#x2F;&#x2F;将目录里所有jpg文件打包成tar.jpg</p>
+<p>​			tar –czf jpg.tar.gz *.jpg &#x2F;&#x2F;将目录里所有jpg文件打包成jpg.tar后，并且将其用gzip压缩，生成一个gzip压缩过的包，命名为jpg.tar.gz</p>
+<p>解压：tar –xvf file.tar &#x2F;&#x2F;解压 tar包</p>
+<p>​			tar -xzvf file.tar.gz &#x2F;&#x2F;解压tar.gz</p>
+</li>
+<li><p>如何修改文件权限</p>
+<p>① 文件权限描述</p>
+<p>​	 Linux中的基本权限有9个，分别是owner&#x2F;group&#x2F;others三种身份各有自己的read&#x2F;write&#x2F;execute权限</p>
+<p>② 修改权限指令： chomd</p>
+<img src="https://www.runoob.com/wp-content/uploads/2014/08/file-permissions-rwx.jpg" width = 70%>
+
+<p>③ chmod语法：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">chmod [-R] xyz 文件或目录</span><br><span class="line">选项与参数：</span><br><span class="line">	xyz： 就是数字模型的权限属性，为 rwx 属性数值的相加。</span><br><span class="line">	-R：进行递归（recursive）的持续变更，亦即连同次目录下的所有文件都会变更</span><br><span class="line">例：</span><br><span class="line">	chmod 770 dy.c	# 即修改 dy.c 文件的权限为 770</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>如何以root权限运行某个程序</p>
+<p>su：(switch user 切换用户)</p>
+<p>sudo：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo chown root app(文件名)</span><br><span class="line">sudo chmod u+s app(文件名)</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h2 id="进程与线程"><a href="#进程与线程" class="headerlink" title="进程与线程"></a>进程与线程</h2><h3 id="进程的状态"><a href="#进程的状态" class="headerlink" title="进程的状态"></a>进程的状态</h3><p><img src="https://img1.imgtp.com/2022/08/03/3mosIgSw.png" alt="1659531458064.png"></p>
+<p>​	<strong>上图interrupt的箭头方向反了。</strong></p>
+<ol>
+<li><p>创建状态（new）</p>
+<p>进程正在被创建，还未到就绪状态</p>
+</li>
+<li><p>就绪状态 （ready）</p>
+<p>进程已经处于准备运行状态，即进程已经获得了除了处理器之外的一切所需资源，一旦得到处理器资源即可运行。</p>
+</li>
+<li><p>运行状态（running）</p>
+<p>进程正在处理器上运行</p>
+</li>
+<li><p>阻塞状态（waiting）</p>
+<p>进程正在等待某一事件而暂停运行如等待某资源为可用或者等待IO操作完成。即使处理器空闲，这个进程也不能运行。</p>
+</li>
+<li><p>结束状态（terminated）</p>
+<p>进程正在从系统中消失。可能是进程正常结束或其他原因中断退出运行。</p>
+</li>
+</ol>
+<h3 id="进程间的通信方式（7种）"><a href="#进程间的通信方式（7种）" class="headerlink" title="进程间的通信方式（7种）"></a>进程间的通信方式（7种）</h3><p>每个进程有不同的用户地址空间，任何一个进程的全局变量其他进程都看不到，进程之间的数据交换必须依赖内核，进程1将数据拷贝到内核缓冲区，然后进程2从内核缓冲区将数据读走，内核提供的这种机制叫做<strong>进程间通信</strong>（IPC）。</p>
+<h4 id="管道-x2F-匿名管道（pipe）"><a href="#管道-x2F-匿名管道（pipe）" class="headerlink" title="管道&#x2F;匿名管道（pipe）"></a>管道&#x2F;匿名管道（pipe）</h4><ul>
+<li><p>管道是<strong>半双工</strong>的，数据只能向一个方向流动；需要双方通信时，需要建立起两个管道。</p>
+</li>
+<li><p>只能用于<strong>父子进程或者兄弟进程之间</strong>(具有亲缘关系的进程);</p>
+</li>
+<li><p>单独构成一种独立的文件系统：管道对于管道两端的进程而言，就是一个文件，但它不是普通的文件，它不属于某种文件系统，而是自立门户，单独构成一种文件系统，并且只存在与内存中。</p>
+</li>
+<li><p>数据的读出和写入：一个进程向管道中写的内容被管道另一端的进程读出。写入的内容每次都添加在管道缓冲区的末尾，并且每次都是从缓冲区的头部读出数据。</p>
+<p><strong>总结：匿名，只能在有亲缘关系的进程之间通信，半双工，存在于内存，当在一端写数据时必须确定另一端有进程</strong></p>
+</li>
+</ul>
+<h4 id="有名管道（FIFO）"><a href="#有名管道（FIFO）" class="headerlink" title="有名管道（FIFO）"></a>有名管道（FIFO）</h4><p>​		提供了一个<strong>路径名与之关联</strong>，以有名管道的文件形式存在于文件系统中，那么即使与有名管道不存在亲缘关系的进程，只要可以访问该路径，就能够彼此通过有名管道相互通信。</p>
+<p><strong>总结：有名管道以文件的形式存储在磁盘上，进程可以通过访问路径名来与创建线程进行通信，但是由于管道是一种特殊的文件，因此使用前需要用open()打开，如果以读写方式（O_RDWR）打开则一定不会阻塞；以只读（O_RDONLY）方式打开时，调用open()的函数会被阻塞直到其他某个进程为写而打开它为止；如果以只写方式（O_WRONLY）打开时同样也会被阻塞，直到有以读方式打开该管道</strong></p>
+<h4 id="信号"><a href="#信号" class="headerlink" title="信号"></a>信号</h4><p>信号的生命周期：</p>
+<p>① 信号被某个进程产生，并设置此信号传递的对象（一般为对应进程的PID），并传递给操作系统</p>
+<p>② 操作系统判断PID所对应的进程是否被阻塞，若阻塞，就先保留该信号，一旦不阻塞，传递给对应进程</p>
+<p>③ 对应进程接收到信号后，保存上下文，暂停当前代码的执行，执行对应的中断服务程序</p>
+<h4 id="消息队列"><a href="#消息队列" class="headerlink" title="消息队列"></a>消息队列</h4><p>存在于内核中的消息链表，在读写数据时，不需要另外某个进程在队列上等待消息的到达。</p>
+<h4 id="共享内存"><a href="#共享内存" class="headerlink" title="共享内存"></a>共享内存</h4><p>​		多个进程通过读写同一内存进行通信。每个进程都有属于自己的<strong>进程控制块</strong>和<strong>地址空间</strong>，并且都有一个与之对应的<strong>页表</strong>，负责将进程的<strong>虚拟地址</strong>与<strong>物理地址</strong>进行映射，通过<strong>内存管理单元（MMU）</strong>进行管理。两个不同的虚拟地址通过页表映射到物理空间的<strong>同一区域</strong>，它们所指向的这块区域即共享内存。</p>
+<p>当两个进程通过页表将虚拟地址映射到物理地址时，在物理地址中有一块共同的内存区，即共享内存，这块内存可以被两个进程同时看到。这样当一个进程进行写操作，另一个进程读操作就可以实现进程间通信。但是，我们要确保一个进程在写的时候不能被读，因此我们使用<strong>信号量来实现同步与互斥</strong>。</p>
+<h4 id="信号量"><a href="#信号量" class="headerlink" title="信号量"></a>信号量</h4><p>​		信号量是用来解决进程之间的<strong>同步与互斥</strong>问题的一种进程之间的通信机制，包括一个称为<strong>信号量的变量</strong>和该信号量下<strong>等待资源的进程等待队列</strong>，以及对信号量进行的两个原子操作。信号量对应于某一种资源，取一个非负的整形值。信号量的值是<strong>指当前可用的资源数量</strong>。</p>
+<p>由于信号量只有两种操作，一种是等待信号，另一种是发送信号。即P和V，它们的行为如下：</p>
+<ul>
+<li>P(sv)：如果sv的值大于零，就给它减1；如果它的值为零，就挂起该进程的执行。</li>
+<li>V(sv)：如果有其他进程因等待sv而被挂起，就让它恢复运行，如果没有进程因等待sv而挂起，就给它加1。</li>
+</ul>
+<h4 id="套接字"><a href="#套接字" class="headerlink" title="套接字"></a>套接字</h4><p>​		套接字是<strong>支持TCP&#x2F;IP的网络通信</strong>的基本操作单元，可以看做是不同主机之间的进程进行双向通信的端点，简单的说就是通信的两方的一种约定，用套接字中的相关函数来完成通信过程。</p>
+<h3 id="线程间的同步方式"><a href="#线程间的同步方式" class="headerlink" title="线程间的同步方式"></a>线程间的同步方式</h3><p>​	线程同步是两个或者多个<strong>共享关键资源的线程</strong>的并发执行。（共享是一个动词）</p>
+<h4 id="互斥量"><a href="#互斥量" class="headerlink" title="互斥量"></a>互斥量</h4><p>采用互斥对象机制，只有拥有互斥对象的线程可以拥有访问公共资源的权限。因为互斥对象一般只有一个，就能保证公共资源不会被多个线程同时访问，例如Java的synchronized和各种Lock都是采用这种机制。</p>
+<h4 id="信号量-1"><a href="#信号量-1" class="headerlink" title="信号量"></a>信号量</h4><p>允许同一时刻多个线程访问统一资源，但是会控制统一时刻访问资源的最大线程数量，由信号量变量（sv）确定。</p>
+<h4 id="事件"><a href="#事件" class="headerlink" title="事件"></a>事件</h4><p><strong>wait&#x2F;notify 通过通知操作的方式来保证多线程同步。</strong>事件一般用来控制线程的先后顺序。</p>
+<p>事件被分为：手动置位和自动置位。手动置位是同时向所有该事件的等待线程发信号通知，某一操作已经做完了，使他们都处于有信号的状态，都成为可调度线程；<strong>自动置位</strong>是向某一线程<strong>发信号，使它为有信号状态，成为可调度线程</strong>。</p>
+<h3 id="进程调度"><a href="#进程调度" class="headerlink" title="进程调度"></a>进程调度</h3><p>进程调度是指<strong>操作系统</strong>按照某种策略或规则<strong>选择进程占用CPU进行运行</strong>的过程。</p>
+<h4 id="调度的时机（什么时候会发生进程调度？）"><a href="#调度的时机（什么时候会发生进程调度？）" class="headerlink" title="调度的时机（什么时候会发生进程调度？）"></a>调度的时机（什么时候会发生进程调度？）</h4><ol>
+<li>正在执行的进程执行完毕</li>
+<li>执行中的进程因提出IO请求或者发出等事件而暂停执行</li>
+<li>时间片完成</li>
+<li>高优先者进入</li>
+</ol>
+<h4 id="调度的方式"><a href="#调度的方式" class="headerlink" title="调度的方式"></a>调度的方式</h4><ol>
+<li><p>先来先服务（FCFS）调度算法</p>
+<p>从就绪队列中选择最先进入队列的进程为之分配资源</p>
+</li>
+<li><p>短作业优先的调度算法</p>
+<p>从就绪队列中选择一个估计运行时间最短的进程为之分配资源</p>
+</li>
+<li><p>时间片轮转调度算法</p>
+</li>
+<li><p>多级反馈队列调度算法</p>
+</li>
+<li><p>优先级调度算法</p>
+<p>① 高优先权优先调度算法</p>
+<p>② 高响应比优先调度算法 优先级&#x3D;（服务时间+等待时间）&#x2F;服务时间&#x3D;1+等待时间&#x2F;服务时间</p>
+<p>等待时间一定时，服务时间越短，优先级越高，有利于短作业</p>
+<p>服务时间一定时，等待时间越长，优先级越高，有利于先到先服务</p>
+<p>对于长作业，作业的优先级会随着等待时间的增加而增加，因此该算法既照顾了短作业，又考虑了作业到达的先后顺序，不会使长作业长时间得不到响应。</p>
+</li>
+</ol>
+<h3 id="死锁"><a href="#死锁" class="headerlink" title="死锁"></a>死锁</h3><p>​	多个进程&#x2F;线程同时被阻塞，他们其中的一个或者全部都在等待某个资源被释放。由于进程&#x2F;线程被无限期的阻塞，因此程序不可能正常终止。</p>
+<h4 id="死锁产生的必要条件"><a href="#死锁产生的必要条件" class="headerlink" title="死锁产生的必要条件"></a>死锁产生的必要条件</h4><ol>
+<li>互斥：资源必须在一个时间只能有一个进程可以使用。</li>
+<li>占有并等待：一个进程至少占有一个资源并等待另一资源，而该资源被其他进程所占有</li>
+<li>非抢占：资源不能被抢占，只有等持有该资源的进程执行完任务后，资源才可以被释放</li>
+<li>循环等待：一组等待进程，循环占有资源并等待其他线程释放资源</li>
+</ol>
+<h4 id="解决死锁的方法"><a href="#解决死锁的方法" class="headerlink" title="解决死锁的方法"></a>解决死锁的方法</h4><h5 id="预防：限制并发进程对资源的请求"><a href="#预防：限制并发进程对资源的请求" class="headerlink" title="预防：限制并发进程对资源的请求"></a>预防：限制并发进程对资源的请求</h5><p>一般通过破坏2和4来预防死锁。</p>
+<ol>
+<li><p><strong>静态分配策略</strong>破坏第二个条件（占有并等待）。<strong>在执行前获取到该进程所需要的所有资源</strong>。</p>
+</li>
+<li><p><strong>层次分配策略</strong>破坏第四个条件（循环等待）。一个进程得到某个资源后，只能再申请更高一级的资源；而在释放的时候也要先释放较高层的资源。</p>
+</li>
+</ol>
+<h5 id="避免：对资源的使用情况做出预测，避免死锁产生"><a href="#避免：对资源的使用情况做出预测，避免死锁产生" class="headerlink" title="避免：对资源的使用情况做出预测，避免死锁产生"></a>避免：对资源的使用情况做出预测，避免死锁产生</h5><p><strong>银行家算法</strong>：当一个进程申请使用资源的时候，银行家算法先试探分配给该进程资源，然后通过安全性算法判断分配后系统是否处于安全状态</p>
+<p>（预测分配后系统是否安全）</p>
+<h5 id="检测：检测死锁的发生，精确的确定与死锁有关的进程和资源"><a href="#检测：检测死锁的发生，精确的确定与死锁有关的进程和资源" class="headerlink" title="检测：检测死锁的发生，精确的确定与死锁有关的进程和资源"></a>检测：检测死锁的发生，精确的确定与死锁有关的进程和资源</h5><p>系统定时运行“死锁检测”程序，判断系统是否发生了死锁，如果发生了再去解除它。</p>
+<img src="https://i.bmp.ovh/imgs/2022/08/04/0720f0c56b478d24.png" width = 70%>
+
+<p>如果进程—资源图无环路，未发生死锁；有环路而且每个资源只有一份，发生死锁；有环路但有资源有多份，要具体分析。</p>
+<h5 id="解除：将进程从死锁状态下解脱出来"><a href="#解除：将进程从死锁状态下解脱出来" class="headerlink" title="解除：将进程从死锁状态下解脱出来"></a>解除：将进程从死锁状态下解脱出来</h5><ol>
+<li>立即结束所有的进程，重新启动操作系统</li>
+<li>撤销涉及死锁的进程，解除死锁后继续运行。但是这种方法也会付出很大的代价，可能其中的一些进程已经计算了很长时间。</li>
+<li>逐个撤销涉及死锁的进程，直到解除死锁</li>
+<li>抢占资源</li>
+</ol>
+<h2 id="内存管理"><a href="#内存管理" class="headerlink" title="内存管理"></a>内存管理</h2><p>内存管理(Memory Management)是操作系统设计中最重要和最复杂的内容之一。虽然计算机硬件一直在飞速发展，内存容量也在不断增长，但是仍然不可能将所有用户进程和系统所需要的全部程序和数据放入主存中，所以操作系统必须将内存空间进行合理地划分和有效地动态分配。操作系统对内存的划分和动态分配，就是内存管理的概念。</p>
+<h3 id="内存管理功能"><a href="#内存管理功能" class="headerlink" title="内存管理功能"></a>内存管理功能</h3><ol>
+<li><p>内存的分配与回收：malloc、free 创建进程后为他们分配内存空间，当结束后内存空间也会被回收</p>
+</li>
+<li><p>地址转换：将程序中的逻辑地址转换为内存中的物理地址</p>
+</li>
+<li><p>内存空间的扩充：利用虚拟存储技术或自动覆盖技术，从逻辑上扩充内存</p>
+<p><strong>覆盖技术</strong>：解决程序大小超过物理内存总和的问题，内存中分为一个“<strong>固定区</strong>”和若干个“<strong>覆盖区</strong>”，需要常驻内存的段放在“固定区”中，调入后就不再调出（除非运行结束）</p>
+<p>将程序分为多个段（多个模块）常用的段常驻内存，不常用的段<strong>在需要时</strong>调入内存。</p>
+<img src="https://img-blog.csdnimg.cn/20210710203636111.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1F1YW50dW1Zb3U=,size_16,color_FFFFFF,t_70" width = 70%>
+
+<p><strong>交换技术</strong>：</p>
+<p>设计思想：内存空间紧张时，系统将内存中某些进程暂时换出外存，把外存中某些已具备运行条件的进程换入内存（进程在内存与磁盘间动态调度）<br>中级调度（内存调度），就是要决定将哪个处于挂起状态的进程重新调入内存。<br>暂时换出外存等待的进程状态为挂起状态（挂起态， suspend）挂起态又可以进一步细分为就绪挂起、阻塞挂起两种状态</p>
+<img src="https://img-blog.csdnimg.cn/20210710204712455.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1F1YW50dW1Zb3U=,size_16,color_FFFFFF,t_70" width=70%>
+
+
+</li>
+<li><p>存储保护：保证各个作业在自己的内存中运行，互不干扰</p>
+<p>(内存保护)内存分配前，需要保护<strong>操作系统不受用户进程的影响</strong>，同时保护<strong>用户进程不受其他用户进程的影响</strong>。通过釆用<strong>重定位寄存器</strong>和<strong>界地址寄存器</strong>来实现这种保护。重定位寄存器含<strong>最小的物理地址值</strong>，界地址寄存器含<strong>逻辑地址</strong>值。每个逻辑地址值必须小于界地址寄存器；内存管理机构动态地将逻辑地址与界地址寄存器进行比较，如果未发生地址越界，则加上重定位寄存器的值后映射成物理地址，再送交内存单元。每一个逻辑地址都需要与这两个寄存器进行核对，以保证操作系统和其他用户程序及数据不被该进程的运行所影响。</p>
+</li>
+</ol>
+<h3 id="逻辑地址和物理地址"><a href="#逻辑地址和物理地址" class="headerlink" title="逻辑地址和物理地址"></a>逻辑地址和物理地址</h3><p><strong>逻辑地址</strong>：CPU所生成的地址。<a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=%E9%80%BB%E8%BE%91%E5%9C%B0%E5%9D%80&spm=1001.2101.3001.7020">逻辑地址</a>是内部和编程使用的、并不唯一。例如，你在进行C语言指针编程中，可以读取指针变量本身值(&amp;操作)，实际上这个值就是逻辑地址，它是<strong>相对于当前进程数据段的地址</strong>（偏移地址），不和绝对物理地址相干。</p>
+<p><strong>物理地址</strong>：加载到<strong>内存地址<a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=%E5%AF%84%E5%AD%98%E5%99%A8&spm=1001.2101.3001.7020">寄存器</a>中</strong>的地址，内存单元的真正地址。在前端总线上传输的内存地址都是物理内存地址，编号从0开始一直到可用物理内存的最高端。这些数字被北桥(Nortbridge chip)映射到实际的内存条上。物理地址是明确的、最终用在总线上的编号，不必转换，不必分页，也没有特权级检查(no translation, no paging, no privilege checks)。</p>
+<p>物理地址&#x3D;重定位寄存器中的地址+逻辑地址</p>
+<h3 id="内存管理机制"><a href="#内存管理机制" class="headerlink" title="内存管理机制"></a>内存管理机制</h3><h4 id="连续分配管理方式"><a href="#连续分配管理方式" class="headerlink" title="连续分配管理方式"></a>连续分配管理方式</h4><h5 id="单一连续分配"><a href="#单一连续分配" class="headerlink" title="单一连续分配"></a>单一连续分配</h5><p>内存分为<strong>系统区和用户区</strong>，系统区提供给操作系统使用，通常在低地址部分；用户区提供给用户使用，是内存中除系统区之外的内存空间。<strong>这种方式无需进行内存保护。</strong></p>
+<p>优点：简单、不会产生外部碎片；</p>
+<p>缺点：只能用于单用户、单任务的操作系统中，有内部碎片，存储器的效率极低。</p>
+<h5 id="固定分区分配"><a href="#固定分区分配" class="headerlink" title="固定分区分配"></a>固定分区分配</h5><p>将用户内存空间划分为若干个固定大小的区域，每个区域装入一道作业。当有空闲分区后，就可以从外存的后备作业队列中，选择适当大小的作业装入该分区，如此循环。</p>
+<p>该分配方式分为两种方法：</p>
+<ol>
+<li>分区大小相等</li>
+<li>分区大小不等</li>
+</ol>
+<p><img src="https://img2020.cnblogs.com/blog/727485/202107/727485-20210705142138066-445927118.png" alt="img"></p>
+<p>特点：可能程序太大放不进任何一个分区内，需要使用覆盖技术进行扩容。会产生内部碎片</p>
+<h5 id="动态分区分配"><a href="#动态分区分配" class="headerlink" title="动态分区分配"></a>动态分区分配</h5><p>这种分区方法不预先将内存划分，而是在<strong>进程装入内存</strong>时，根据进程的大小动态地建立分区，并使分区的大小正好适合进程的需要。因此系统中分区的大小和数目是可变的。<strong>动态分区在开始分配时是很好的，但是之后会导致内存中出现许多小的内存块，产生外部碎片。</strong></p>
+<p><img src="https://img2020.cnblogs.com/blog/727485/202107/727485-20210705142209604-405492653.png" alt="img"></p>
+<h4 id="非连续分配管理方式"><a href="#非连续分配管理方式" class="headerlink" title="非连续分配管理方式"></a>非连续分配管理方式</h4><h5 id="分页存储管理"><a href="#分页存储管理" class="headerlink" title="分页存储管理"></a>分页存储管理</h5><p>分页存储管理方式中，又根据<strong>运行作业时是否要把作业的所有页面都装入内存才能运行</strong>分为<strong>基本分页存储管理方式</strong>和<strong>请求分页存储管理方式</strong>。</p>
+<p>固定分区会产生内部碎片，动态分区会产生外部碎片，这两种技术对内存的利用率都比较低。我们希望内存的使用能尽量避免碎片的产生。</p>
+<p>这就引入了分页的思想：把<strong>主存空间</strong>划分为<strong>大小相等且固定的块，块相对较小，作为主存的基本单位</strong>。每个<strong>进程也以块为单位进行划分</strong>，进程在执行时，以块为单位逐个申请主存中的块空间。</p>
+<p>由于块很小，这样<strong>只会在为最后一个不完整的进程块分配内存时会产生内部碎片</strong>，这种碎片相对于进程来说是非常小的。</p>
+<p><strong>基本概念</strong></p>
+<p>内存中的块称为<strong>页框</strong>，进程中的块称为<strong>页</strong>。进程在执行时需要申请内存时，为每一页匹配一个页框。为方便地址转换，页面的大小应为2的整数幂。同时页面大小应适中，如果页面太小，每个进程的页面数量就会增加，那么页表就过长，占用大量内存，而且会增加逻辑地址到物理地址转换的开销。页面过大又会使页内碎片增大，降低内存使用率。</p>
+<p><strong>按字节编址</strong>，假设用来存放页的地址长度为32位（即进程有4G），其中0-11位为页内地址，因此每页大小为4kB；12-31为页号，地址空间最多允许有2^20页。</p>
+<h6 id="页表"><a href="#页表" class="headerlink" title="页表"></a>页表</h6><p>我们对数据页进行编址时，每页大小为4kB，而我们应该对每页都设置一个页表中的页表项与之对应，那么也就是一共有2^20个<strong>页表项</strong>。</p>
+<p>页表项：在页表中，一个<strong>页号</strong>以及与其对应的<strong>物理块号</strong>称之为一个页表项。（红框框起来的部分）</p>
+<p><img src="https://img-blog.csdn.net/20180512145036990" alt="img"></p>
+<p>页表项大小为4B，也就是32位，其中页号占20位，那么物理块号应该占12位，也就是页框号有2^12个。我们可以发现页框号的数目要小于页数，说明划分进程为页，每一页都有自己的代号，但调入内存时并不是把全部进程都调入。</p>
+<p>我们知道页表项大小为4B，数量为2^20个，那么页表占用的内存等于4B*2^20&#x3D;4MB，并且这4MB的内存必须连续。但是对于内存来说4M已经是一个不小的内存，没必要让所有的页表项都存储在内存中，因为进程在一段时间内只会访问某些特定的进程页。(后面引入二级页表的概念，在后面会提到)</p>
+<h6 id="地址变换机构"><a href="#地址变换机构" class="headerlink" title="地址变换机构"></a>地址变换机构</h6><p><img src="https://img2020.cnblogs.com/blog/727485/202107/727485-20210705142324609-1852302717.png" alt="img"></p>
+<p>系统中一般会设置一个页表寄存器，其中存放页表的起始地址F以及页表长度M(即该进程一共有多少页)。当进程未执行时，页表的起始位置和页表长度存放在进程控制块中，进程执行时，才将页表起始位置和长度存入页表寄存器。设页面大小为L，逻辑地址A到物理地址E的转换过程如下：</p>
+<ol>
+<li>计算页号P&#x3D;A&#x2F;L和页内偏移量W&#x3D;A%L；</li>
+<li>判断页号P和页表长度M的大小，如果P&gt;&#x3D;M，说明越界，就产生越界中断；否则继续执行；</li>
+<li>页表中页号P对应的页表项地址&#x3D;页表起始地址F+页号P*页表项长度，取出页表项中的物理块号b。</li>
+<li>计算E&#x3D;b*L+W，用得到的物理地址E去访问内存。</li>
+</ol>
+<h6 id="分页存储管理方式存在的两个问题"><a href="#分页存储管理方式存在的两个问题" class="headerlink" title="分页存储管理方式存在的两个问题"></a>分页存储管理方式存在的两个问题</h6><ol>
+<li><p>每个访问操作都涉及到逻辑地址到物理地址的转换，因此地址转换要足够快，否则访问速度会降低。</p>
+<p><strong>具有<u>快表</u>的地址变换机构</strong></p>
+<p>根据上面介绍的地址变换过程可知，若页表全部存在内存中，则存取一个数据或者一条指令至少要访问两次内存：一次时访问页表，确定所存取的数据或指令的<strong>物理地址</strong>，第二次才根据地址存取数据和指令。</p>
+<p>为此，在地址变换机构中增设了一个具有并行查找能力的高速缓冲存储器—<strong>快表（TLB）</strong>，用来存放<strong>当前访问的若干页表项</strong>，以加快地址变换的过程。而与此对应，内存中的页表一般称为慢表。</p>
+<p><img src="https://img2020.cnblogs.com/blog/727485/202107/727485-20210705142341111-31060538.png" alt="img"></p>
+<p>在具有快表的分页机制中，地址的变换过程为：</p>
+<ol>
+<li>CPU给出逻辑地址后，由硬件进行地址转换并将页号送入高速缓存寄存器，并将页号和快表中的所有页号做比较</li>
+<li>如果找到了匹配的页号，说明访问的页表项在快表中，就直接从快表中取出该页对应的页框号，与页内偏移量拼接形成物理地址，这样数据仅通过一次访存便可实现。</li>
+<li>如果没有找到，就需要访问主存中的页表，在读出页表项之后，同时将其存到快表中，以便后面有可能的再次访问。但若快表已满，则必须按照一定的算法对旧的页表项进行替换。</li>
+</ol>
+<p>一般快表的命中率可以达到90%以上，这样，分页带来的速度损失就降低到10%以下。<strong>快表主要利用了局部性原理</strong>。</p>
+</li>
+<li><p>每个进程引入了页表，用于存储映射机制，页表不能太大，否则内存利用率会降低。<strong>（时间换空间）</strong></p>
+<p>由于引入了分页管理，进程在执行的过程中不需要将所有页都调入内存页框中，而只要将保存有映射关系的页表调入内存即可。但我们仍然需要考虑页表的大小。</p>
+<p>举例：逻辑地址有32位，页面大小为4kB，页表项大小为</p>
+<p>，那么该进程的页表大小为4B*2^20，约100w个页表项，每个进程的页表大小为4M，这明显不符合实际条件。而即使不考虑对全部逻辑地址空间进行映射的情况，一个逻辑地址空间稍大的进程，其页表大小也可能是过大的。</p>
+<p>再假设一个40Mb的进程，页表项也就有40kb，如果将所有的页表项内容全部保存在内存中，那么需要10个内存页框来保存（一个页框保存4kB）。整个进程大约有1w个页面，而在实际执行中只需要几十个页面进入内存页框就可以运行，但如果把10个页面大小的页框全部装入内存，这相对实际执行时的几十个进程页面的大小来说，降低了内存利用率。从另一方面来说，这10页的页表项也并不需要同时保存在内存中，大多数情况下，映射所需要的页表项都在页表的同一页面中。</p>
+<p>将页表映射的思想进一步延伸，就可以得到二级分页：将页表的10页空间也进行地址映射，建立上一级页表，用于存储页表的映射关系。这里对页表的10个页面进行映射只需要10个页表项，所以上一级页表只需要1页就足够，可以存储2^10&#x3D;1024个页表项。在进程执行时，只需要将这个上一级页表调入内存即可，进程的页表和进程本身的页面，可以在后面的执行中再调入内存。</p>
+<p>在32位系统中，全部32位逻辑地址空间，按字节编码，每页2^12字节，也就是4kB，共有2^20个页面，这些页面也就是会有2^20个页表项，每个页表项是32bit，也就是4B。我们知道一个页面可以放置4kB的数据，也就是1个页面可以存放2^10个页表项，那么<strong>一共需要2^10个页面去存放这些页表项</strong>，我们就可以为这2^10个页面构建上级页表，也就恰好是一个页面就可以存放。</p>
+<p><img src="https://img2020.cnblogs.com/blog/727485/202107/727485-20210705142354535-1103997675.png" alt="img"></p>
+</li>
+</ol>
+<p>举例：32位系统中进程分页的工作过程：假定内核已经给一个正在运行的进程分配的逻辑地址空间是0x20000000到0x2003FFFF，这个空间由64个页面（0x00-0x3F）组成。在进程运行时，我们不需要知道全部这些页的页框的物理地址，很可能其中很多页还不在主存中。这里我们只注意在进程运行到某一页时，硬件是如何计算得到这一页的页框的物理地址即可。现在进程需要读逻辑地址0x20021406中的字节内容，这个逻辑地址按如下进行处理：<br>逻辑地址： 0x20021406 (0010 0000 0000 0010 0001 0100 0000 0110 B)<br>顶级页表字段：0x80 (00 1000 0000 B)<br>二级页表字段：0x21 (00 0010 0001B)<br>页内偏移量字段：0x406  (0100 0000 0110 B)</p>
+<h5 id="分段存储管理"><a href="#分段存储管理" class="headerlink" title="分段存储管理"></a>分段存储管理</h5><p>段式管理方式<strong>按照用户进程中的自然段划分逻辑空间</strong>。例如，用户进程由<strong>主程序、两个子程序、栈和一段数据</strong>组成，于是可以把这个用户进程划分为5个段，每段从0开始编址，并分配一段连续的地址空间（<strong>段内要求连续，段间不要求连续，因此整个作业的地址空间是二维的</strong>）。其逻辑地址由段号S与段内偏移量W两部分组成。</p>
+<p>如图，段号为16位，段内偏移量为16位，则一个作业最多可有2^16&#x3D;65536个段，最大段长为64KB。</p>
+<p><img src="https://img2020.cnblogs.com/blog/727485/202107/727485-20210705142426066-2057623426.png" alt="img"></p>
+<p><img src="https://img-blog.csdn.net/20150923210221157" alt="img"></p>
+<p>在页式系统中，逻辑地址的页号和页内偏移量对用户是透明的，但在段式系统中，段号和段内偏移量必须由用户显示提供，在高级程序设计语言中，这个工作由编译程序完成。</p>
+<h6 id="段表"><a href="#段表" class="headerlink" title="段表"></a>段表</h6><p>每个进程都有一张逻辑空间与内存空间映射的段表，其中每一个段表项对应进程的一个段，段表项记录该段在内存中的起始地址和段的长度。段表的内容如图所示。<br><img src="https://img2020.cnblogs.com/blog/727485/202107/727485-20210705142440467-101211835.png" alt="img"></p>
+<p>在配置了段表后，执行中的进程可以通过查找段表，找到每个段所对应的内存区。</p>
+<img src="https://s1.328888.xyz/2022/08/08/01BZi.png">
+
+<h5 id="段页式存储管理"><a href="#段页式存储管理" class="headerlink" title="段页式存储管理"></a>段页式存储管理</h5><p>页式存储管理能有效地提高<strong>内存利用率</strong>，而分段存储管理能<strong>反映程序的逻辑结构</strong>并有利于段的共享。如果将这两种存储管理方法结合起来，就形成了段页式存储管理方式。</p>
+<p>在段页式系统中，作业的地址空间首先被分成若干个逻辑段，每段都有自己的段号，然后再将每一段分成若干个大小固定的页。对内存空间的管理仍然和分页存储管理一样，将其分成若干个和页面大小相同的存储块，对内存的分配以存储块为单位。</p>
+<p><img src="https://img2020.cnblogs.com/blog/727485/202107/727485-20210705142526370-28542583.png" alt="img"></p>
+<p>​		为了实现地址变换，系统为每个进程建立一张段表，而每个分段有一张页表。段表表项中至少包括段号、页表长度和页表起始地址，页表表项中至少包括页号和块号。</p>
+<p><img src="https://img2020.cnblogs.com/blog/727485/202107/727485-20210705142557380-332373689.png" alt="img"></p>
+<h5 id="分页和分段机制的共同点和区别"><a href="#分页和分段机制的共同点和区别" class="headerlink" title="分页和分段机制的共同点和区别"></a>分页和分段机制的共同点和区别</h5><ol>
+<li>共同点<ul>
+<li>分页机制和分段机制都是为了提高内存利用率，减少内存碎片。</li>
+<li>页和段都是离散存储的，所以两者都是离散分配内存的方式。但是，每个页和段中的内存是连续的。</li>
+</ul>
+</li>
+<li>区别<ul>
+<li>页的大小是固定的，由操作系统决定；而段的大小不固定，<strong>取决于我们当前运行的程序</strong>。</li>
+<li>分页仅仅是为了满足操作系统内存管理的需求，而段是逻辑信息的单位，在程序中可以体现为代码段，数据段，能够更好满足用户的需要。</li>
+</ul>
+</li>
+</ol>
+<h3 id="CPU寻址"><a href="#CPU寻址" class="headerlink" title="CPU寻址"></a>CPU寻址</h3><p>每个CPU的寻址能力是要看其地址线的数量，<strong>32位CPU一般有32根地址总线，那么就一共可以寻232个地址&#x3D;也就是4x1024x1024x1024&#x3D;4G个地址，1个地址对应1字节的存储单位，对应到内存上就是4GB（4GByte）</strong></p>
+<ol>
+<li><p>寻址方式：现代的处理器使用的都是一种叫做虚拟地址寻址的寻址方式。</p>
+</li>
+<li><p>内存管理单元（MMU）：CPU内部的一个硬件，负责完成虚拟地址到物理地址的转换。</p>
+<p>TLB( Translation Look- aside buffer)专门用于缓存内存中的页表项,一般在MMU单元内部。</p>
+</li>
+</ol>
+<h6 id="为什么要使用虚拟地址空间？"><a href="#为什么要使用虚拟地址空间？" class="headerlink" title="为什么要使用虚拟地址空间？"></a>为什么要使用虚拟地址空间？</h6><p>如果不使用虚拟地址空间，程序直接访问和操作的都是物理内存。</p>
+<ol>
+<li>用户程序可以访问任意内存，寻址内存的每一个字节，这样就有意无意地破坏操作系统，造成操作系统崩溃。</li>
+<li>想要同时运行多个程序特别困难，例如想同时运行一个微信和一个QQ音乐都不行。例如：微信在运行的时候给内存地址1xxx赋值，QQ音乐也同样给内存地址1xxx赋值，那么QQ音乐对内存的赋值就会覆盖掉微信之前所赋的值，这就造成了微信程序的崩溃。</li>
+</ol>
+<h6 id="使用虚拟地址访问内存的优势"><a href="#使用虚拟地址访问内存的优势" class="headerlink" title="使用虚拟地址访问内存的优势"></a>使用虚拟地址访问内存的优势</h6><ol>
+<li>程序可以使用<strong>相邻</strong>的虚拟地址访问物理内存中<strong>不相邻</strong>的大物理缓冲区。</li>
+<li>程序可以使用虚拟地址来访问<strong>大于</strong>可用物理内存的内存缓冲区。当物理内存的供应量变小时，内存管理器会将物理内存页保存到磁盘中。数据页和代码页会根据需要在内存和磁盘之间移动。</li>
+<li>不同进程之间的虚拟地址<strong>相互隔离</strong>。一个进程中的代码无法更改另一个进程正在使用的物理内存。</li>
+</ol>
+<h2 id="虚拟内存"><a href="#虚拟内存" class="headerlink" title="虚拟内存"></a>虚拟内存</h2><h3 id="虚拟内存和虚拟地址空间"><a href="#虚拟内存和虚拟地址空间" class="headerlink" title="虚拟内存和虚拟地址空间"></a>虚拟内存和虚拟地址空间</h3><p>​	前面提到了虚拟地址，实际上虚拟地址空间和虚拟内存并不是一个概念。</p>
+<h4 id="虚拟内存-1"><a href="#虚拟内存-1" class="headerlink" title="虚拟内存"></a>虚拟内存</h4><p>​		虚拟内存是在磁盘上划分出一块空间由操作系统管理，当内存耗尽时充当内存来用。</p>
+<h4 id="虚拟地址空间"><a href="#虚拟地址空间" class="headerlink" title="虚拟地址空间"></a>虚拟地址空间</h4><p>​		操作系统会给每个进程分配一个虚拟地址空间（vitural address），每个进程包含的栈、堆、代码段这些都会从这个地址空间中被分配一个地址，这个地址就被称为虚拟地址。MMU会将虚拟地址转换为物理地址。</p>
+<p>​		CPU在寻址的时候，按照虚拟地址来寻址，通过MMU将虚拟地址转换为物理地址。因为只有程序的一部分加入了内存中，那么就会出现所寻找的地址不在内存中的情况。如果在内存不足的情况下，就会通过<strong>页面调度算法</strong>来将内存中的页面置换出来，将外存中的页面加入到内存中，使程序继续正常运行。</p>
+<h4 id="页面置换算法"><a href="#页面置换算法" class="headerlink" title="页面置换算法"></a>页面置换算法</h4><ol>
+<li>OPT页面置换算法（最佳页面置换算法）：所选择的被淘汰页面将是以后永不使用的，或者是在长时间内不再被访问的，这样可以保证最低的缺页率。</li>
+<li>FIFO页面置换算法（先进先出页面置换算法）：总先淘汰最先进入内存的页面，即选择在内存中驻留时间最久的页面进行淘汰。</li>
+<li>LRU页面置换算法（最近最久未使用页面置换算法）</li>
+<li>LFU页面置换算法（最少使用页面置换算法）</li>
+</ol>
+<h2 id="IO管理"><a href="#IO管理" class="headerlink" title="IO管理"></a>IO管理</h2>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/08/03/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-排序算法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/08/01/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/">排序算法</a>
+    </h1>
+  
+
+        <!--显示阅读次数-->
+        
+        <!--显示阅读次数完毕-->
+        
+        <a href="/2022/08/01/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/" class="archive-article-date">
+  	<time datetime="2022-08-01T14:31:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-08-01</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="排序算法"><a href="#排序算法" class="headerlink" title="排序算法"></a>排序算法</h1><h2 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h2><p>冒泡排序的思想是从头遍历，让最大的一直向后交换，让最大的沉底</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">sort_bubble</span><span class="params">(<span class="type">int</span>[] nums)</span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;nums.length-<span class="number">1</span>;i++)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">0</span>;j&lt;nums.length-i-<span class="number">1</span>;j++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(nums[j]&gt;nums[j+<span class="number">1</span>])&#123;</span><br><span class="line">                <span class="type">int</span> <span class="variable">tmp</span> <span class="operator">=</span> nums[j];</span><br><span class="line">                nums[j] = nums[j+<span class="number">1</span>];</span><br><span class="line">                nums[j+<span class="number">1</span>] = tmp;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="选择排序"><a href="#选择排序" class="headerlink" title="选择排序"></a>选择排序</h2><p>在未排序的子数组中找到最小值放到未排序数组的第一个位置</p>
+<p>不稳定排序，因为在比较的时候会产生交换，有可能把在前面的值换到后面去</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">sort_select</span><span class="params">(<span class="type">int</span>[] nums)</span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;nums.length-<span class="number">1</span>;i++)&#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">minIndex</span> <span class="operator">=</span> i;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> j=i+<span class="number">1</span>;j&lt;nums.length;j++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(nums[j]&lt;nums[minIndex])&#123;</span><br><span class="line">                minIndex = j;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">int</span> <span class="variable">temp</span> <span class="operator">=</span> nums[i];</span><br><span class="line">        nums[i] = nums[minIndex];</span><br><span class="line">        nums[minIndex] = temp;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="插入排序"><a href="#插入排序" class="headerlink" title="插入排序"></a>插入排序</h2><p>插入排序是一种最简单直观的排序算法，它的工作原理是通过构建有序序列，对于未排序数据，在已排序序列中从后向前扫描，找到相应位置并插入。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">sort_insert</span><span class="params">(<span class="type">int</span>[] nums)</span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;nums.length-<span class="number">1</span>;i++)&#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">tmp</span> <span class="operator">=</span> nums[i];</span><br><span class="line">        <span class="type">int</span> <span class="variable">position</span> <span class="operator">=</span> i;</span><br><span class="line">        <span class="keyword">while</span>(position&gt;<span class="number">0</span> &amp;&amp; nums[position-<span class="number">1</span>]&gt;tmp)&#123;</span><br><span class="line">            nums[postion] = nums[position-<span class="number">1</span>];</span><br><span class="line">            position--;</span><br><span class="line">        &#125;</span><br><span class="line">        nums[position] = tmp;</span><br><span class="line">    &#125;</span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure>
+
+<h2 id="快速排序"><a href="#快速排序" class="headerlink" title="快速排序"></a>快速排序</h2><h2 id="归并排序"><a href="#归并排序" class="headerlink" title="归并排序"></a>归并排序</h2><p>采用分治法，将已有序的子序列合并，得到完全有序的子序列。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">sort_merge</span><span class="params">(<span class="type">int</span>[] nums)</span>&#123;</span><br><span class="line">    <span class="type">int</span> <span class="variable">temp</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">int</span>[nums.length];</span><br><span class="line">    mergeSort(nums, temp, <span class="number">0</span>, nums.length)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">mergeSort</span><span class="params">(<span class="type">int</span>[] nums, <span class="type">int</span> left, <span class="type">int</span> right)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(left&lt;right)&#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">middle</span> <span class="operator">=</span> (left+right)/<span class="number">2</span>;</span><br><span class="line">        mergeSort(nums, left, middle);</span><br><span class="line">        mergeSort(nums, middle+<span class="number">1</span>, right);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="堆排"><a href="#堆排" class="headerlink" title="堆排"></a>堆排</h2><h2 id="桶排"><a href="#桶排" class="headerlink" title="桶排"></a>桶排</h2><h2 id="Arrays-sort"><a href="#Arrays-sort" class="headerlink" title="Arrays.sort"></a>Arrays.sort</h2><p>长度小于47：双轴插排</p>
+<p>长度大于47小于286：双轴快排</p>
+<p>大于286或者初始数据基本有序：归并排序</p>
+<img src="https://img-blog.csdnimg.cn/img_convert/03bde6cbe9bc9366da0346ac9c102ce2.png" width=70%>
+
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/08/01/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Redis" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -308,8 +739,11 @@
 <p>至此，故障转移工作完成。</p>
 <h3 id="其他问题"><a href="#其他问题" class="headerlink" title="其他问题"></a>其他问题</h3><h4 id="主从节点移除"><a href="#主从节点移除" class="headerlink" title="主从节点移除"></a>主从节点移除</h4><p>Sentinel从不移除从节点，即使很长时间都不可用。这一点是非常有用的，因为当发生网络分区或者故障后，Sentinel需要正确的对恢复节点进行重新配置。经过故障转移，旧主节点将以从节点的角色加入集群，Sentinel会对他进行重新配置，让它从新的主节点执行主从复制。</p>
 <p>如果需要移除故障节点，需要依次向Sentinel节点发送<code>Sentinel Reset</code>命令，经过10秒，Sentinel会重新刷新它们的从节点列表，仅保存主节点INFO命令回复内容中的从节点。</p>
-<h4 id="脑裂问题"><a href="#脑裂问题" class="headerlink" title="脑裂问题"></a>脑裂问题</h4><p>redis的主从模式下脑裂是指因为网络问题，导致redis 主节点跟从节点和Sentinel集群处于不同的网络分区，此时因为Sentinel集群无法感知到 主节点的存在，就会将某一个从节点提升为主节点。此时就存在两个不同的主节点，就像一个大脑分裂成了两个。</p>
+<h4 id="脑裂问题"><a href="#脑裂问题" class="headerlink" title="脑裂问题"></a>脑裂问题</h4><p>redis的主从模式下脑裂是指因为网络问题，导致redis主节点跟从节点和Sentinel集群处于不同的网络分区，此时因为Sentinel集群无法感知到 主节点的存在，就会将某一个从节点提升为主节点。此时就存在两个不同的主节点，就像一个大脑分裂成了两个。</p>
 <p>集群脑裂问题中，如果客户端还在基于原来的主节点继续写入数据，那么新的主节点将无法同步这些数据，当网络问题解决之后，Sentinel 集群将原先的主节点降为从节点，此时再从新的主中同步数据，将会造成大量的数据丢失。</p>
+<p><strong>解决方案</strong></p>
+<p>min-slaves-to-write 3<br>min-slaves-max-lag 10</p>
+<p>第一个参数表示连接到master的最少slave数量<br>第二个参数表示slave连接到master的最大延迟时间<br>按照上面的配置，要求至少3个slave节点，且数据复制和同步的延迟不能超过10秒，否则的话master就会拒绝写请求，配置了这两个参数之后，如果发生集群脑裂，原先的master节点接收到客户端的写入请求会拒绝，就可以减少数据同步之后的数据丢失。</p>
 
       
 
@@ -393,6 +827,270 @@
 <li><strong>架构：主从复制、读写分离、负载均衡、集群</strong></li>
 <li><strong>合理SQL：测试、经验</strong></li>
 </ol>
+<h2 id="索引"><a href="#索引" class="headerlink" title="索引"></a>索引</h2><p>索引的出现是为了改善查询性能的，是帮助MySQL高效获取数据的数据结构。索引是在存储引擎层实现的，所以没有统一的索引标准，不同存储引擎的索引工作方式不同，也不是所有的引擎都支持所有的索引类型。</p>
+<h3 id="索引分类"><a href="#索引分类" class="headerlink" title="索引分类"></a>索引分类</h3><ol>
+<li>主键索引</li>
+</ol>
+<p>主键是一种特殊的唯一索引，不允许有空值。一般是在建表的时候同时创建主键索引，并且一个表只能有一个主键。</p>
+<ol start="2">
+<li>普通索引</li>
+</ol>
+<p>MySQL 允许对两个或两个以上的列上创建索引，我们习惯上称之为<strong>联合索引</strong>(又叫复合索引，或者组合索引)。实际上，单列索引可以看成联合索引元素数为1的特例。</p>
+<ol start="3">
+<li>唯一索引</li>
+</ol>
+<p>唯一索引列的值必须唯一，但允许有空值。如果是联合索引，则列值的组合必须唯一。</p>
+<ol start="4">
+<li>全文索引</li>
+</ol>
+<p>全文索引是一种特殊类型的索引，通过建立<strong>倒排索引</strong>，快速匹配文档的方式。它查找的是文本中的<strong>关键字</strong>，而不是直接比较索引中的值。</p>
+<p>正排索引：以文档id作为关键字</p>
+<p><strong>倒排表</strong>以字或词为关键词进行索引，表中关键字所对应的记录表项记录了出现这个字或词的所有文档。由属性值来确定记录的位置，比如说通过关键词检索文档。</p>
+<p>倒排索引跟B+树一样，也是一种数据结构。一般利用关联数组，在辅助表中存储单词与文档中所在位置的映射。</p>
+<p>注：此处有一个问题，为什么不使用like+%，因为这种查询方式不能够使用索引，因此检索效率极低。</p>
+<p>全文索引跟其它几种索引类型的匹配方式完全不一样。它有许多需要注意的细节，比如停用词、词干和复数、布尔搜索等。另外，只有字段类型为 char、varchar 和 text 的字段才能设置全文索引。</p>
+<p><strong>创建全文索引：</strong></p>
+<p>① 在创建表时创建全文索引</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> fulltext_test (</span><br><span class="line">    id <span class="type">int</span>(<span class="number">11</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span> AUTO_INCREMENT,</span><br><span class="line">    content text <span class="keyword">NOT</span> <span class="keyword">NULL</span>,</span><br><span class="line">    tag <span class="type">varchar</span>(<span class="number">255</span>),</span><br><span class="line">    <span class="keyword">PRIMARY</span> KEY (id),</span><br><span class="line">    FULLTEXT KEY content_tag_fulltext(content,tag)  <span class="operator">/</span><span class="operator">/</span> 创建联合全文索引列</span><br><span class="line">) ENGINE<span class="operator">=</span>MyISAM <span class="keyword">DEFAULT</span> CHARSET<span class="operator">=</span>utf8;</span><br></pre></td></tr></table></figure>
+
+<p>② 在已存在的表上创建全文索引</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> fulltext index content_tag_fulltext</span><br><span class="line">    <span class="keyword">on</span> fulltext_test(content,tag);</span><br></pre></td></tr></table></figure>
+
+<p>③ 通过SQL语句创建全文索引</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">alter</span> <span class="keyword">table</span> fulltext_test</span><br><span class="line">    <span class="keyword">add</span> fulltext index content_tag_fulltext(content,tag);</span><br></pre></td></tr></table></figure>
+
+<p>全文索引使用match和against关键字来进行检索</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> fulltext_test </span><br><span class="line">    <span class="keyword">where</span> <span class="keyword">match</span>(content,tag) against(<span class="string">&#x27;xxx xxx&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<ol start="5">
+<li>空间索引</li>
+</ol>
+<p>空间索引用于地理数据存储，无需前缀查询，而是会从所有维度来索引数据。</p>
+<h3 id="创建索引"><a href="#创建索引" class="headerlink" title="创建索引"></a>创建索引</h3><ol>
+<li><p>使用 CREATE INDEX 语句（不能用这个创建主键索引）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">create&lt;索引名&gt; on &lt;表名&gt;（&lt;列名&gt;[&lt;长度&gt;][ASC|DESC]</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>使用 CREATE TABLE语句（在创建表的同时指定某列或者某几列为某种索引类型）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">create table fulltext_test (</span><br><span class="line">    id int(11) NOT NULL AUTO_INCREMENT,</span><br><span class="line">    content text NOT NULL,</span><br><span class="line">    tag varchar(255),</span><br><span class="line">    PRIMARY KEY (id),</span><br><span class="line">    FULLTEXT KEY content_tag_fulltext(content,tag)  // 创建联合全文索引列,content_tag_fulltext为索引别名</span><br><span class="line">) ENGINE=MyISAM DEFAULT CHARSET=utf8;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>使用 ALTER TABLE语句</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ALTER TABLE &lt;表名&gt; ADD INDEX [&lt;索引名&gt;][&lt;索引类型&gt;](&lt;列名&gt;,...)</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h3 id="删除索引"><a href="#删除索引" class="headerlink" title="删除索引"></a>删除索引</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DROP INDEX [indexName] ON mytable;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ALTER TABLE testalter_tbl DROP INDEX (c);</span><br></pre></td></tr></table></figure>
+
+<h3 id="MyISAM索引-和-InnoDB"><a href="#MyISAM索引-和-InnoDB" class="headerlink" title="MyISAM索引 和 InnoDB"></a>MyISAM索引 和 InnoDB</h3><h4 id="索引-实现"><a href="#索引-实现" class="headerlink" title="索引 实现"></a>索引 实现</h4><ol>
+<li>MyISAM 引擎使用 B+Tree 作为索引结构，叶节点的 <strong>data 域存放的是数据记录的地址</strong>。下图是 MyISAM 索引的原理图：</li>
+</ol>
+<img src="https://cdn.nlark.com/yuque/0/2022/png/29487745/1657288546949-f044c05f-d199-4073-9d15-998b5d782ef9.png" width=50%>
+
+<p>这里设表一共有三列，假设我们以 Col1 为主键，则上图是一个 MyISAM 表的主索引(Primary key)示意。可以看出 MyISAM 的索引文件仅仅保存数据记录的地址。在 MyISAM 中，主索引和辅助索引(Secondary key)在结构上没有任何区别，只是主索引要求 key 是唯一的，而辅助索引的 key 可以重复。如果我们在 Col2 上建立一个辅助索引，则此索引的结构如下图所示：</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2022/png/29487745/1657288673679-459940b8-c662-45da-a9c5-e3d3caa1e4bb.png" alt="img"></p>
+<p>同样也是一颗 B+Tree，data 域保存数据记录的地址。因此，MyISAM 中索引检索的算法为首先按照 B+Tree 搜索算法搜索索引，如果指定的 Key 存在，则取出其 data 域的值，然后以 data 域的值为地址，读取相应数据记录。</p>
+<p><strong>MyISAM 的索引方式也叫做“非聚集”的，之所以这么称呼是为了与 InnoDB 的聚集索引区分。</strong></p>
+<ol>
+<li>虽然 InnoDB 也使用 B+Tree 作为索引结构，但具体实现方式却与 MyISAM 截然不同。</li>
+</ol>
+<p><strong>第一个重大区别</strong>是 InnoDB 的<strong>数据文件本身就是索引文件</strong>。从上文知道，MyISAM 索引文件和数据文件是分离的，索引文件仅保存数据记录的地址。而在 InnoDB 中，表数据文件本身就是按 B+Tree 组织的一个索引结构，这棵树的叶节点 data 域保存了<strong>完整的数据记录</strong>。这个索引的 key 是数据表的主键，因此 InnoDB 表数据文件本身就是主索引。</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2022/png/29487745/1657289739785-8b0e29a9-ac50-4e3e-8791-c2f7ce3e2dae.png" alt="img"></p>
+<p>上图是 InnoDB 主索引(同时也是数据文件)的示意图，可以看到<strong>叶节点包含了完整的数据记录</strong>。这种索引叫做<strong>聚集</strong>索引。因为 InnoDB 的数据文件本身要按主键聚集，所以 InnoDB 要求表必须有主键(MyISAM 可以没有)，如果没有显式指定，则 MySQL 系统会自动选择一个可以唯一标识数据记录的列作为主键，如果不存在这种列，则 MySQL 自动为 InnoDB 表生成一个隐含字段作为主键，这个字段长度为6个字节，类型为长整形。</p>
+<p><strong>第二个与 MyISAM 索引的不同是 InnoDB 的辅助索引 data 域存储相应记录主键的值而不是地址</strong>。换句话说，InnoDB 的所有辅助索引都引用主键作为 data 域。例如，下图为定义在 Col3 上的一个辅助索引：</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2022/png/29487745/1657289822916-88cd9c44-6e48-4bbb-8c03-3c6035d69277.png" alt="img"></p>
+<h4 id="如何选择"><a href="#如何选择" class="headerlink" title="如何选择"></a>如何选择</h4><ol>
+<li>InnoDB支持事务，MyISAM不支持</li>
+<li>InnoDB支持外键，MyISAM不支持</li>
+<li>MyISAM适合查询以及插入为主的应用，InnoDB适合频繁修改以及涉及到安全性较高的应用</li>
+<li>InnoDB不支持FULLTEXT类型的索引</li>
+<li>InnoDB中不保存表的行数，如select count( * ) from table时，InnoDB需要扫描一遍整个表来计算有多少行，但是MyISAM只要简单的读出保存好的行数即可。注意的是，当count( * )语句包含where条件时MyISAM也需要扫描整个表</li>
+<li>InnoDB支持行锁</li>
+<li>清空整个表时，InnoDB是一行一行的删除，效率非常慢；MyISAM则会重建表</li>
+</ol>
+<p>如果应用程序一定要使用<strong>事务</strong>，毫无疑问你要选择INNODB引擎。但要注意，INNODB的行级锁是有条件的。在where条件没有使用主键时，照样会锁全表。比如DELETE FROM mytable这样的删除语句。但是如果应用程序<strong>对查询性能要求较高</strong>，就要使用MYISAM了。MYISAM索引和数据是分开的，而且其索引是压缩的，可以<strong>更好地利用内存</strong>。所以它的查询性能明显优于INNODB。压缩后的索引也能节约一些磁盘空间。MYISAM拥有<strong>全文索引</strong>的功能，这可以极大地优化LIKE查询的效率。</p>
+<h3 id="索引失效"><a href="#索引失效" class="headerlink" title="索引失效"></a>索引失效</h3><ol>
+<li><p>where语句中包含or时（使用or时并不是一定会索引失效，需要看or左右两边的查询列是否命中相同的索引）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">%如果user_id列有索引，这条语句就是可以命中索引的</span><br><span class="line">select * from `user` where user_id = 1 or user_id = 2</span><br><span class="line">%而无论age列是否有索引，都是无法命中索引的</span><br><span class="line">select * from `user` where user_id = 1 or age = 20;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>where语句中索引列使用了负向查询，可能会导致索引失效（但也不一定会失效，这要看Mysql优化器的判断）</p>
+<p>负向查询包括：NOT、!&#x3D;、&lt;&gt;、!&lt;、!&gt;、NOT IN、NOT LIKE</p>
+</li>
+<li><p>索引字段可以为null，使用 is null 或者 is not null 时，可能会导致索引失效</p>
+<p>单个索引其实使用is null或者is not null时，是可以命中索引的，但使用or进行连接时，就会索引失效了，这应该属于第一种索引失效的情况；但是有null值的字段会使索引比较更加复杂，使数据库的处理性能降低很多。</p>
+</li>
+<li><p>在索引列上使用内置函数，一定会导致索引失效</p>
+<p>比如下面语句中索引列login_time上使用了函数，会索引失效：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from `user` where DATE_ADD(login_time, INTERVAL 1 DAY) = 7;</span><br></pre></td></tr></table></figure>
+
+<p>4.1 隐式类型转换导致的索引失效</p>
+<p>比如下面语句中索引列user_id为varchar类型，不会命中索引</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from `user` where user_id = 12;</span><br></pre></td></tr></table></figure>
+
+<p>这是因为MySQL做了隐式类型转换，调用函数将user_id做了转换。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from `user` where CAST(user_id AS signed int) = 12;</span><br></pre></td></tr></table></figure>
+
+<p>4.2 隐式字符编码转换导致的索引失效</p>
+<p>当两个表之间做关联查询时，如果两个表中关联的字段字符编码不一致的话，MySQL可能会调用CONVERT函数，将不同的字符编码进行隐式转换从而达到统一。作用到关联的字段时，就会导致索引失效。</p>
+<p>比如下面这个语句，其中d.tradeid字符编码为utf8，而l.tradeid的字符编码为utf8mb4。因为utf8mb4是utf8的超集，所以MySQL在做转换时会用CONVERT将utf8转为utf8mb4。简单来看就是CONVERT作用到了d.tradeid上，因此索引失效。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select l.operator from tradelog l , trade_detail d where d.tradeid=l.tradeid and d.id=4;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>对索引列进行运算，一定会导致索引失效</p>
+</li>
+</ol>
+<p>   运算如+，-，*，&#x2F;等，如下：</p>
+   <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from `user` where age - 1 = 10;</span><br></pre></td></tr></table></figure>
+
+<p>   优化的话，要把运算放在值上，或者在应用程序中直接算好，比如：</p>
+   <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from `user` where age = 10 - 1;</span><br></pre></td></tr></table></figure>
+
+<ol start="6">
+<li><p>like通配符可能会导致索引失效</p>
+<p>like查询以%开头时，会导致索引失效。解决办法有两种：</p>
+<p>将%移到后面，如：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from `user` where `name` like &#x27;李%&#x27;;</span><br></pre></td></tr></table></figure>
+
+<p>利用覆盖索引(覆盖索引指select的数据列只用从索引中就能够取得，不必在数据库中读取)来命中索引。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select name from `user` where `name` like &#x27;%李%&#x27;;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>联合索引中，where中索引列违背最左匹配原则，一定会导致索引失效</p>
+</li>
+<li><p>MySQL优化器的最终选择，不走索引</p>
+<p>上面有提到，即使完全符合索引生效的场景，考虑到实际数据量等原因，最终是否使用索引还要看MySQL优化器的判断。当然你也可以在sql语句中写明强制走某个索引。</p>
+</li>
+</ol>
+<h3 id="mysql一般在哪些字段上建立索引"><a href="#mysql一般在哪些字段上建立索引" class="headerlink" title="mysql一般在哪些字段上建立索引"></a>mysql一般在哪些字段上建立索引</h3><ol>
+<li><p>表的主键和外键建立索引</p>
+<p>当对父表进行更新时，如果在子表中的外键没有使用外键，会在更新的过程中将整个子表锁定，而实际上并不需要锁定整个子表，而仅仅需要锁定子表中的几条记录。这样就会大大影响数据库访问的并发性，并且有可能造成死锁的情况。</p>
+<p>因此只有在<strong>外键不需要更新</strong>或<strong>表数据不需要删除</strong>时才不需要建立索引。因为一旦发生了上述两种情况，就会导致子表的全表查询</p>
+</li>
+<li><p>在order by和group by后建立索引</p>
+</li>
+<li><p>数据量超过300的表应该建立索引</p>
+</li>
+<li><p>经常与其他表进行连接的表的字段，应该在该字段上建立索引。</p>
+</li>
+<li><p>经常出现在where子句中的字段建立索引</p>
+</li>
+<li><p>不应该在字段比较长的字段上建立索引，因为会消耗大量的空间</p>
+</li>
+<li><p>对于经常频繁进行修改和插入的表应该少建立索引，因为在修改和插入之后，数据库会去维护索引，会消耗资源</p>
+</li>
+</ol>
+<h2 id="MySQL优化"><a href="#MySQL优化" class="headerlink" title="MySQL优化"></a>MySQL优化</h2><p>MySQL优化主要分为以下四大方面：</p>
+<ol>
+<li><strong>设计：存储引擎、字段类型、范式与逆范式</strong></li>
+<li><strong>功能：索引、缓存、分区分表</strong></li>
+<li><strong>架构：主从复制、读写分离、负载均衡、集群</strong></li>
+<li><strong>合理SQL：测试、经验</strong></li>
+</ol>
+<h3 id="设计"><a href="#设计" class="headerlink" title="设计"></a>设计</h3><h4 id="存储引擎"><a href="#存储引擎" class="headerlink" title="存储引擎"></a>存储引擎</h4><p>MySQL中主要的存储引擎有InnoDB（5.7版本中默认）、MyISAM、MEMORY、CSV等</p>
+<ol>
+<li><strong>InnoDB</strong>的关键属性包括：</li>
+</ol>
+<p>1）ACID<strong>事务</strong>特性支持，包括commit，rollback以及crash恢复的能力；</p>
+<p>2）<strong>行级</strong>别锁以及多版本并发控制MVCC；</p>
+<p>3）利用主键的<strong>聚簇索引</strong>（clustered index）在底层存储数据，提升对主键查询的IO性能；</p>
+<p>4）支持<strong>外键</strong>功能，管理数据的完整性。</p>
+<p>5）在InnoDB中存在着缓冲管理，通过缓冲池，将索引和数据全部缓存起来，加快查询的速度</p>
+<ol>
+<li><strong>MyISAM</strong></li>
+</ol>
+<p>1）不支持事务</p>
+<p>2）锁粒度是表级的</p>
+<p>3）通过key_buffer_size缓存索引，大大提高访问性能，减少产品IO。只会缓存索引，不缓存数据。</p>
+<p>4）读取速度快，占用资源少</p>
+<p>5）不支持外键约束，但支持全文索引</p>
+<h4 id="字段类型"><a href="#字段类型" class="headerlink" title="字段类型"></a>字段类型</h4><p>字段类型应该要满足需求，尽量要满足以下需求。</p>
+<p><strong>尽可能小（占用存储空间少）、尽可能定长（占用存储空间固定）、尽可能使用整数</strong></p>
+<p>MySQL支持的字段类型大致分为：</p>
+<ol>
+<li><p>数值类型</p>
+<p>1）预估存储的数据的取值范围，选取最合适的数据类型，例如枚举类用TINYINT</p>
+<p>2）当确定字段只有正数的时候，unsigned一定要带上，一方面是向其他开发者说明业务要求，另一方面是能够利用好存储空间。</p>
+<p>注：int(10)其中的10只是显示宽度()，对存储并无影响</p>
+</li>
+<li><p>时间日期类型</p>
+<p>绝大多数的业务场景还是使用 YYYY-MM-DD HH:MM:SS 的格式来进行存储</p>
+<p>datetime和timestamp我们该如何选择？</p>
+<p>timestamp只需要4个字节的存储空间，相比于datetime有很多的优势，如果考虑到存储空间大小时，同等情况下，选择timestamp会更省空间。</p>
+<p>但是timestamp只能存储1970到2038年的时间</p>
+</li>
+<li><p>字符串类型</p>
+<p>varchar 可变长，更加有效的利用空间</p>
+<p>char 一般用来存储定长字符串 像MD5后的密码</p>
+</li>
+</ol>
+<h4 id="范式与反范式"><a href="#范式与反范式" class="headerlink" title="范式与反范式"></a>范式与反范式</h4><h5 id="三大范式"><a href="#三大范式" class="headerlink" title="三大范式"></a>三大范式</h5><ol>
+<li><p>第一范式：列具有原子性，列不可再分</p>
+<p>例如地址，可以拆成省、市、区甚至更细分，并不具有原子性</p>
+</li>
+<li><p>第二范式：在满足第一范式的前提下，非主键列都依赖于主键</p>
+<p>要求表中的每列都与主键相关，但不能只与主键的某部分相关（针对联合主键）</p>
+<p>考虑一个订单明细表：【OrderDetail】（OrderID，ProductID，UnitPrice，Discount，Quantity，ProductName）。<br>因为我们知道在一个订单中可以订购多种产品，所以单单一个 OrderID 是不足以成为主键的，主键应该是（OrderID，ProductID）。显而易见 Discount（折扣），Quantity（数量）完全依赖（取决）于主键（OderID，ProductID），而 UnitPrice，ProductName 只依赖于 ProductID。所以 OrderDetail 表不符合 2NF。不符合 2NF 的设计容易产生冗余数据。<br>可以把【OrderDetail】表拆分为【OrderDetail】（OrderID，ProductID，Discount，Quantity）和【Product】（ProductID，UnitPrice，ProductName）来消除原订单表中UnitPrice，ProductName多次重复的情况。</p>
+</li>
+<li><p>第三范式：非主键列都直接依赖主键，不存在传递依赖。即不能存在：非主键列A依赖于非主键B，非主键B依赖于主键的情况</p>
+<p>考虑一个订单表【Order】（OrderID，OrderDate，CustomerID，CustomerName，CustomerAddr，CustomerCity）主键是（OrderID）。<br>其中 OrderDate，CustomerID，CustomerName，CustomerAddr，CustomerCity 等非主键列都完全依赖于主键（OrderID），所以符合 2NF。不过问题是 CustomerName，CustomerAddr，CustomerCity 直接依赖的是 CustomerID（非主键列），而不是直接依赖于主键，它是通过传递才依赖于主键，所以不符合 3NF。<br>通过拆分【Order】为【Order】（OrderID，OrderDate，CustomerID）和【Customer】（CustomerID，CustomerName，CustomerAddr，CustomerCity）从而达到 3NF。</p>
+</li>
+<li><p>反范式：违反范式规则的数据库设计理念</p>
+</li>
+</ol>
+<h5 id="范式的优点与缺点"><a href="#范式的优点与缺点" class="headerlink" title="范式的优点与缺点"></a>范式的优点与缺点</h5><p>优点：</p>
+<p>​	① 范式化的更新操作通常比反范式化要快，只需要修改较少数据</p>
+<p>​	② 当数据较好的范式化时，就只有很少或没有重复数据，所以只需要修改更少的数据</p>
+<p>​	③ 范式化的表通常更小，可以更好的存放在内存中，所以执行操作会更快</p>
+<p>​	④ 很少有多余的数据意味着检索列表数据时更少需要distinct或者group by语句</p>
+<p>缺点：</p>
+<p>​	① 通常表需要关联，稍微复杂一些的查询语句在符合范式的表上都可能需要至少一次的关联，可能会更多。这不但代价昂贵，也可能是一些索引策略无效。</p>
+<p>​	② 在执行数据库语句时，使得需要在一个索引中又排序又过滤。</p>
+<h5 id="反范式的优点与缺点"><a href="#反范式的优点与缺点" class="headerlink" title="反范式的优点与缺点"></a>反范式的优点与缺点</h5><p>优点：</p>
+<p>​	① 反范式化的表因为所有的数据都在一张表中，可以很好的避免关联</p>
+<p>​	② 对大部分查询最差的情况，即使表没有使用到索引，当数据比内存大时这可能比关联要快的多，因为这样避免了随机IO，一般全表查询是顺序IO。</p>
+<p>缺点：</p>
+<p>​	表格内的冗余较多，删除数据时候会造成表有些有用的信息丢失。</p>
+<p>规范化越高，那么<strong>产生的关系就越多</strong>，关系过多的直接结果就是<strong>导致表之间的连接操作越频繁</strong>，而表之间的连接操作是<strong>性能较低的操作</strong>，直接影响到査询的速度，所以，对于査询较多的应用，就需要根据实际情况运用逆规范化对数据进行设计，通过<strong>逆规范化来提高査询的性能</strong>。</p>
+<p>反规范的好处是<strong>降低连接操作的需求</strong>、降低外键和索引的数目，<strong>还可能减少表的数目</strong>，相应带来的问题是可能出现<strong>数据的完整性问题</strong>。<strong>加快查询速度，但会降低修改速度</strong>。因此，决定做反规范时，一定要权衡利弊，仔细分析应用的数据存取需求和实际的性能特点，好的索引和其他方法经常能够解决性能问题，而不必采用反规范这种方法。</p>
+<h3 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h3><h4 id="索引-1"><a href="#索引-1" class="headerlink" title="索引"></a>索引</h4><ol>
+<li><p>选择在什么样的字段上建立索引</p>
+</li>
+<li><p>索引失效的条件</p>
+</li>
+<li><p>索引优化</p>
+<p>① 建立聚集索引，聚集索引可以极大的提高查询速度</p>
+<p>② 常查询数据建立索引或者组合索引</p>
+<p>③ 最左前缀原则</p>
+<p>④ 较长的数据列建立前缀索引</p>
+<p>⑤ 不要建立无意义的索引</p>
+</li>
+</ol>
+<h4 id="缓存"><a href="#缓存" class="headerlink" title="缓存"></a>缓存</h4><p>​	缓存之所以有效，主要是因为程序运行时对内存和外存的访问呈现局部性特征，局部特征性为空间局部性和时间局部性两方面。时间局部性是指刚刚访问过的数据近期可能会再次被访问，空间局部性是指，某个位置被访问后，其相邻的位置的数据很可能被访问到，而MySQL的缓存机制就是把刚刚访问的数据以及未来即将访问到的数据保存到缓存中，甚至是高速缓存中，从而提高IO效率。</p>
+<p>按照缓存读写功能的不同，MySQL将缓存分为Buffer缓存和Cache缓存。</p>
+<p>Buffer缓存。由于硬盘的写入速度过慢，或者频繁的I&#x2F;O，对于硬盘来说是极大的效率浪费。那么可以等到缓存中储存一定量的数据之后，一次性的写入到硬盘中。Buffer 缓存主要用于写数据，提升I&#x2F;O性能。</p>
+<p>Cache 缓存。 Cache 缓存一般是一些访问频繁但是变更较少的数据，如果Cache缓存已经存储满，则启用LRU算法，进行数据淘汰。淘汰掉最远未使用的数据，从而开辟新的存储空间。不过对于特大型的网站，依靠这种策略很难缓解高频率的读请求，一般会把访问非常频繁的数据静态化，直接由nginx返还给用户。程序和数据库I&#x2F;O设备交互的越少，则效率越高。</p>
+<h4 id="分区分表"><a href="#分区分表" class="headerlink" title="分区分表"></a>分区分表</h4><h5 id="分表的类型"><a href="#分表的类型" class="headerlink" title="分表的类型"></a>分表的类型</h5><ol>
+<li><p>垂直分表</p>
+<p>对原始表的列进行拆分，根据一定的拆分规则，把一张表的列，拆分成多张表。例如将原始表中不常用的列拆分到一张表，将一些存储大数据量的字符拆到一张表，把经常使用的列拆分到一张表。</p>
+<p>垂直分表只是拆分了原始表的列，没有减少表的行，原来是多少行，还是多少行。</p>
+</li>
+<li><p>水平分表</p>
+<p>对行进行拆分，根据一定的拆分规则，把原先在一张表中的数据，分表存储到多张表中。如根据id取模，hash值，按日期月份等</p>
+<p>这样将原本存储在一张表中的数据，被分开存储到不同的表中，大大降低了单表的数据量。</p>
+</li>
+</ol>
+<h5 id="分区的类型"><a href="#分区的类型" class="headerlink" title="分区的类型"></a>分区的类型</h5><p>分区的意思是将<strong>同一表中不同行的记录分配到不同的物理文件中，几个分区就有几个.idb文件</strong>。</p>
+<ol>
+<li><p>垂直分区</p>
+<p>根据表中的列，进行垂直划分，使某些特定的列数据被集中在某一个分区中。如根据数据列使用频率</p>
+</li>
+<li><p>水平分区</p>
+<p>根据表中的行进行分区，把表中满足某种特性的数据，集中保存在某一个分区中。</p>
+</li>
+</ol>
+<h5 id="分区的好处"><a href="#分区的好处" class="headerlink" title="分区的好处"></a>分区的好处</h5><ul>
+<li>可以让单表存储更多的数据</li>
+<li>分区表的数据更容易维护，可以通过清楚整个分区批量删除大量数据，也可以增加新的分区来支持新插入的数据。另外，还可以对一个独立分区进行优化、检查、修复等操作</li>
+<li>部分查询能够从查询条件确定只落在少数分区上，速度会很快</li>
+<li>分区表的数据还可以分布在不同的物理设备上，从而搞笑利用多个硬件设备</li>
+</ul>
+<h3 id="架构"><a href="#架构" class="headerlink" title="架构"></a>架构</h3><h4 id="主从复制"><a href="#主从复制" class="headerlink" title="主从复制"></a>主从复制</h4><h4 id="读写分离"><a href="#读写分离" class="headerlink" title="读写分离"></a>读写分离</h4><h4 id="集群"><a href="#集群" class="headerlink" title="集群"></a>集群</h4><h3 id="合理SQL"><a href="#合理SQL" class="headerlink" title="合理SQL"></a>合理SQL</h3><h4 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h4><h4 id="经验"><a href="#经验" class="headerlink" title="经验"></a>经验</h4><p>服务器的硬盘、CPU、内存、网络都有影响到MySQL的性能。</p>
 
       
 
@@ -469,11 +1167,13 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="MySQL-三大日志"><a href="#MySQL-三大日志" class="headerlink" title="MySQL 三大日志"></a>MySQL 三大日志</h1><p><img src="https://guide-blog-images.oss-cn-shenzhen.aliyuncs.com/github/javaguide/01.png" alt="img"></p>
+        <h1 id="MySQL-三大日志"><a href="#MySQL-三大日志" class="headerlink" title="MySQL 三大日志"></a>MySQL 三大日志</h1><ul>
+<li><img src="https://img1.imgtp.com/2022/08/14/uQoMSUHQ.png" alt="1660487039675.png"></li>
+</ul>
 <h3 id="redolog（事务日志、重做日志，在磁盘上）"><a href="#redolog（事务日志、重做日志，在磁盘上）" class="headerlink" title="redolog（事务日志、重做日志，在磁盘上）"></a>redolog（事务日志、重做日志，在磁盘上）</h3><p><code>redo log</code>（重做日志）是<code>InnoDB</code>存储引擎独有的，它让<code>MySQL</code>拥有了崩溃恢复能力。比如 <code>MySQL</code> 实例挂了或宕机了，重启时，<code>InnoDB</code>存储引擎会使用<code>redo log</code>恢复数据，保证数据的持久性与完整性。</p>
-<p><img src="https://guide-blog-images.oss-cn-shenzhen.aliyuncs.com/github/javaguide/02.png" alt="img"></p>
+<p><img src="https://img1.imgtp.com/2022/08/14/mzn8zske.png" alt="1660487060942.png"></p>
 <p>MySQL是以页的形式存储数据的，查询一条数据，会从硬盘中把一页的数据加载出来，加载出来的数据叫做数据页（也叫脏页），会放到buffer poll中。然后下次再查询时，会先到缓冲池中查找，没有命中就再去硬盘加载，减少硬盘IO开销，提升性能。然后更新数据的时候，发现缓冲池中有需要更新的数据，就直接再缓冲池中更新。然后把“某个数据页上做了什么修改”记录到Redo log buffer中，接着刷盘到redo log中。</p>
-<p><img src="https://guide-blog-images.oss-cn-shenzhen.aliyuncs.com/github/javaguide/03.png" alt="img"></p>
+<p><img src="https://img1.imgtp.com/2022/08/14/yjBLkqR1.png" alt="1660487079536.png"></p>
 <p>理想情况，事务一提交就会进行刷盘操作，但实际上，刷盘的时机是根据策略来进行的。</p>
 <h4 id="刷盘时机"><a href="#刷盘时机" class="headerlink" title="刷盘时机"></a>刷盘时机</h4><p><code>InnoDB</code> 存储引擎为 <code>redo log</code> 的刷盘策略提供了 <code>innodb_flush_log_at_trx_commit</code> 参数，它支持三种策略：</p>
 <p>在计算机的操作系统中用户空间缓冲区的数据是无法直接写入磁盘的，中间必需经过操作系统缓冲区（OS Buffer）。因此，redo log buffer写入redo log file，实际上会先写入OS Buffer，然后再调用fsync()将其刷入到redo log file。</p>
@@ -483,7 +1183,8 @@
 <li>2：实时写，延时刷。表示每次事务提交时都只把 redo log buffer 内容写入 page cache。每次提交事务都将redo log buffer写入os buffer，但并不会马上调用fsync()刷入磁盘，而是间隔1秒调fsync()刷盘。相对于每次提交都写盘和每隔1秒写盘，实时写os buffer延时刷盘是一个数据一致性与性能的之间的折中方案。</li>
 </ul>
 <p><code>innodb_flush_log_at_trx_commit</code> 参数默认为 1 ，也就是说当事务提交时会调用 <code>fsync</code> 对 redo log 进行刷盘</p>
-<p>除了后台线程每秒<code>1</code>次的轮询操作，还有一种情况，当 <code>redo log buffer</code> 占用的空间即将达到 <code>innodb_log_buffer_size</code> 一半的时候，后台线程会主动刷盘。<img src="https://guide-blog-images.oss-cn-shenzhen.aliyuncs.com/github/javaguide/05.png" alt="img"></p>
+<p>除了后台线程每秒<code>1</code>次的轮询操作，还有一种情况，当 <code>redo log buffer</code> 占用的空间即将达到 <code>innodb_log_buffer_size</code> 一半的时候，后台线程会主动刷盘。</p>
+<p><img src="https://img1.imgtp.com/2022/08/14/mIksYB6B.png" alt="1660487127783.png"></p>
 <p>现在我们来思考一个问题： <strong>只要每次把修改后的数据页直接刷盘不就好了，还有 redo log 什么事？</strong></p>
 <p>它们不都是刷盘么？差别在哪里？</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span> Byte = 8bit</span><br><span class="line"><span class="number">1</span> KB = <span class="number">1024</span> Byte</span><br><span class="line"><span class="number">1</span> MB = <span class="number">1024</span> KB</span><br><span class="line"><span class="number">1</span> GB = <span class="number">1024</span> MB</span><br><span class="line"><span class="number">1</span> TB = <span class="number">1024</span> GB</span><br></pre></td></tr></table></figure>
@@ -500,7 +1201,7 @@
 <p>主备：备机只用来同步主机的数据，不对外提供服务</p>
 <p>主从：相较于备机，从机要对外提供读的操作</p>
 <p>主主：两台都是主机，同时对外提供读写操作（涉及到分布式ID的问题）</p>
-<p><img src="https://guide-blog-images.oss-cn-shenzhen.aliyuncs.com/github/javaguide/01-20220305234724956.png" alt="img"></p>
+<p><img src="https://img1.imgtp.com/2022/08/14/V0y4F6Rm.png" alt="1660487161222.png"></p>
 <p><code>binlog</code>会记录所有涉及更新数据的逻辑操作，并且是顺序写。</p>
 <h4 id="记录格式"><a href="#记录格式" class="headerlink" title="记录格式"></a>记录格式</h4><p><code>binlog</code> 日志有三种格式，可以通过<code>binlog_format</code>参数指定。</p>
 <ul>
@@ -509,10 +1210,10 @@
 <li><strong>mixed</strong></li>
 </ul>
 <p>指定<code>statement</code>，记录的内容是<code>SQL</code>语句原文，比如执行一条<code>update T set update_time=now() where id=1</code>，记录的内容如下。</p>
-<p><img src="https://guide-blog-images.oss-cn-shenzhen.aliyuncs.com/github/javaguide/02-20220305234738688.png" alt="img"></p>
+<p><img src="https://img1.imgtp.com/2022/08/14/VtXtWY7B.png" alt="1660487197219.png"></p>
 <p>同步数据时，会执行记录的<code>SQL</code>语句，但是有个问题，<code>update_time=now()</code>这里会获取当前系统时间，直接执行会导致与原库的数据不一致。</p>
 <p>为了解决这种问题，我们需要指定为<code>row</code>，记录的内容不再是简单的<code>SQL</code>语句了，还包含操作的具体数据，记录内容如下。</p>
-<p><img src="https://guide-blog-images.oss-cn-shenzhen.aliyuncs.com/github/javaguide/03-20220305234742460.png" alt="img"></p>
+<p><img src="https://img1.imgtp.com/2022/08/14/0ETi4PE3.png" alt="1660487214122.png"></p>
 <p><code>row</code>格式记录的内容看不到详细信息，要通过<code>mysqlbinlog</code>工具解析出来。</p>
 <p><code>update_time=now()</code>变成了具体的时间<code>update_time=1627112756247</code>，条件后面的@1、@2、@3 都是该行数据第 1 个~3 个字段的原始值（<strong>假设这张表只有 3 个字段</strong>）。</p>
 <p>这样就能保证同步数据的一致性，通常情况下都是指定为<code>row</code>，这样可以为数据库的恢复与同步带来更好的可靠性。</p>
@@ -523,18 +1224,18 @@
 <p>因为一个事务的<code>binlog</code>不能被拆开，无论这个事务多大，也要确保一次性写入，所以系统会给每个线程分配一个块内存作为<code>binlog cache</code>。</p>
 <p>我们可以通过<code>binlog_cache_size</code>参数控制单个线程 binlog cache 大小，如果存储内容超过了这个参数，就要暂存到磁盘（<code>Swap</code>）。</p>
 <p><code>binlog</code>日志刷盘流程如下</p>
-<p><img src="https://guide-blog-images.oss-cn-shenzhen.aliyuncs.com/github/javaguide/04-20220305234747840.png" alt="img"></p>
+<p><img src="https://img1.imgtp.com/2022/08/14/gGShtpjO.png" alt="1660487232334.png"></p>
+<p><strong>上图的 write，是指把日志写入到文件系统的 page cache，并没有把数据持久化到磁盘，所以速度比较快</strong></p>
 <ul>
-<li><strong>上图的 write，是指把日志写入到文件系统的 page cache，并没有把数据持久化到磁盘，所以速度比较快</strong></li>
 <li><strong>上图的 fsync，才是将数据持久化到磁盘的操作</strong></li>
 </ul>
 <p><code>write</code>和<code>fsync</code>的时机，可以由参数<code>sync_binlog</code>控制，默认是<code>0</code>。</p>
 <p>为<code>0</code>的时候，表示每次提交事务都只<code>write</code>，由系统自行判断什么时候执行<code>fsync</code>。</p>
-<p><img src="https://guide-blog-images.oss-cn-shenzhen.aliyuncs.com/github/javaguide/05-20220305234754405.png" alt="img"></p>
+<p><img src="https://img1.imgtp.com/2022/08/14/nZFmB2KC.png" alt="1660487274274.png"></p>
 <p>虽然性能得到提升，但是机器宕机，<code>page cache</code>里面的 binlog 会丢失。</p>
 <p>为了安全起见，可以设置为<code>1</code>，表示每次提交事务都会执行<code>fsync</code>，就如同 <strong>redo log 日志刷盘流程</strong> 一样。</p>
 <p>最后还有一种折中方式，可以设置为<code>N(N&gt;1)</code>，表示每次提交事务都<code>write</code>，但累积<code>N</code>个事务后才<code>fsync</code>。</p>
-<p><img src="https://guide-blog-images.oss-cn-shenzhen.aliyuncs.com/github/javaguide/06-20220305234801592.png" alt="img"></p>
+<p><img src="https://img1.imgtp.com/2022/08/14/Eiprzljy.png" alt="1660487303300.png"></p>
 <p>在出现<code>IO</code>瓶颈的场景里，将<code>sync_binlog</code>设置成一个比较大的值，可以提升性能。</p>
 <p>同样的，如果机器宕机，会丢失最近<code>N</code>个事务的<code>binlog</code>日志。</p>
 <h3 id="两阶段提交"><a href="#两阶段提交" class="headerlink" title="两阶段提交"></a>两阶段提交</h3><p><code>redo log</code>（重做日志）让<code>InnoDB</code>存储引擎拥有了崩溃恢复能力。</p>
@@ -545,14 +1246,13 @@
 <p>我们以<code>update</code>语句为例，假设<code>id=2</code>的记录，字段<code>c</code>值是<code>0</code>，把字段<code>c</code>值更新成<code>1</code>，<code>SQL</code>语句为<code>update T set c=1 where id=2</code>。</p>
 <p>假设执行过程中写完<code>redo log</code>日志后，<code>binlog</code>日志写期间发生了异常，会出现什么情况呢？</p>
 <p>由于<code>binlog</code>没写完就异常，这时候<code>binlog</code>里面没有对应的修改记录。因此，之后用<code>binlog</code>日志恢复数据时，就会少这一次更新，恢复出来的这一行<code>c</code>值是<code>0</code>，而原库因为<code>redo log</code>日志恢复，这一行<code>c</code>值是<code>1</code>，最终数据不一致。</p>
-<p><img src="https://guide-blog-images.oss-cn-shenzhen.aliyuncs.com/github/javaguide/03-20220305235104445.png" alt="img"></p>
 <p>为了解决两份日志之间的逻辑一致问题，<code>InnoDB</code>存储引擎使用<strong>两阶段提交</strong>方案。</p>
 <p>原理很简单，将<code>redo log</code>的写入拆成了两个步骤<code>prepare</code>和<code>commit</code>，这就是<strong>两阶段提交</strong>。</p>
-<p><img src="https://guide-blog-images.oss-cn-shenzhen.aliyuncs.com/github/javaguide/04-20220305234956774.png" alt="img"></p>
+<p><img src="https://img1.imgtp.com/2022/08/14/CtppnWiR.png" alt="1660487346955.png"></p>
 <p>使用<strong>两阶段提交</strong>后，写入<code>binlog</code>时发生异常也不会有影响，因为<code>MySQL</code>根据<code>redo log</code>日志恢复数据时，发现<code>redo log</code>还处于<code>prepare</code>阶段，并且没有对应<code>binlog</code>日志，就会回滚该事务。</p>
-<p><img src="https://guide-blog-images.oss-cn-shenzhen.aliyuncs.com/github/javaguide/05-20220305234937243.png" alt="img"></p>
+<p><img src="https://img1.imgtp.com/2022/08/14/2T6uK8AW.png" alt="1660487388405.png"></p>
 <p>再看一个场景，<code>redo log</code>设置<code>commit</code>阶段发生异常，那会不会回滚事务呢？</p>
-<p><img src="https://guide-blog-images.oss-cn-shenzhen.aliyuncs.com/github/javaguide/06-20220305234907651.png" alt="img"></p>
+<p><img src="https://img1.imgtp.com/2022/08/14/N0Ci4bFR.png" alt="1660487416038.png"></p>
 <p>并不会回滚事务，它会执行上图框住的逻辑，虽然<code>redo log</code>是处于<code>prepare</code>阶段，但是能通过事务<code>id</code>找到对应的<code>binlog</code>日志，所以<code>MySQL</code>认为是完整的，就会提交事务恢复数据。</p>
 <h3 id="undo-log（回滚日志）"><a href="#undo-log（回滚日志）" class="headerlink" title="undo log（回滚日志）"></a>undo log（回滚日志）</h3><p>undo log是mysql中比较重要的事务日志之一，顾名思义，undo log是一种用于撤销回退的日志，在事务没提交之前，MySQL会先记录更新前的数据到 undo log日志文件里面，当事务回滚时或者数据库崩溃时，可以利用 undo log来进行回退。</p>
 <p>undo log的两个功能：</p>
@@ -768,9 +1468,16 @@
 </li>
 </ol>
 <h3 id="分布式锁"><a href="#分布式锁" class="headerlink" title="分布式锁"></a>分布式锁</h3><ol>
-<li>基于数据库         创建一张锁表，想要锁住某个方法或者资源时，就在该表中增加一条记录，想要释放锁的时候就删除这条记录，根据主键的唯一性，如果其他请求来申请锁，也要插入同一条数据，插入不进去就代表有请求占有锁</li>
-<li>基于Redis            同上</li>
-<li>基于Zookeeper</li>
+<li><p>基于数据库         创建一张锁表，想要锁住某个方法或者资源时，就在该表中增加一条记录，想要释放锁的时候就删除这条记录，根据主键的唯一性，如果其他请求来申请锁，也要插入同一条数据，插入不进去就代表有请求占有锁</p>
+</li>
+<li><p>基于Redis           </p>
+<p>分布锁一般通过<code>redis</code>实现，主要通过<code>setnx</code>函数向<code>redis</code>保存一个<code>key，value</code>等于保存时的时间戳，并设置过期时间，然后返回<code>true</code>；</p>
+<p>当获得锁超过等待时间返回<code>false</code>；</p>
+<p>通过<code>key</code>获取<code>redis</code>保存的时间戳，如果<code>value</code>不为空，并且当前时间戳减去<code>value</code>值超过锁过期时间返回<code>false</code></p>
+<p>如果一次没有获得锁，则每隔一定时间（<code>10ms</code>或者<code>20ms</code>）再获取一次，直到超过等待时间返回<code>false</code>。</p>
+</li>
+<li><p>基于Zookeeper</p>
+</li>
 </ol>
 <h3 id="分布式事务（分布式事务（-图解-秒懂-史上最全-）-疯狂创客圈-博客园-cnblogs-com-）"><a href="#分布式事务（分布式事务（-图解-秒懂-史上最全-）-疯狂创客圈-博客园-cnblogs-com-）" class="headerlink" title="分布式事务（分布式事务（ 图解 + 秒懂 + 史上最全 ） - 疯狂创客圈 - 博客园 (cnblogs.com)）"></a>分布式事务（<a target="_blank" rel="noopener" href="https://www.cnblogs.com/crazymakercircle/p/13917517.html">分布式事务（ 图解 + 秒懂 + 史上最全 ） - 疯狂创客圈 - 博客园 (cnblogs.com)</a>）</h3><p><img src="https://img-blog.csdnimg.cn/20210710220330858.png" alt="在这里插入图片描述"></p>
 <p>分布式事务场景：</p>
@@ -926,7 +1633,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="ElasticSearch"><a href="#ElasticSearch" class="headerlink" title="ElasticSearch"></a>ElasticSearch</h1><h2 id="应用场景"><a href="#应用场景" class="headerlink" title="应用场景"></a>应用场景</h2><ol>
+        <h1 id="ElasticSearch"><a href="#ElasticSearch" class="headerlink" title="ElasticSearch"></a>ElasticSearch</h1><p>Elasticsearch 是一个<strong>分布式、高扩展、高实时的搜索与数据分析引擎</strong>。 它能很方便的使大量数据具有搜索、分析和探索的能力。</p>
+<h2 id="应用场景"><a href="#应用场景" class="headerlink" title="应用场景"></a>应用场景</h2><ol>
 <li>日志记录和分析</li>
 <li>采集和组合公共数据</li>
 <li>全文检索</li>
@@ -937,24 +1645,75 @@
 <p>doc_1：The quick brown fox jumped over the lazy dog</p>
 <p>doc_2：Quick brown foxes jump over lazy dogs in summer</p>
 <p>首先在es底层分词器会对doc进行分词，得到一个个term（单词），然后建立一个映射关系，记录存在各个单词的文档。首先我们分析一下各个单词存在的文档。</p>
-<p><img src="https://img2018.cnblogs.com/blog/1635748/201909/1635748-20190921150908711-86418854.png" alt="img"></p>
+<img src="https://img2018.cnblogs.com/blog/1635748/201909/1635748-20190921150908711-86418854.png" width=50%>
+
 <p>因为每个doc都是id唯一标识的，所以会简历一个映射关系。</p>
-<p><img src="https://img2018.cnblogs.com/blog/1635748/201909/1635748-20190927093518925-1292450326.png" alt="img"></p>
+<img src="https://img2018.cnblogs.com/blog/1635748/201909/1635748-20190927093518925-1292450326.png" width=30%>
+
 <p>当es建立了这种映射关系，当我们搜索一个单词的时候，就不需要遍历每个文档了。而且es的倒排索引进行term优化，比如说大小写转换、近义词转换、时态转换、单复数转换等等。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">1 大小写转换：Quick --&gt; quick</span><br><span class="line">2 近义词转换：mother --&gt; mom</span><br><span class="line">3 时态转换：jumped --&gt; jump</span><br><span class="line">4 单复数转换：dogs --&gt; dog</span><br><span class="line">......</span><br><span class="line">注意：不同的分词器的分词方式和算法都是不尽相同的。要注意这一点。</span><br></pre></td></tr></table></figure>
 
 <p>当es进行了term优化后，上面的倒排索引就变成了</p>
-<p><img src="https://img2018.cnblogs.com/blog/1635748/201909/1635748-20190921152042226-82774019.png" alt="img"></p>
-<h2 id="关键词"><a href="#关键词" class="headerlink" title="关键词"></a>关键词</h2><ol>
+<img src = "https://img2018.cnblogs.com/blog/1635748/201909/1635748-20190921152042226-82774019.png" width = 30%>
+
+
+
+<p>每一个文档都对应一个ID。倒排索引<strong>会按照指定语法对每一个文档进行分词</strong>，然后维护一张表，列举所有文档中出现的terms以及它们出现的文档ID和出现频率。搜索时同样会对关键词进行同样的分词分析，然后查表得到结果。</p>
+<p>假设有下列几条数据：</p>
+<p>ID    Name    Age    Sex<br>1     Kate    24     Female<br>2     John    24     Male<br>3     Bill    29     Male</p>
+<p>ID是Elasticsearch自建的文档id，那么Elasticsearch建立的索引如下：</p>
+<p>Name:<br>Term Posting List<br>Kate 1<br>John 2<br>Bill 3</p>
+<p>Age:<br>Term Posting List<br>24 [1,2]<br>29 3</p>
+<p>Sex:<br>Term Posting List<br>Female 1<br>Male [2,3]</p>
+<p>Elasticsearch分别为每个<strong>field</strong>都建立了一个倒排索引，Kate, John, 24, Female这些叫term，而 [1,2] 就是Posting List。Posting list就是一个int的数组，存储了所有符合某个term的文档id。通过posting list这种索引方式可以很快进行查找，比如要找age&#x3D;24的人。</p>
+<p><strong>Term Dictionary</strong></p>
+<p>Elasticsearch为了能快速找到某个term，将所有的term排序，二分法查找term，logN的查找效率，就像通过字典查找一样，这就是Term Dictionary。类似于传统数据库的B-Tree的，但是Term Dictionary较B-Tree的查询快。</p>
+<p><strong>Term Index</strong></p>
+<p>B-Tree通过减少磁盘寻道次数来提高查询性能，Elasticsearch也是采用同样的思路，直接通过内存查找term，不读磁盘，但是如果term太多，term dictionary也会很大，放内存不现实，于是有了<strong>Term Index</strong>，就像字典里的索引页一样，A开头的有哪些，term，分别在哪页，term index其实是一颗 (trie) 前缀树</p>
+<p><img src="https://img2018.cnblogs.com/blog/1604064/201903/1604064-20190314171955461-1909418546.png" alt="img"></p>
+<p>这棵树不会包含所有的term，它包含的是term的一些前缀。通过term index可以快速地定位到term dictionary的某个offset，然后从这个位置再往后顺序查找。</p>
+<p><img src="https://img2018.cnblogs.com/blog/1604064/201903/1604064-20190314172113702-1908039906.png" alt="img"></p>
+<p>所以term index不需要存下所有的term，而仅仅是他们的一些前缀与Term Dictionary的block之间的映射关系，再结合FST(Finite State Transducers)的压缩技术，可以使term index缓存到内存中。从term index查到对应的term dictionary的block位置之后，再去磁盘上找term，大大减少了磁盘随机读的次数。</p>
+<p>假设我们现在要将mop, moth, pop, star, stop, top (term index里的term前缀) 映射到序号：0，1，2，3，4，5 (term dictionary的block位置)。最简单的做法就是定义个Map，大家找到自己的位置取值即可，但从内存占用少的角度考虑，FST更节省空间。</p>
+<h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><ol>
 <li><p>集群：es是分布式的，由多个节点构成集群</p>
 </li>
-<li><p>节点：每个启动的ES实例就是一个节点，可以随时加入和脱离集群；一个节点不等于一台服务器</p>
+<li><p>节点：一个运行中的 Elasticsearch 实例称为一个节点，而集群是由一个或者多个拥有相同 <strong>cluster.name</strong> 配置的节点组成， 它们共同承担数据和负载的压力。</p>
+<p>ES集群中的节点有三种不同的类型：</p>
+<ul>
+<li>主节点：负责管理集群范围内的所有变更，例如增加、删除索引，或者增加、删除节点等。 主节点并不需要涉及到文档级别的变更和搜索等操作。可以通过属性node.master进行设置。</li>
+<li>数据节点：存储数据和其对应的倒排索引。默认每一个节点都是数据节点（包括主节点），可以通过node.data属性进行设置。</li>
+<li>协调节点：如果node.master和node.data属性均为false，则此节点称为协调节点，用来响应客户请求，均衡每个节点的负载。</li>
+</ul>
+<p><strong>一个节点不等于一台服务器</strong></p>
 </li>
-<li><p>索引：一堆文档相似的文档的集合</p>
+<li><p>索引：ES将数据存储在一个或者多个索引中，索引相当于SQL中的一个数据库。索引由其名称(必须为全小写字符)进行标识，并通过引用此名称完成文档的创建、搜索、更新及删除操作。一个ES集群中可以按需创建任意数目的索引。</p>
 </li>
-<li><p>文档：一条ES的记录</p>
+<li><p>类型：类型是索引内部的<strong>逻辑</strong>分区(category&#x2F;partition)，其意义完全取决于用户需求。因此，一个索引内部可定义一个或多个类型(type)。例如，在索引中，可以定义一个用于存储用户数据的类型，一个存储日志数据的类型，以及一个存储评论数据的类型。类比传统的关系型数据库领域来说，类型相当于 “表” 。</p>
+<p>Elasticsearch：<strong>index</strong>   –&gt;  <strong>type</strong>     –&gt;   <strong>doc</strong>   –&gt;  <strong>field</strong></p>
+<p>MySQL:          数据库  –&gt;   数据表 –&gt;    行     –&gt;  列</p>
+<p>为什么在ES 7.X中去除了类型这个概念？</p>
+<ul>
+<li><p>原因</p>
+<p>因为 Elasticsearch 设计初期，是直接查考了关系型数据库的设计模式，存在了 type（数据表）的概念。但是，其<strong>搜索引擎</strong>是<strong>基于 Lucene</strong> 的，这种 “<strong>基因</strong>” 决定了 type 是多余的。 Lucene 的<strong>全文检索功能</strong>之所以快，是因为 <strong>倒排索引</strong> 的存在。而这种倒排索引的生成是基于 index 的，而并非 type。多个type 反而会减慢搜索的速度。为了保持 Elasticsearch “<strong>一切为了搜索</strong>” 的宗旨，适当的做些改变（去除 type）也是无可厚非的，也是值得的。</p>
+<p>为何不是在 6.X 版本开始就直接去除 type，而是要逐步去除type？</p>
+<p>因为历史原因，前期 Elasticsearch 支持一个 index 下存在多个 type的，而且，有很多项目在使用 Elasticsearch 作为数据库。如果直接去除 type 的概念，不仅是<strong>很多应用 Elasticsearch 的项目</strong>将<strong>面临 业务、功能和代码的大改</strong>，而且对于 <strong>Elasticsearch 官方</strong>来说，<strong>也是一个巨大的挑战</strong>（这个是伤筋动骨的大手术，很多涉及到 type 源码是要修改的）。所以，权衡利弊，采取<strong>逐步过渡</strong>的方式，最终，推迟到 7.X 版本才完成 “<strong>去除 type</strong>”  这个 <strong>革命性的变革</strong>。</p>
+</li>
+</ul>
+</li>
+<li><p>文档（Document）</p>
+<p>文档是索引和搜索的原子单位，它是包含了一个或多个域（Field，列字段）的容器，基于JSON格式进行表示。文档由一个或多个域组成，每个域拥有一个名字及一个或多个值，有多个值的域通常称为 “多值域” 。每个文档可以存储不同的域集，但同一类型下的文档至应该有某种程度上的相似之处。</p>
+<p><strong>document路由原理（一个index会分为多个分片，因此涉及到document存到哪个分片上的问题）</strong></p>
+<p>①路由算法：shard &#x3D; hash(routing) % number_of_primary_shards</p>
+<p>②决定一个document在哪个shard上，最重要的一个值就是routing值，默认是_id，也可手动指定，相同的routing值，每次过来，从hash函数中，产出的hash值一定是相同的<br>例：手动指定一个routing value，比如 put &#x2F;index&#x2F;type&#x2F;id?routing&#x3D;user_id<br>③这就是primary shard数量不可变的原因（通过路由算法存放一个数据后，假设有3个primary_shards，然后hash(routing)&#x3D;21，那么shard&#x3D;0，所以数据被存放到P0，如果此时添加一个primary_shards，我们想要获取刚才加入的这个数据，此时再使用路由算法，算出来shard&#x3D;21%4&#x3D;1，但在P1找不到这个数据，间接的导致数据丢失）。</p>
 </li>
 <li><p>分片：</p>
+<p>一个索引中的数据保存在多个分片中，相当于水平分表。一个分片便是一个Lucene 的实例，它本身就是一个完整的搜索引擎。我们的文档被存储和索引到分片内，但是应用程序是直接与索引而不是与分片进行交互。</p>
+<p>ES实际上就是利用分片来实现分布式。分片是数据的容器，文档保存在分片内，<strong>分片又被分配到集群内的各个节点里</strong>。 当你的集群规模扩大或者缩小时， ES会自动的在各节点中迁移分片，使得数据仍然均匀分布在集群里。</p>
+<p>一个分片可以是主分片或者副本分片。 <strong>索引内任意一个文档都归属于一个主分片</strong>，所以主分片的数目决定着索引能够保存的最大数据量。一个副本分片只是一个主分片的拷贝。副本分片作为硬件故障时<strong>保护数据不丢失的冗余备份</strong>，并为搜索和返回文档等读操作提供服务。</p>
+<p>如果当前插入大量数据，那么会对es集群造成一定的压力，所以在插入大量数据前，也就是在建立索引的时候，我们最好把副本数设置为0；<strong>等数据建立完索引之后，在手动的将副本数更改到2，这样可以提高数据的索引效率</strong></p>
+<p>在索引建立的时候就已经确定了主分片数，但是副本分片数可以随时修改。默认情况下，一个索引会有5个主分片，而其副本可以有任意数量。</p>
+<p>主分片和副本分片的状态决定了集群的健康状态。每一个节点上都只会保存主分片或者其对应的一个副本分片，相同的副本分片不会存在于同一个节点中。如果集群中只有一个节点，则副本分片将不会被分配，此时集群健康状态为yellow，存在丢失数据的风险。</p>
 <p>a. es处理的最小单元，它只是保存了索引中所有数据的一部分。</p>
 <p>b. 一个分片是一个Lucene索引</p>
 <p>c.一个包含倒排索引的文件记录</p>
@@ -973,6 +1732,160 @@
 <p>f. 删除文档的时候不会真的删除</p>
 </li>
 </ol>
+<h2 id="写数据"><a href="#写数据" class="headerlink" title="写数据"></a>写数据</h2><p>当用户向一个节点提交了索引一个新文档的请求，该节点会根据路由选择确定新文档所在的分区，而每个节点都会保存每个分区所在节点的信息，协调节点会将请求发送给对应的节点，注意这个请求会发送给主分片，等主分片完成索引，会并行将请求发送到其所有副本分片，保证每个分片都持有最新数据。</p>
+<ul>
+<li><p>协调节点默认使用文档 ID 参与计算（也支持通过 routing），以便为路由提供合适的分片：shard &#x3D; hash(document_id) % (num_of_primary_shards)</p>
+</li>
+<li><p>当分片所在的节点接收到来自协调节点的请求后，会将请求写入到 Memory Buffer，然后定时（默认是每隔 1 秒）写入到 Filesystem Cache，这个从 Memory Buffer 到 Filesystem Cache 的过程就叫做 refresh；</p>
+</li>
+<li><p>当然在某些情况下，存在 Momery Buffer 和 Filesystem Cache 的数据可能会丢失， ES 是通过 <strong>translog</strong>的机制来保证数据的可靠性的。其实现机制是接收到请求后，同时也会写入到 translog 中，当 Filesystemcache 中的数据写入到磁盘中时，才会清除掉，这个过程叫做 flush；</p>
+</li>
+<li><p>在 flush 过程中，内存中的缓冲将被清除，内容被写入一个新段，段的 fsync 将创建一个新的提交点，并将内容刷新到磁盘，旧的 translog 将被删除并开始一个新的 translog。</p>
+</li>
+<li><p>flush 触发的时机是定时触发（默认 30 分钟）或者 translog 变得太大（默认为 512M）时；</p>
+<img src="https://img-blog.csdnimg.cn/img_convert/1bdc6c30d1be9b1bff83a683c64d2ac7.png" width=70%></li>
+</ul>
+<h2 id="读数据"><a href="#读数据" class="headerlink" title="读数据"></a>读数据</h2><p>可以通过 <code>doc id</code> 来查询，会根据 <code>doc id</code> 进行 hash，判断出来当时把 <code>doc id</code> 分配到了哪个 shard 上面去，从那个 shard 去查询。</p>
+<ul>
+<li>客户端发送请求到<strong>任意</strong>一个 node，成为 <code>coordinate node</code> 。</li>
+<li><code>coordinate node</code> 对 <code>doc id</code> 进行哈希路由，将请求转发到对应的 node，此时会使用 <code>round-robin</code> <strong>随机轮询算法</strong>，在 <code>primary shard</code> 以及其所有 replica 中随机选择一个，让读请求负载均衡（保证读请求能够分摊到不同的shard上）。</li>
+<li>接收请求的 node 返回 document 给 <code>coordinate node</code> 。</li>
+<li><code>coordinate node</code> 返回 document 给客户端。</li>
+</ul>
+<h2 id="更新和删除数据"><a href="#更新和删除数据" class="headerlink" title="更新和删除数据"></a>更新和删除数据</h2><ul>
+<li>删除和更新也都是写操作，但是 Elasticsearch 中的文档是不可变的，因此不能被删除或者改动以展示其变更；</li>
+<li>磁盘上的每个段都有一个相应的.del 文件。当删除请求发送后，文档并没有真的被删除，而是在.del文件中被标记为删除。该文档依然能匹配查询，但是会在结果中被过滤掉。当段合并时，在.del 文件中被标记为删除的文档将不会被写入新段。</li>
+<li>在新的文档被创建时， Elasticsearch 会为该文档指定一个版本号，当执行更新时，旧版本的文档在.del文件中被标记为删除，新版本的文档被索引到一个新段。旧版本的文档依然能匹配查询，但是会在结果中被过滤掉。</li>
+</ul>
+<h2 id="搜索数据"><a href="#搜索数据" class="headerlink" title="搜索数据"></a>搜索数据</h2><p>es 最强大的是做<a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=%E5%85%A8%E6%96%87%E6%A3%80%E7%B4%A2&spm=1001.2101.3001.7020">全文检索</a>，就是比如你有三条数据：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">java真好玩儿啊</span><br><span class="line">java好难学啊</span><br><span class="line">j2ee特别牛Copy to clipboardErrorCopied</span><br></pre></td></tr></table></figure>
+
+<p>你根据 <code>java</code> 关键词来搜索，将包含 <code>java</code> 的 <code>document</code> 给搜索出来。es 就会给你返回：java真好玩儿啊，java好难学啊。</p>
+<ul>
+<li><p>客户端发送请求到一个 <code>coordinate node</code> 。</p>
+</li>
+<li><p>协调节点将搜索请求转发到<strong>所有</strong>的 shard 对应的 <code>primary shard</code> 或 <code>replica shard</code> ，都可以。如果并行搜索的话，如果有比较多的副本shard，这样搜索请求就会被分摊到多个shard上，提高效率</p>
+</li>
+<li><p>query phase：每个 shard 将自己的搜索结果（其实就是一些 <code>doc id</code> ）返回给协调节点，由协调节点进行数据的合并、排序、分页等操作，产出最终结果。</p>
+</li>
+<li><p>fetch phase：接着由协调节点根据 <code>doc id</code> 去各个节点上<strong>拉取实际</strong>的 <code>document</code> 数据，最终返回给客户端。</p>
+<img src="https://img-blog.csdnimg.cn/f82dff1f5faa43b59217e8fdc516c1a0.png" width = 70%></li>
+</ul>
+<h2 id="Elasticsearch-的-master-选举流程？"><a href="#Elasticsearch-的-master-选举流程？" class="headerlink" title="Elasticsearch 的 master 选举流程？"></a>Elasticsearch 的 master 选举流程？</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">conf/elasticsearch.yml:</span><br><span class="line">    node.master: <span class="literal">true</span>/<span class="literal">false</span></span><br><span class="line">    node.data: <span class="literal">true</span>/<span class="literal">false</span></span><br></pre></td></tr></table></figure>
+
+<p>一个ElasticSearch集群是由多个节点构成的，节点又可以根据上述两个参数分为四种类型。</p>
+<p>当node.master&#x3D;true时，表示该接待你是一个master的候选节点，可以参与选举，在ES的文档中常被称作master-eligible node。ES在正常运行时只能有一个master，多于一个就发生了脑裂。当node.data为true时，这个节点作为一个数据节点，会存储分配在该node上的shard的数据并负责这些shard的写入、查询等。任何一个集群内的node<strong>都可以执行任何请求</strong>，其会负责将<strong>请求转发给对应的node</strong>进行处理，所以当node.master和node.data都为false时，这个节点可以作为一个类似proxy的节点，接受请求并进行转发、结果聚合等。</p>
+<h3 id="节点发现"><a href="#节点发现" class="headerlink" title="节点发现"></a>节点发现</h3><p>ZenDiscovery是ES自己实现的一套用于节点发现和选主等功能的模块，没有依赖Zookeeper等工具。</p>
+<p>简单来说，节点发现依赖以下配置：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">conf/elasticsearch.yml:</span><br><span class="line">    discovery.zen.ping.unicast.hosts: [<span class="number">1.1</span><span class="number">.1</span><span class="number">.1</span>, <span class="number">1.1</span><span class="number">.1</span><span class="number">.2</span>, <span class="number">1.1</span><span class="number">.1</span><span class="number">.3</span>]</span><br></pre></td></tr></table></figure>
+
+<p>这个配置可以看作是，在本节点到每个hosts中的节点建立一条边，当整个集群所有的node形成一个联通图时，所有节点都可以知道集群中有哪些节点，不会形成孤岛。</p>
+<h3 id="Master选举"><a href="#Master选举" class="headerlink" title="Master选举"></a>Master选举</h3><p>上面提到，集群中可能会有多个master-eligible node，此时就要进行master选举，保证只有一个当选master。如果有多个node当选为master，则集群会出现脑裂，脑裂会破坏数据的一致性，导致集群行为不可控，产生各种非预期的影响。</p>
+<p>为了避免产生脑裂，ES采用了常见的分布式系统思路，保证选举出的master被多数派(quorum)的master-eligible node认可，以此来保证只有一个master。这个quorum通过以下配置进行配置：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">conf/elasticsearch.yml:</span><br><span class="line">    discovery.zen.minimum_master_nodes: <span class="number">2</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="master选举谁发起，什么时候发起？"><a href="#master选举谁发起，什么时候发起？" class="headerlink" title="master选举谁发起，什么时候发起？"></a>master选举谁发起，什么时候发起？</h4><p>master选举当然是由master-eligible节点发起，当一个master-eligible节点发现满足以下条件时发起选举：</p>
+<ol>
+<li>该master-eligible节点的当前状态不是master。</li>
+<li>该master-eligible节点通过ZenDiscovery模块的ping操作询问其已知的集群其他节点，没有任何节点连接到master。</li>
+<li>包括本节点在内，当前已有超过minimum_master_nodes个节点没有连接到master。</li>
+</ol>
+<p>总结一句话，即当一个节点发现包括自己在内的多数派的master-eligible节点认为集群没有master时，就可以发起master选举。</p>
+<h4 id="当需要选举master时，选举谁？"><a href="#当需要选举master时，选举谁？" class="headerlink" title="当需要选举master时，选举谁？"></a>当需要选举master时，选举谁？</h4><p>根据源码来进行分析</p>
+<p>首先是选举谁的问题，如下面源码所示，选举的是排序后的第一个MasterCandidate（即master-eligible node）。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> MasterCandidate <span class="title function_">electMaster</span><span class="params">(Collection&lt;MasterCandidate&gt; candidates)</span> &#123;</span><br><span class="line">        <span class="keyword">assert</span> <span class="title function_">hasEnoughCandidates</span><span class="params">(candidates)</span>;</span><br><span class="line">        List&lt;MasterCandidate&gt; sortedCandidates = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;(candidates);</span><br><span class="line">        sortedCandidates.sort(MasterCandidate::compare);</span><br><span class="line">        <span class="keyword">return</span> sortedCandidates.get(<span class="number">0</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>那么是按照什么排序的？</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="built_in">int</span> <span class="title">compare</span>(<span class="params">MasterCandidate c1, MasterCandidate c2</span>)</span> &#123;</span><br><span class="line">   <span class="comment">// we explicitly swap c1 and c2 here. the code expects &quot;better&quot; is lower in a sorted</span></span><br><span class="line">   <span class="comment">// list, so if c2 has a higher cluster state version, it needs to come first.</span></span><br><span class="line">    <span class="built_in">int</span> ret = Long.compare(c2.clusterStateVersion, c1.clusterStateVersion);</span><br><span class="line">    <span class="keyword">if</span> (ret == <span class="number">0</span>) &#123;</span><br><span class="line">        ret = compareNodes(c1.getNode(), c2.getNode());</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ret;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>如上面源码所示，先根据节点的<strong>clusterStateVersion</strong>比较，<strong>clusterStateVersion</strong>越大，优先级越高。clusterStateVersion相同时，进入compareNodes，其内部按照节点的Id比较(Id为节点第一次启动时随机生成)。</p>
+<p>总结一下：</p>
+<ol>
+<li><p>当clusterStateVersion越大，优先级越高。这是为了保证新Master拥有最新的<strong>clusterState</strong>(即集群的meta)，避免已经commit的meta变更丢失。因为Master当选后，就会以这个版本的clusterState为基础进行更新。(一个例外是集群全部重启，所有节点都没有meta，需要先选出一个master，然后master再通过持久化的数据进行meta恢复，再进行meta同步)。</p>
+<p>clusterstateversion是集群状态数字版本号，每次更新version+1。</p>
+</li>
+<li><p>当clusterStateVersion相同时，<strong>节点的Id越小，优先级越高。即总是倾向于选择Id小的Node</strong>，这个Id是节点第一次启动时生成的一个随机字符串。之所以这么设计，应该是为了让选举结果尽可能稳定，不要出现都想当master而选不出来的情况。</p>
+</li>
+</ol>
+<h4 id="什么时候选举成功？"><a href="#什么时候选举成功？" class="headerlink" title="什么时候选举成功？"></a>什么时候选举成功？</h4><p>当一个master-eligible node(我们假设为Node_A)发起一次选举时，它会按照上述排序策略选出一个它认为的master。</p>
+<ul>
+<li>假设Node_A选Node_B当Master：</li>
+</ul>
+<p>Node_A会向Node_B发送join请求，那么此时：</p>
+<p>(1) 如果Node_B已经成为Master，Node_B就会把Node_A加入到集群中，然后发布最新的cluster_state, 最新的cluster_state就会包含Node_A的信息。相当于一次正常情况的新节点加入。对于Node_A，等新的cluster_state发布到Node_A的时候，Node_A也就完成join了。</p>
+<p>(2) 如果Node_B在竞选Master，那么Node_B会把这次join当作一张选票。对于这种情况，Node_A会等待一段时间，看Node_B是否能成为真正的Master，直到超时或者有别的Master选成功。</p>
+<p>(3) 如果Node_B认为自己不是Master(现在不是，将来也选不上)，那么Node_B会拒绝这次join。对于这种情况，Node_A会开启下一轮选举。</p>
+<ul>
+<li>假设Node_A选自己当Master：</li>
+</ul>
+<p>此时NodeA会等别的node来join，即等待别的node的选票，当收集到超过半数的选票时，认为自己成为master，然后变更cluster_state中的master node为自己，并向集群发布这一消息。</p>
+<p>按照上述流程，我们描述一个简单的场景来帮助大家理解：</p>
+<p>假如集群中有3个master-eligible node，分别为Node_A、Node_B、Node_C，选举优先级也分别为Node_A、Node_B、Node_C。三个node都认为当前没有master，于是都各自发起选举，选举结果都为Node_A(因为选举时按照优先级排序，如上文所述)。于是Node_A开始等join(选票)，Node_B、Node_C都向Node_A发送join，当Node_A接收到一次join时，加上它自己的一票，就获得了两票了(超过半数)，于是Node_A成为Master。此时cluster_state(集群状态)中包含两个节点，当Node_A再收到另一个节点的join时，cluster_state包含全部三个节点。</p>
+<ul>
+<li>Elasticsearch的选主是ZenDiscovery模块负责的，主要包含Ping（节点之间通过这个RPC来发现彼此）和Unicast（单播模块包含-一个主机列表以控制哪些节点需要ping通）这两部分。</li>
+<li>对所有可以成为master的节点（node master: true）根据nodeId字典排序，每次选举每个节点都把自己所知道节点排一次序，然后选出第一个（第0位）节点，暂且认为它是master节点。</li>
+<li>如果对某个节点的投票数达到一定的值（可以成为master节点数n&#x2F;2+1）并且该节点自己也选举自己，那这个节点就是master。否则重新选举一直到满足上述条件。</li>
+<li>master节点的职责主要包括集群、节点和索引的管理，不负责文档级别的管理；data节点可以关闭http功能。</li>
+</ul>
+<h2 id="Elasticsearch-集群脑裂问题？"><a href="#Elasticsearch-集群脑裂问题？" class="headerlink" title="Elasticsearch 集群脑裂问题？"></a>Elasticsearch 集群脑裂问题？</h2><p>脑裂问题，就是同一个集群中的不同节点，对于集群的状态，有了不一样的理解。</p>
+<p>由于并发访问量的提高，导致了我们两个节点的集群（分片数默认为5，副本为1，没有固定的master，都是集群中的节点，又做data又做master）状态变成了red，出现了大量的坏片，并且坏掉的都是主分片及其副本。分析发现，是ES集群出现了脑裂问题（俗称精神分裂），即集群中不同的节点对于master的选择出现了分歧，出现了多个master竞争，导致主分片和副本的识别也发生了分歧，对一些分歧中的分片标识为了坏片。</p>
+<ul>
+<li>“脑裂”问题可能的成因：</li>
+</ul>
+<p>网络问题：集群间的网络延迟导致一些节点访问不到master，认为master挂掉了从而选举出新的master，<strong>并对master上的分片和副本标红，分配新的主分片。</strong><br>节点负载：主节点的角色既为master又为data，访问量较大时可能会导致ES停止响应造成大面积延迟，此时其他节点得不到主节点的响应认为主节点挂掉了，会重新选取主节点。<br>内存回收：data 节点上的ES进程占用的内存较大，引发JVM的大规模内存回收，造成ES进程失去响应。</p>
+<ul>
+<li>脑裂问题解决方案：</li>
+</ul>
+<p>减少误判：discovery.zen ping_timeout 节点状态的响应时间，默认为3s，可以适当调大，如果master在该响应时间的范围内没有做出响应应答，判断该节点已经挂掉了。调大参数（如6s，discovery.zen.ping_timeout:6），可适当减少误判。</p>
+<p>选举触发：discovery.zen.minimum.master_nodes：1，该参数是用于控制选举行为发生的最小集群主节点数量。当备选主节点的个數大于等于该参数的值，且备选主节点中有该参数个节点认为主节点挂了，进行选举。官方建议为(n &#x2F; 2) +1，n为主节点个数（即有资格成为主节点的节点个数）。</p>
+<p>角色分离：即master节点与data节点分离，限制角色</p>
+<p>主节点配置为：node master: true，node data: false<br>从节点配置为：node master: false，node data: true</p>
+<h2 id="ES-调优"><a href="#ES-调优" class="headerlink" title="ES 调优"></a>ES 调优</h2><h3 id="设计阶段调优"><a href="#设计阶段调优" class="headerlink" title="设计阶段调优"></a>设计阶段调优</h3><p>（1）根据业务增量需求，采取基于日期模板创建索引，通过 roll over API 滚动索引；（<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_33941350/article/details/88012291">(31条消息) 高效管理 Elasticsearch 中基于时间的索引_weixin_33941350的博客-CSDN博客</a>）</p>
+<p>基于模板+时间+rollover api 滚动创建索引，举例：设计阶段定义：blog 索引的模板格式为：blog_index_时间戳的形式，每天递增数据。这样做的好处：不至于数据量激增导致单个索引数据量非常大，接近于上线 2 的32 次幂-1，索引存储达到了 TB+甚至更大。一旦单个索引很大，存储等各种风险也随之而来，所以要提前考虑+及早避免。</p>
+<p>（2）使用别名进行索引管理；</p>
+<p>（3）每天凌晨定时对索引做 force_merge 操作，以释放空间；</p>
+<p>（4）采取冷热分离机制，热数据存储到 SSD，提高检索效率；冷数据定期进行 shrink操作，以缩减存储；</p>
+<p>​	冷热数据分离存储，热数据（比如最近 3 天或者一周的数据），其余为冷数据。对于冷数据不会再写入新数据，可以考虑定期 force_merge 加 shrink 压缩操作，节省存储空间和检索效率。</p>
+<p>（5）采取 curator 进行索引的生命周期管理；</p>
+<p>（6）仅针对需要分词的字段，合理的设置分词器；</p>
+<p>（7）Mapping 阶段充分结合各个字段的属性，是否需要检索、是否需要存储等。……..  </p>
+<p>知识点—<strong>冷热分离</strong>（冷热数据是按照时间推移来区分的）</p>
+<p>冷数据（考虑低成本存储）：</p>
+<ol>
+<li>不允许更新，偶尔被查询</li>
+<li>对访问的响应时间要求不高，通常在1~10秒内都可以接受</li>
+</ol>
+<p>热数据（考虑读写性能）：</p>
+<ol>
+<li><p>被频繁查询或更新</p>
+</li>
+<li><p>对访问的响应时间要求很高，通常在10毫秒以内</p>
+</li>
+</ol>
+<p>因为通常情况下，为了支持热数据的操作特性，需要有较好的硬件配置，比如高性能CPU、大内存、SSD硬盘等等。随着时间的推移，系统里会积累越来越多的历史数据，如果依然采用高配置机器来存放这些使用频率非常低的数据，势必会带来非常高的成本。当然，如果数据量很小或者不计成本，那完全不需要考虑冷热区分，采用一个单体系统就可以应对所有事情了，比如MySQL。</p>
+<h3 id="写入调优"><a href="#写入调优" class="headerlink" title="写入调优"></a>写入调优</h3><p>（1）写入前副本数设置为 0；</p>
+<p>（2）写入前关闭 refresh_interval 设置为-1，禁用刷新机制；</p>
+<p>​		执行刷新操作的频率，这会使索引的最近更改对搜索可见，默认为1s，可以设置-1为禁用刷新，对于写入速率要求较高的场景，可以适当的加大对应的时长，减小磁盘io和segment的生成；</p>
+<p>（3）写入过程中：采取 bulk 批量写入；</p>
+<p>​		批量请求显然会大大提升写入速率，且这个速率是可以量化的，官方建议每次批量的数据物理字节数5-15MB是一个比较不错的起点，注意这里说的是物理字节数大小。文档计数对批量大小来说不是一个好指标。比如说，如果你每次批量索引 1000 个文档，记住下面的事实： 1000 个 1 KB 大小的文档加起来是 1 MB 大。 1000 个 100 KB 大小的文档加起来是 100 MB 大。 这可是完完全全不一样的批量大小了。批量请求需要在协调节点上加载进内存，所以批量请求的物理大小比文档计数重要得多。 从 5–15 MB 开始测试批量请求大小，缓慢增加这个数字，直到你看不到性能提升为止。然后开始增加你的批量写入的并发度（多线程等等办法）。 用iostat 、 top 和 ps 等工具监控你的节点，观察资源什么时候达到瓶颈。如果你开始收到 EsRejectedExecutionException ，你的集群没办法再继续了：至少有一种资源到瓶颈了。或者减少并发数，或者提供更多的受限资源（比如从机械磁盘换成 SSD），或者添加更多节点。</p>
+<p>（4）写入后恢复副本数和刷新间隔；</p>
+<p>（5）尽量使用自动生成的 id。</p>
+<p>​		当写入端使用特定的id将数据写入es时，es会去检查对应的index下是否存在相同的id，这个操作会随着文档数量的增加而消耗越来越大，所以如果业务上没有强需求，建议使用es自动生成的id，加快写入速率</p>
+<h3 id="查询调优"><a href="#查询调优" class="headerlink" title="查询调优"></a>查询调优</h3><p>（1）禁用 wildcard；</p>
+<p>（2）禁用批量 terms（成百上千的场景）；</p>
+<p>（3）充分利用倒排索引机制，能 keyword 类型尽量 keyword；</p>
+<p>（4）数据量大时候，可以先基于时间敲定索引再检索；</p>
+<p>（5）设置合理的路由机制</p>
+<h3 id="其他调优"><a href="#其他调优" class="headerlink" title="其他调优"></a>其他调优</h3><p>部署调优，业务调优等。</p>
+<h2 id="对于-GC-方面，在使用-Elasticsearch-时要注意什么？"><a href="#对于-GC-方面，在使用-Elasticsearch-时要注意什么？" class="headerlink" title="对于 GC 方面，在使用 Elasticsearch 时要注意什么？"></a><strong>对于 GC 方面，在使用 Elasticsearch 时要注意什么？</strong></h2><p>（1）倒排词典的索引需要常驻内存，无法 GC，需要监控 data node 上 segmentmemory 增长趋势。</p>
+<p>（2）各类缓存，field cache, filter cache, indexing cache, bulk queue 等等，要设置合理的大小，并且要应该根据最坏的情况来看 heap 是否够用，也就是各类缓存全部占满的时候，还有 heap 空间可以分配给其他任务吗？避免采用 clear cache等“自欺欺人”的方式来释放内存。</p>
+<p>（3）避免返回大量结果集的搜索与聚合。确实需要大量拉取数据的场景，可以采用scan &amp; scroll api 来实现。</p>
+<p>（4）cluster stats 驻留内存并无法水平扩展，超大规模集群可以考虑分拆成多个集群通过 tribe node 连接。</p>
+<p>（5）想知道 heap 够不够，必须结合实际应用场景，并对集群的 heap 使用情况做持续的监控。</p>
+<p>（6）根据监控数据理解内存需求，合理配置各类circuit breaker，将内存溢出风险降低到最低</p>
+<h2 id="在并发情况下，Elasticsearch-如果保证读写一致？"><a href="#在并发情况下，Elasticsearch-如果保证读写一致？" class="headerlink" title="在并发情况下，Elasticsearch 如果保证读写一致？"></a><strong>在并发情况下，Elasticsearch 如果保证读写一致？</strong></h2><p>（1）可以通过版本号使用乐观并发控制，以确保新版本不会被旧版本覆盖，由应用层来处理具体的冲突；</p>
+<p>（2）另外对于写操作，一致性级别支持 quorum&#x2F;one&#x2F;all，默认为 quorum，即只有当大多数分片可用时才允许写操作。但即使大多数可用，也可能存在因为网络等原因导致写入副本失败，这样该副本被认为故障，分片将会在一个不同的节点上重建。</p>
+<p>（3）对于读操作，可以设置 replication 为 sync(默认)，这使得操作在主分片和副本分片都完成后才会返回；如果设置 replication 为 async 时，也可以通过设置搜索请求参数_preference 为 primary 来查询主分片，确保文档是最新版本。</p>
 
       
 
@@ -1199,41 +2112,134 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="IO简介"><a href="#IO简介" class="headerlink" title="IO简介"></a>IO简介</h1><h2 id="IO编程模型"><a href="#IO编程模型" class="headerlink" title="IO编程模型"></a>IO编程模型</h2><p>用什么样的通道进行数据的发送和接收（异步&#x2F;同步、单通道&#x2F;双通道、有&#x2F;无缓冲、阻塞&#x2F;非阻塞）</p>
+        <h1 id="IO简介"><a href="#IO简介" class="headerlink" title="IO简介"></a>IO简介</h1><h1 id="JAVA-IO"><a href="#JAVA-IO" class="headerlink" title="JAVA IO"></a>JAVA IO</h1><h2 id="IO编程模型"><a href="#IO编程模型" class="headerlink" title="IO编程模型"></a>IO编程模型</h2><p>用什么样的通道进行数据的发送和接收（异步&#x2F;同步、单通道&#x2F;双通道、有&#x2F;无缓冲、阻塞&#x2F;非阻塞）</p>
 <h2 id="BIO"><a href="#BIO" class="headerlink" title="BIO"></a>BIO</h2><p><strong>同步阻塞IO</strong>（传统阻塞型），一个连接对应一个线程，即客户端有连接请求时服务器端就需要<strong>启动一个线程</strong>进行处理，如果这个连接不做任何事情会造成不必要的线程开销，可以通过<strong>线程池机制改善</strong>。一般适用于<strong>连接数目比较小且固定的架构</strong>，这种方式对服务器资源要求比较高。</p>
-<p><img src="C:\Users\16701\AppData\Roaming\Typora\typora-user-images\1656566938765.png" alt="1656566938765"></p>
 <p>BIO编程简单流程：</p>
 <ol>
-<li>服务器端启动一个SeverSocket，然后使用accept来等待客户端与之连接，并一直阻塞在这，直到客户端发来连接。</li>
-<li>客户端启动Socket对服务器进行通信，默认情况下服务器需要对每个客户建立一个线程与之通信。</li>
-<li>客户端发出请求后，先咨询服务器是否有线程响应，如果没有则会等待，或者被拒绝。</li>
-<li>如果有响应，客户端线程会等待请求结束后，再继续执行。</li>
+<li><p>服务器端启动一个<strong>SeverSocket</strong>，然后使用**accept()**来等待客户端与之连接，并一直阻塞在这，直到客户端发来连接。</p>
+</li>
+<li><p>客户端启动<strong>Socket</strong>对服务器进行通信，默认情况下服务器需要对每个客户建立一个线程与之通信。</p>
+</li>
+<li><p>客户端发出请求后，先咨询服务器是否有线程响应，如果没有则会等待，或者被拒绝。</p>
+</li>
+<li><p>如果有响应，客户端线程会等待请求结束后，再继续执行。</p>
+</li>
 </ol>
-<p><strong>注</strong>：建立连接后，如果当前线程暂时没有数据可读，则线程就阻塞在Read操作上，造成线程资源的浪费</p>
+<p><strong>注</strong>：建立连接后，如果当前线程暂时没有数据可读，则线程就阻塞在<strong>Read</strong>操作上，造成线程资源的浪费</p>
 <h2 id="NIO（面向缓冲区编程）"><a href="#NIO（面向缓冲区编程）" class="headerlink" title="NIO（面向缓冲区编程）"></a>NIO（面向缓冲区编程）</h2><p>java NIO 全称 java non-blocking IO，是指JDK提供的新的API。<strong>同步非阻塞</strong>，服务器实现模式为<strong>一个线程</strong>处理多个请求，即客户端发送的连接请求都会注册到<strong>多路复用器</strong>上，多路复用器轮询到连接有I&#x2F;O请求就进行处理。一般用于<strong>连接数目多且连接比较短</strong>的架构。</p>
-<p><strong>三大核心部分</strong>：Buffer和Channel之间是可以相互读写的</p>
-<h4 id="Channel"><a href="#Channel" class="headerlink" title="Channel"></a>Channel</h4><h4 id="Buffer"><a href="#Buffer" class="headerlink" title="Buffer"></a>Buffer</h4><p>本质上是一个可以读写数据的内存块。可以理解成是一个容器对象(含数组)，该对象提供了一组方法，可以更轻松地使用内存块，缓冲区对象内置了一些机制，能够跟踪和记录缓冲区的状态变化情况。Channel 提供从文件、网络读取数据的渠道，但是读取或写入的数据都必须经由 Buffer。</p>
-<p><img src="C:\Users\16701\AppData\Roaming\Typora\typora-user-images\1656576312966.png" alt="1656576312966"></p>
-<h4 id="Channel-1"><a href="#Channel-1" class="headerlink" title="Channel"></a>Channel</h4><p><img src="C:\Users\16701\AppData\Roaming\Typora\typora-user-images\1656575012782.png" alt="1656575012782"></p>
-<ol>
-<li><p>每个 channel 都会对应一个 Buffer</p>
-</li>
-<li><p>Selector 对应一个线程，一个线程对应多个 channel(连接)</p>
-</li>
-<li><p>该图反应了有三个 channel 注册到该 selector</p>
-</li>
-<li><p>程序切换到哪个 channel 是由事件决定的， Event 就是一个重要的概念</p>
-</li>
-<li><p>Selector 会根据不同的事件，在各个通道上切换</p>
-</li>
-<li><p>Buffer 就是一个内存块 ，底层是有一个数组</p>
-</li>
-<li><p>数据的读取写入是通过 Buffer, 这个和 BIO有本质区别，BIO 中要么是输入流，或者是输出流，不能双向，但是 NIO 的 Buffer 是可以读也可以写，需要 flip 方法切换。</p>
-</li>
-<li><p>channel是双向的，可以返回底层操作系统的情况，比如 Linux，底层的操作系统通道就是双向的</p>
-</li>
+<p>NIO的三大核心部分： Selector、Buffer、channel。</p>
+<p>服务器端：首先开启一个ServerSocketchannel，这个ServerSocketchannel相当于BIO中的ServerSocket，ServerSocketchannel通过bind函数绑定所要监听的端口，然后将ServerSocketchannel注册到selector上。</p>
+<p>遍历selector中的通道，判断通道是否准备就绪，并执行相应的业务（比如说处理连接的通道发现有连接进来，就再新建一个通道；如果有通道有读写操作，就执行相应的读写操作。但整个过程也是同步的，要前面的事件执行完再去执行下一个事件，但是这个通道没有IO请求，也就不会阻塞在这），把数据写到通道中，或者读取到缓冲区中。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args) throws  Exception&#123;</span><br><span class="line">        //创建ServerSocketChannel，--&gt;&gt; ServerSocket</span><br><span class="line">        ServerSocketChannel serverSocketChannel = ServerSocketChannel.open();</span><br><span class="line">        InetSocketAddress inetSocketAddress = new InetSocketAddress(5555);</span><br><span class="line">        serverSocketChannel.socket().bind(inetSocketAddress);</span><br><span class="line">        serverSocketChannel.configureBlocking(false); //设置成非阻塞</span><br><span class="line"> </span><br><span class="line">        //开启selector,并注册accept事件</span><br><span class="line">        Selector selector = Selector.open();</span><br><span class="line">        serverSocketChannel.register(selector, SelectionKey.OP_ACCEPT);</span><br><span class="line"> </span><br><span class="line">        while(true) &#123;</span><br><span class="line">            selector.select(2000);  //监听所有通道</span><br><span class="line">            //遍历selectionKeys</span><br><span class="line">            Set&lt;SelectionKey&gt; selectionKeys = selector.selectedKeys();</span><br><span class="line">            Iterator&lt;SelectionKey&gt; iterator = selectionKeys.iterator();</span><br><span class="line">            while (iterator.hasNext()) &#123;</span><br><span class="line">                SelectionKey key = iterator.next();</span><br><span class="line">                if(key.isAcceptable()) &#123;  //处理连接事件</span><br><span class="line">                    SocketChannel socketChannel = serverSocketChannel.accept();</span><br><span class="line">                    socketChannel.configureBlocking(false);  //设置为非阻塞</span><br><span class="line">                    System.out.println(&quot;client:&quot; + socketChannel.getLocalAddress() + &quot; is connect&quot;);</span><br><span class="line">                    socketChannel.register(selector, SelectionKey.OP_READ); //注册客户端读取事件到selector</span><br><span class="line">                &#125; else if (key.isReadable()) &#123;  //处理读取事件</span><br><span class="line">                    ByteBuffer byteBuffer = ByteBuffer.allocate(1024);</span><br><span class="line">                    SocketChannel channel = (SocketChannel) key.channel();</span><br><span class="line">                    channel.read(byteBuffer);</span><br><span class="line">                    System.out.println(&quot;client:&quot; + channel.getLocalAddress() + &quot; send &quot; + new String(byteBuffer.array()));</span><br><span class="line">                &#125;</span><br><span class="line">                iterator.remove();  //事件处理完毕，要记得清除</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"> </span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p>客户端：开启一个SocketChannel，然后调用connect方法与服务器端进行连接。将数据从缓冲区写到通道或者从通道读数据到缓冲区</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args) throws Exception&#123;</span><br><span class="line">        SocketChannel socketChannel = SocketChannel.open();</span><br><span class="line">        socketChannel.configureBlocking(false);</span><br><span class="line">        InetSocketAddress inetSocketAddress = new InetSocketAddress(&quot;127.0.0.1&quot;, 5555);</span><br><span class="line"> </span><br><span class="line">        if(!socketChannel.connect(inetSocketAddress)) &#123;</span><br><span class="line">            while (!socketChannel.finishConnect()) &#123;</span><br><span class="line">                System.out.println(&quot;客户端正在连接中，请耐心等待&quot;);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"> </span><br><span class="line">        ByteBuffer byteBuffer = ByteBuffer.wrap(&quot;hello,world&quot;.getBytes());</span><br><span class="line">        socketChannel.write(byteBuffer);</span><br><span class="line">        socketChannel.close();</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="Selector"><a href="#Selector" class="headerlink" title="Selector"></a>Selector</h4><p>Selector能够检测多个注册的通道上是否有事件发生(注意:多个Channel以事件的方式可以注册到同一个Selector)，如果有事件发生，便获取事件然后针对每个事件进行相应的处理。这样就可以只用一个单线程去管理多个通道，也就是管理多个连接和请求。只有在通道真正有读写请求事件发生时，才会进行读写，大大的减少了系统开销。</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2022/png/29487745/1657029467115-9abbd67a-0ebb-4721-aec9-392a37bbbb19.png" alt="img"></p>
+<p><img src="https://cdn.nlark.com/yuque/0/2022/png/29487745/1657163677121-5a46e69a-ed59-4067-bb7e-15cebe77243b.png" alt="img"><img src="https://cdn.nlark.com/yuque/0/2022/png/29487745/1657163747366-fc3342d7-228f-4682-9399-ec7761011e57.png" alt="img"></p>
+<p>将channel注册（register方法）到selector上（每一个channel对应一个selectionKey，注册后会放入集合中），selector对这些通道进行监控，就是调用select方法，该方法会返回一个selectionKey类型的集合。一旦监控到有IO事件发生，得到有时间发生的selectionKey，通过selectionKey反向获取通道。</p>
+<p>注：select方法是一个阻塞方法，直到注册的channel里至少有一个事件发生才会返回；</p>
+<p>select(long timeout) timeout时间内阻塞</p>
+<p>selectNow() 非阻塞</p>
+<h4 id="Buffer"><a href="#Buffer" class="headerlink" title="Buffer"></a>Buffer</h4><p>本质上是一个可以读写数据的内存块。可以理解成是一个容器对象(含数组)，该对象提供了一组方法，可以更轻松地使用内存块，缓冲区对象内置了一些机制，能够跟踪和记录缓冲区的状态变化情况。Channel 提供从文件、网络读取数据的渠道，但是读取或写入的数据都必须经由 Buffer。</p>
+<h4 id="Channel"><a href="#Channel" class="headerlink" title="Channel"></a>Channel</h4><ol>
+<li>每个 channel 都会对应一个 Buffer </li>
+<li>Selector 对应一个线程，一个线程对应多个 channel(连接) </li>
+<li>该图反应了有三个 channel 注册到该 selector </li>
+<li>程序切换到哪个 channel 是由事件决定的， Event 就是一个重要的概念 </li>
+<li>Selector 会根据不同的事件，在各个通道上切换 </li>
+<li>Buffer 就是一个内存块 ，底层是有一个数组 </li>
+<li>数据的读取写入是通过 Buffer, 这个和 BIO有本质区别，BIO 中要么是输入流，或者是输出流，不能双向，但是 NIO 的 Buffer 是可以读也可以写，需要 flip 方法切换。 </li>
+<li>channel是双向的，可以返回底层操作系统的情况，比如 Linux，底层的操作系统通道就是双向的</li>
+</ol>
+<p>Java NIO的非阻塞模式，使一个线程从某通道发送请求或者读取数据，但是它仅能得到目前可用的数据，如果目前没有数据可用时，就什么都不会获取，而不是保持线程阻塞，所以直至数据变的可以读取之前，该线程可以继续做其他的事情。 非阻塞写也是如此，一个线程请求写入一些数据到某通道，但不需要等待它完全写入，这个线程同时可以去做别的事情。</p>
+<h2 id="BIO和NIO区别"><a href="#BIO和NIO区别" class="headerlink" title="BIO和NIO区别"></a>BIO和NIO区别</h2><ol>
+<li>BIO以流的方式处理数据，而NIO以块的方式处理数据，块I&#x2F;O的效率比流I&#x2F;O高很多</li>
+<li>BIO是阻塞的，NIO则是非阻塞的</li>
+<li>BIO基于字节流和字符流进行操作，而NIO基于Channel(通道)和Buffer(缓冲区)进行操作，数据总是从通道读取到缓冲区中，或者从缓冲区写入到通道中。Selector(选择器)用于监听多个通道的事件（比如：连接请求，数据到达等），因此使用单个线程就可以监听多个客户端通道</li>
 </ol>
 <h2 id="AIO"><a href="#AIO" class="headerlink" title="AIO"></a>AIO</h2><p><strong>异步非阻塞</strong>，jdk1.7引入，AIO 引入了异步通道的概念，采用了Proactor模式，简化了程序编写，有效的请求才启动线程，它的特点是先由操作系统完成后才通知服务端程序启动线程去处理，一般适用于<strong>连接数较多且连接时间较长</strong>的应用。</p>
+<h1 id="操作系统-IO"><a href="#操作系统-IO" class="headerlink" title="操作系统 IO"></a>操作系统 IO</h1><p>epoll管理成千上万的网络IO，epoll是实现事件循环的技术</p>
+<ol>
+<li>单线程epoll    redis</li>
+<li>多线程epoll    mamcached</li>
+<li>多进程epoll</li>
+</ol>
+<p><img src="https://cdn.nlark.com/yuque/0/2022/png/29487745/1657194977074-9d24db2f-53c7-41ce-84eb-febfb37369b2.png" alt="img"></p>
+<p>epoll 底层数据结构： 红黑树和就绪队列</p>
+<p>epoll在创建的时候，实际是创建了红黑树的root节点</p>
+<p>epoll由下面三个函数组成</p>
+<p>epoll_create</p>
+<p>epoll_ctl</p>
+<p>epoll_wait 多长时间去轮询一次，返回所有的IO中有多少个可读可写，比如说返回值用nready表示</p>
+<p><strong>redis：</strong></p>
+<p>然后对这些就绪好的事件进行轮询，判断事件类型，可以按照事件类型将事件大致分为两类：</p>
+<ol>
+<li>sockfd：相当于listenfd，然后执行accept方法</li>
+<li>其他类型事件：执行recv方法或者send方法</li>
+</ol>
+<p>上述是单线程，但如何兼容多核CPU：多开几个redis进程</p>
+<h2 id="互联网服务端处理网络请求的原理"><a href="#互联网服务端处理网络请求的原理" class="headerlink" title="互联网服务端处理网络请求的原理"></a>互联网服务端处理网络请求的原理</h2><p><strong>首先看看一个典型互联网服务端处理网络请求的典型过程：</strong><br><img src="https://cdn.nlark.com/yuque/0/2022/jpeg/29487745/1657199279694-8e22afb3-1f2e-4f55-a09f-7e24917141fd.jpeg" alt="img"><br><strong>由上图可以看到，主要处理步骤包括：</strong></p>
+<ul>
+<li>1）获取请求数据，客户端与服务器建立连接发出请求，服务器接受请求（1-3）；</li>
+<li>2）构建响应，当服务器接收完请求，并在用户空间处理客户端的请求，直到构建响应完成（4）；</li>
+<li>3）返回数据，服务器将已构建好的响应再通过内核空间的网络 I&#x2F;O 发还给客户端（5-7）。</li>
+</ul>
+<p><strong>设计服务端并发模型时，主要有如下两个关键点：</strong></p>
+<ul>
+<li>1）服务器如何管理连接，获取输入数据；</li>
+<li>2）服务器如何处理请求。</li>
+</ul>
+<p>以上两个关键点最终都与操作系统的 I&#x2F;O 模型以及线程(进程)模型相关，下面先详细介绍I&#x2F;O模型。</p>
+<h2 id="I-x2F-O-模型的基本认识"><a href="#I-x2F-O-模型的基本认识" class="headerlink" title="I&#x2F;O 模型的基本认识"></a>I&#x2F;O 模型的基本认识</h2><p><strong>介绍操作系统的 I&#x2F;O 模型之前，先了解一下几个概念：</strong></p>
+<ul>
+<li>1）阻塞调用与非阻塞调用；</li>
+<li>2）阻塞调用是指调用结果返回之前，当前线程会被挂起，调用线程只有在得到结果之后才会返回；</li>
+<li>3）非阻塞调用指在不能立刻得到结果之前，该调用不会阻塞当前线程。</li>
+</ul>
+<p>两者的最大区别在于被调用方在收到请求到返回结果之前的这段时间内，调用方是否一直在等待。</p>
+<p><strong>阻塞</strong>是指调用方一直在等待而且别的事情什么都不做；<strong>非阻塞</strong>是指调用方先去忙别的事情。</p>
+<p><strong>同步处理与异步处理：</strong>同步处理是指被调用方得到最终结果之后才返回给调用方；异步处理是指被调用方先返回应答，然后再计算调用结果，计算完最终结果后再通知并返回给调用方。</p>
+<p><strong>阻塞、非阻塞和同步、异步的区别（</strong>阻塞、非阻塞和同步、异步其实针对的对象是不一样的）<strong>：</strong></p>
+<ul>
+<li>1）阻塞、非阻塞的讨论对象是调用者；</li>
+<li>2）同步、异步的讨论对象是被调用者。</li>
+</ul>
+<p><strong>recvfrom 函数：</strong><br>recvfrom 函数(经 Socket 接收数据)，这里把它视为系统调用。</p>
+<p><strong>一个输入操作通常包括两个不同的阶段：</strong></p>
+<ul>
+<li>1）等待数据准备好；</li>
+<li>2）从内核向进程复制数据。</li>
+</ul>
+<p>对于一个套接字上的输入操作，第一步通常涉及等待数据从网络中到达。当所等待分组到达时，它被复制到内核中的某个缓冲区。第二步就是把数据从内核缓冲区复制到应用进程缓冲区。</p>
+<p>实际应用程序在<strong>系统调用完成上面的 2 步操作时，调用方式的阻塞、非阻塞</strong>，操作系统在<strong>处理应用程序请求时，处理方式的同步、异步处理</strong>的不同，可以分为 5 种 I&#x2F;O 模型（下面的章节将逐个展开介绍）。（参考《<a target="_blank" rel="noopener" href="http://www.52im.net/thread-1015-1-1.html">UNIX网络编程卷1</a>》）</p>
+<h3 id="I-x2F-O模型1：阻塞式-I-x2F-O-模型-blocking-I-x2F-O）"><a href="#I-x2F-O模型1：阻塞式-I-x2F-O-模型-blocking-I-x2F-O）" class="headerlink" title="I&#x2F;O模型1：阻塞式 I&#x2F;O 模型(blocking I&#x2F;O）"></a>I&#x2F;O模型1：阻塞式 I&#x2F;O 模型(blocking I&#x2F;O）</h3><p><img src="https://cdn.nlark.com/yuque/0/2022/jpeg/29487745/1657199279718-4b43cd90-4efd-4576-bf75-34e68a2b3c3d.jpeg" alt="img"></p>
+<p>在阻塞式 I&#x2F;O 模型中，应用程序在从调用 recvfrom 开始到它返回有数据报准备好这段时间是阻塞的，recvfrom 返回成功后，应用进程开始处理数据报。（也就是说读写完数据后进程才会去干其他事情）</p>
+<p><strong>比喻：</strong>一个人在钓鱼，当没鱼上钩时，就坐在岸边一直等。<br><strong>优点：</strong>程序简单，在阻塞等待数据期间进程&#x2F;线程挂起，基本不会占用 CPU 资源。<br><strong>缺点：</strong>每个连接需要独立的进程&#x2F;线程单独处理，当并发请求量大时为了维护程序，内存、线程切换开销较大，这种模型在实际生产中很少使用。</p>
+<h3 id="I-x2F-O模型2：非阻塞式-I-x2F-O-模型-non-blocking-I-x2F-O）"><a href="#I-x2F-O模型2：非阻塞式-I-x2F-O-模型-non-blocking-I-x2F-O）" class="headerlink" title="I&#x2F;O模型2：非阻塞式 I&#x2F;O 模型(non-blocking I&#x2F;O）"></a>I&#x2F;O模型2：非阻塞式 I&#x2F;O 模型(non-blocking I&#x2F;O）</h3><p><img src="https://cdn.nlark.com/yuque/0/2022/jpeg/29487745/1657199279706-6bf78fb0-1600-4667-8474-4ff2c8325ebf.jpeg" alt="img"></p>
+<p>在非阻塞式 I&#x2F;O 模型中，<strong>应用程序把一个套接口设置为****非阻塞</strong>，就是告诉内核，当所请求的 I&#x2F;O 操作无法完成时，不要将进程睡眠。</p>
+<p>而是返回一个错误，应用程序基于 I&#x2F;O 操作函数将不断的轮询数据是否已经准备好，如果没有准备好，继续轮询，直到数据准备好为止。</p>
+<p><strong>比喻：</strong>边钓鱼边玩手机，隔会再看看有没有鱼上钩，有的话就迅速拉杆。<br><strong>优点：</strong>不会阻塞在内核的等待数据过程，每次发起的 I&#x2F;O 请求可以立即返回，不用阻塞等待，实时性较好。<br><strong>缺点：</strong>轮询将会<strong>不断地询问内核，这将占用大量的 CPU 时间</strong>，系统资源利用率较低，所以一般 Web 服务器不使用这种 I&#x2F;O 模型。</p>
+<h3 id="I-x2F-O模型3：I-x2F-O-复用模型-I-x2F-O-multiplexing）"><a href="#I-x2F-O模型3：I-x2F-O-复用模型-I-x2F-O-multiplexing）" class="headerlink" title="I&#x2F;O模型3：I&#x2F;O 复用模型(I&#x2F;O multiplexing）"></a>I&#x2F;O模型3：I&#x2F;O 复用模型(I&#x2F;O multiplexing）</h3><p><img src="https://cdn.nlark.com/yuque/0/2022/jpeg/29487745/1657199279707-d2cbd993-4bab-4bcb-a6e5-23af565e13ca.jpeg" alt="img"></p>
+<p>在 I&#x2F;O 复用模型中，会用到 Select 或 Poll 函数或 Epoll 函数(Linux 2.6 以后的内核开始支持)，这两个函数也会使进程阻塞，但是和阻塞 I&#x2F;O 有所不同。</p>
+<p>这两个函数可以同时阻塞多个 I&#x2F;O 操作，而且可以同时对多个读操作，多个写操作的 I&#x2F;O 函数进行检测，直到有数据可读或可写时，才真正调用 I&#x2F;O 操作函数。</p>
+<p><strong>比喻：</strong>放了一堆鱼竿，在岸边一直守着这堆鱼竿，没鱼上钩就玩手机。<br><strong>优点：</strong>可以基于一个阻塞对象，同时在多个描述符上等待就绪，而不是使用多个线程(每个文件描述符一个线程)，这样可以大大节省系统资源。<br><strong>缺点：</strong>当连接数较少时效率相比多线程+阻塞 I&#x2F;O 模型效率较低，可能延迟更大，<strong>因为单个连接处理需要 2 次系统调用，占用时间会有增加。</strong><br>众所周之，Nginx这样的高性能互联网反向代理服务器大获成功的关键就是得益于Epoll。</p>
+<h3 id="I-x2F-O模型4：信号驱动式-I-x2F-O-模型（signal-driven-I-x2F-O"><a href="#I-x2F-O模型4：信号驱动式-I-x2F-O-模型（signal-driven-I-x2F-O" class="headerlink" title="I&#x2F;O模型4：信号驱动式 I&#x2F;O 模型（signal-driven I&#x2F;O)"></a>I&#x2F;O模型4：信号驱动式 I&#x2F;O 模型（signal-driven I&#x2F;O)</h3><p><img src="https://cdn.nlark.com/yuque/0/2022/jpeg/29487745/1657199279724-2a560f19-c961-4dfa-92c6-6bad8b7ad00c.jpeg" alt="img"></p>
+<p>在信号驱动式 I&#x2F;O 模型中，应用程序使用套接口进行信号驱动 I&#x2F;O，并安装一个信号处理函数，进程继续运行并不阻塞。</p>
+<p>当数据准备好时，进程会收到一个 SIGIO 信号，可以在信号处理函数中调用 I&#x2F;O 操作函数处理数据。</p>
+<p><strong>比喻：</strong>鱼竿上系了个铃铛，当铃铛响，就知道鱼上钩，然后可以专心玩手机。<br><strong>优点：</strong>线程并没有在等待数据时被阻塞，可以提高资源的利用率。<br><strong>缺点：</strong>信号 I&#x2F;O 在大量 IO 操作时可能会因为信号队列溢出导致没法通知。</p>
+<p>信号驱动 I&#x2F;O 尽管对于处理 UDP 套接字来说有用，即这种信号通知意味着到达一个数据报，或者返回一个异步错误。</p>
+<p>但是，对于 TCP 而言，信号驱动的 I&#x2F;O 方式近乎无用，因为导致这种通知的条件为数众多，每一个来进行判别会消耗很大资源，与前几种方式相比优势尽失。</p>
+<h3 id="I-x2F-O模型5：异步-I-x2F-O-模型（即AIO，全称asynchronous-I-x2F-O）"><a href="#I-x2F-O模型5：异步-I-x2F-O-模型（即AIO，全称asynchronous-I-x2F-O）" class="headerlink" title="I&#x2F;O模型5：异步 I&#x2F;O 模型（即AIO，全称asynchronous I&#x2F;O）"></a>I&#x2F;O模型5：异步 I&#x2F;O 模型（即AIO，全称asynchronous I&#x2F;O）</h3><p><img src="https://cdn.nlark.com/yuque/0/2022/jpeg/29487745/1657199316935-ebb432f2-7acf-4e80-927c-8556512b9493.jpeg" alt="img"></p>
+<p>由 POSIX 规范定义，应用程序告知内核启动某个操作，并让内核在整个操作（包括将数据从内核拷贝到应用程序的缓冲区）完成后通知应用程序。</p>
+<p>这种模型与信号驱动模型的主要区别在于：信号驱动 I&#x2F;O 是由内核通知应用程序何时启动一个 I&#x2F;O 操作，而异步 I&#x2F;O 模型是由内核通知应用程序 I&#x2F;O 操作何时完成。</p>
+<p><strong>优点：</strong>异步 I&#x2F;O 能够充分利用 DMA 特性，让 I&#x2F;O 操作与计算重叠。<br><strong>缺点：</strong>要实现真正的异步 I&#x2F;O，操作系统需要做大量的工作。目前 Windows 下通过 IOCP 实现了真正的异步 I&#x2F;O。</p>
+<p>而在 Linux 系统下，Linux 2.6才引入，目前 AIO 并不完善，因此在 Linux 下实现高并发网络编程时都是以 IO 复用模型模式为主。</p>
+<p>关于AIO的介绍，请见：《<a target="_blank" rel="noopener" href="http://www.52im.net/thread-306-1-1.html">Java新一代网络编程模型AIO原理及Linux系统AIO介绍</a>》。</p>
+<h3 id="5-种-I-x2F-O-模型总结"><a href="#5-种-I-x2F-O-模型总结" class="headerlink" title="5 种 I&#x2F;O 模型总结"></a>5 种 I&#x2F;O 模型总结</h3><p><img src="https://cdn.nlark.com/yuque/0/2022/jpeg/29487745/1657199316671-6b5247eb-2540-4121-a532-d58158923d83.jpeg" alt="img"></p>
+<p>从上图中我们可以看出，越往后，阻塞越少，理论上效率也是最优。</p>
+<p>这五种 I&#x2F;O 模型中，前四种属于同步 I&#x2F;O，因为其中真正的 I&#x2F;O 操作(recvfrom)将阻塞进程&#x2F;线程，只有异步 I&#x2F;O 模型才与 POSIX 定义的异步 I&#x2F;O 相匹配。</p>
 
       
 
@@ -1420,267 +2426,9 @@
 
 
   
-    <article id="post-java面经" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/06/09/java%E9%9D%A2%E7%BB%8F/">java面经</a>
-    </h1>
-  
-
-        <!--显示阅读次数-->
-        
-        <!--显示阅读次数完毕-->
-        
-        <a href="/2022/06/09/java%E9%9D%A2%E7%BB%8F/" class="archive-article-date">
-  	<time datetime="2022-06-09T15:28:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-09</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h4 id="一、Java基础"><a href="#一、Java基础" class="headerlink" title="一、Java基础"></a>一、Java基础</h4><h5 id="Java和C语言有什么区别？Java好在哪里？"><a href="#Java和C语言有什么区别？Java好在哪里？" class="headerlink" title="Java和C语言有什么区别？Java好在哪里？"></a><strong>Java和C语言有什么区别？Java好在哪里？</strong></h5><p><strong>内存管理</strong>：Java中不需要考虑内存的问题，如果想用一个对象，new一个就可以，当不再使用这个对象后，JVM会自动进行回收。而C需要使用malloc之类的方法申请内存，然后不想用了需要使用free去释放内存。</p>
-<p><strong>面向对象</strong>：Java是一门面向对象的编程语言，而C语言主要是面向过程的</p>
-<p><strong>解释与编译共存</strong>：Java是一门解释与编译并存的语言，而C语言是编译型语言。</p>
-<p>Java程序从源代码到运行的过程是这样的：.java文件—&gt;javac编译—&gt;.class文件—&gt;解释器和JIT即时编译器—&gt;机器码—&gt;OS</p>
-<p>.class—&gt;机器码这一步JVM<strong>加载器</strong>首先加载字节码文件，然后通过解释器逐行解释运行，但这种方式执行速度相对较慢。而且很多方法和代码块是被频繁调用的（热点代码），所以后面引进了JIT编译器，而JIT属于运行时编译，当JIT编译器完成第一次编译后，会将字节码对应的机器码保存下来，下次直接使用（也就是说热点代码基本上已经被编译成机器码保存了下来，而其他的代码可以通过解释器执行，这样就大大提高了程序运行效率）。JVM 会根据代码每次被执行的情况收集信息并相应地做出一些优化，因此执行的次数越多，它的速度就越快。</p>
-<p><strong>一次编译到处运行</strong>：Java是先从.java文件通过javac编译成字节码文件，然后这个字节码文件可以在任何操作系统的JVM上运行。当然其他语言编译成字节码文件后也可以在JVM上运行。因此Java的开发效率比较高。</p>
-<p><strong>开发效率高</strong>：C语言主要面向底层，像内存、CPU等；而Java不需要，虚拟机已经帮助解决很多底层方面的问题。</p>
-<p><strong>指针</strong>：Java 不提供指针来直接访问内存，程序内存更加安全</p>
-<h5 id="为什么Java要经过中间步骤转换为字节码，然后再用JVM执行Java字节码，而不能一步到位，直接从原始代码到执行结果？"><a href="#为什么Java要经过中间步骤转换为字节码，然后再用JVM执行Java字节码，而不能一步到位，直接从原始代码到执行结果？" class="headerlink" title="为什么Java要经过中间步骤转换为字节码，然后再用JVM执行Java字节码，而不能一步到位，直接从原始代码到执行结果？"></a><strong>为什么Java要经过中间步骤转换为字节码，然后再用JVM执行Java字节码，而不能一步到位，直接从原始代码到执行结果？</strong></h5><p>每次重新执行同样的代码都必须重新经过从源代码到机器语言之间的编译过程，而Java可以在编译成字节码后，在多平台运行。</p>
-<h5 id="怎么理解Java的跨平台性，一次编译到处运行？"><a href="#怎么理解Java的跨平台性，一次编译到处运行？" class="headerlink" title="怎么理解Java的跨平台性，一次编译到处运行？"></a><strong>怎么理解Java的跨平台性，一次编译到处运行？</strong></h5><p>简单地说就是编译后的Java程序可直接在不同的平台上的虚拟机运行，而不用重新编译。</p>
-<h5 id="面向对象和面向过程的区别？"><a href="#面向对象和面向过程的区别？" class="headerlink" title="面向对象和面向过程的区别？"></a><strong>面向对象和面向过程的区别？</strong></h5><p>​		面向过程是直接将解决问题的<strong>步骤</strong>分析出来，然后用函数把步骤<strong>一步一步</strong>实现，再<strong>依次调用</strong>就可以了；而面向对象是将构成问题的事物，分解成若干个对象，建立对象的目的不是为了完成一个步骤，而是为了<strong>描述某个事物在解决问题过程中的行为</strong>。面向过程思想偏向于我们做一件事的流程，首先做什么，其次做什么，最后做什么。面向对象思想偏向于了解一个人，这个人的性格、特长是怎么样的，有没有遗传到什么能力，有没有家族病史。</p>
-<p>​		面向过程的性能比面向对象高，因为类调用需要实例化，开销比较大，比较消耗资源。如单片机、嵌入式开发、Linux&#x2F;Unix等一般采用面向过程开发，因为在它们看来性能是最重要的因素。而面向对象易维护、易扩展（封装、继承和多态，容易设计高内聚低耦合的系统结构）、开发效率高（接近日常生活和自然的思考方式）</p>
-<h5 id="如何理解面向对象三大特性：封装、继承、多态？"><a href="#如何理解面向对象三大特性：封装、继承、多态？" class="headerlink" title="如何理解面向对象三大特性：封装、继承、多态？"></a><strong>如何理解面向对象三大特性：封装、继承、多态？</strong></h5><p><strong>封装：</strong>将类成员属性（数据）和类的方法（对数据的操作）捆绑到一起，形成对外界的隐藏，同时提供外界可以操作的接口。封装的意义在于保护或者防止代码被我们无形破坏，保护成员属性，不让类以外的程序直接访问和修改，隐藏方法细节。</p>
-<p><strong>继承：</strong>继承是在已有的类中派生出新的类，新的类能够吸收原有类的属性和行为，并能够扩展新的能力。继承能够反映现实生活中的真实关系，减少了代码冗余，对父类的代码和属性进行重写。子类不可以选择性的继承父类的属性和方法，而是要全部继承。（父类中的静态方法可以被继承但是不能被重写）</p>
-<p><strong>多态：</strong>父类引用指向不同子类实例对象。Java实现多态需要三个必要条件：继承、重写、向上转型。继承：在多态中必须存在有继承关系的子类和父类。重写：子类对父类中的某些方法进行重新定义，那么在调用方法时就会执行子类中的方法。向上转型：需要将子类的引用赋给父类对象，只有这样该引用才既能调用父类的方法，又能调用子类的方法。</p>
-<h5 id="类继承会有什么问题吗，一般什么情况下才会去用继承？"><a href="#类继承会有什么问题吗，一般什么情况下才会去用继承？" class="headerlink" title="类继承会有什么问题吗，一般什么情况下才会去用继承？"></a><strong>类继承会有什么问题吗，一般什么情况下才会去用继承？</strong></h5><p>a：子类只能继承父类所有非私有的成员(成员方法和成员变量)。但是可以通过暴力反射来获取。</p>
-<p>b：子类不能继承父类的构造方法，但是可以通过super关键字去访问父类构造方法。</p>
-<p>类继承<strong>打破了封装性</strong>，这迫使开发者要去了解超类的实现细节，导致了<strong>子类和超类的耦合</strong>，当父类改变时可能要相应地对子类做出改变。子类从父类继承的方法在编译时就确定下来了，所以无法在运行期间改变从父类继承的方法的行为。</p>
-<p><strong>继承是 is-a 的关系</strong></p>
-<h5 id="为什么重写equals方法还要重写hashcode方法？"><a href="#为什么重写equals方法还要重写hashcode方法？" class="headerlink" title="为什么重写equals方法还要重写hashcode方法？"></a><strong>为什么重写equals方法还要重写hashcode方法？</strong></h5><p>需要保证重写后的equals方法认定相同的对象的hashcode相等。</p>
-<h5 id="深克隆和浅克隆"><a href="#深克隆和浅克隆" class="headerlink" title="深克隆和浅克隆"></a><strong>深克隆和浅克隆</strong></h5><p>浅拷贝：在拷贝对象时，只对基本数据类型进行了拷贝，对于引用数据类型只是进行了引用地址的传递，而没有创建一个新的对象，这就是浅拷贝；</p>
-<p>深拷贝：相应地，对于引用数据类型进行拷贝时，创建了一个新的对象，并且复制了其内的成员变量，就叫做深拷贝。（深拷贝实现：1. 继续利用clone方法 2. 序列化这个对象）</p>
-<h5 id="反射相关"><a href="#反射相关" class="headerlink" title="反射相关"></a><strong>反射相关</strong></h5><p>反射指在运行状态时，对于任意一个类，都可以获取到这个类的全部属性和方法。对于任意一个对象，都能够调用它的任意方法和属性，并且可以改变它的属性，这种动态获取信息以及动态调用对象的方法的功能称为Java语言的反射机制。</p>
-<h5 id="注解的实现原理"><a href="#注解的实现原理" class="headerlink" title="注解的实现原理"></a><strong>注解的实现原理</strong></h5><p>注解的作用：</p>
-<p>1 生成文档。这是最常见的，也是Java 最早提供的注解。常用的有<code>@param</code> <code>@return</code> 等； 2 跟踪代码依赖性，实现替代配置文件功能。比如<code>Dagger 2</code> 依赖注入，未来java 开发，将大量注解配置，具有很大用处; 3 在编译时进行格式检查。如<code>@override</code> 放在方法前，如果你这个方法并不是覆盖了超类方法，则编译时就能检查出。</p>
-<p>注解的原理：</p>
-<p>注解本质是一个继承了<code>Annotation</code> 的特殊<strong>接口</strong>，在调用<code>getDeclaredAnnotations()</code>方法（通过反射方法获取）的时候，返回一个代理<code>$Proxy</code>对象，这个代理对象是由<code>jdk</code>动态代理创建，使用<code>Proxy</code>的<code>newProxyInstance</code>方法，传入接口和<code>InvocationHandler</code>的一个实例(也就是 <code>AnotationInvocationHandler</code>) ，最后返回一个实例。期间，在创建代理对象之前解析注解的时候，从该注解类的常量池中取出注解的信息，包括之前写到注解中的参数，然后将这些信息在创建 <code>AnnotationInvocationHandler</code> 时候，传入进去作为构造函数的参数。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">static class AnnotationInvocationHandler implements InvocationHandler&#123;</span><br><span class="line">    @Override</span><br><span class="line">    public Object invoke(Object proxy, Method method, Object[] args) throws Throwable &#123;</span><br><span class="line">   //处理注解的解析</span><br><span class="line">    &#125;    </span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">public static Object newProxyInstance(ClassLoader loader,</span><br><span class="line">                                      Class&lt;?&gt;[] interfaces,</span><br><span class="line">                                      InvocationHandler h)</span><br></pre></td></tr></table></figure>
-
-<p>newProxyInstance，方法有三个参数：<br>loader: 用哪个类加载器去加载代理对象<br>interfaces: 动态代理类需要实现的接口<br>h: 动态代理方法在执行时，会调用h里面的invoke方法去执行</p>
-<h5 id="Lambda表达式的优缺点？"><a href="#Lambda表达式的优缺点？" class="headerlink" title="Lambda表达式的优缺点？"></a><strong>Lambda表达式的优缺点？</strong></h5><p>优点：</p>
-<ul>
-<li><p>简洁。</p>
-</li>
-<li><p>非常容易并行计算。</p>
-</li>
-<li><p>结合 hashmap 的 computeIfAbsent 方法，递归运算非常快。java有针对递归的专门优化。</p>
-</li>
-</ul>
-<p>缺点：</p>
-<ul>
-<li>若不用并行计算，很多时候计算速度没有比传统的 for 循环快。（并行计算有时需要预热才显示出效率优势，并行计算目前对 Collection 类型支持的好，对其他类型支持的一般）</li>
-<li>不容易调试。</li>
-<li>若其他程序员没有学过 lambda 表达式，代码不容易让其他语言的程序员看懂。</li>
-<li>在 lambda 语句中强制类型转换貌似不方便，一定要搞清楚到底是 map 还是 mapToDouble 还是 mapToInt</li>
-</ul>
-<h5 id="Stream流式编程的好处？终止方法和延迟方法的区别是？终止方法存在的意义是什么？"><a href="#Stream流式编程的好处？终止方法和延迟方法的区别是？终止方法存在的意义是什么？" class="headerlink" title="Stream流式编程的好处？终止方法和延迟方法的区别是？终止方法存在的意义是什么？"></a><strong>Stream流式编程的好处？终止方法和延迟方法的区别是？终止方法存在的意义是什么？</strong></h5><h4 id="二、Java集合"><a href="#二、Java集合" class="headerlink" title="二、Java集合"></a>二、Java集合</h4><h5 id="HashMap底层实现"><a href="#HashMap底层实现" class="headerlink" title="HashMap底层实现"></a>HashMap底层实现</h5><p>JDK1.7使用数组+链表；JDK1.8使用数组+链表+红黑树</p>
-<p>链表会转化为红黑树的两个条件：<br>①链表的长度达到8；<br>②HashMap底层使用的table数组长度length达到64（当HashMap底层使用的table数组长度达到64时，链表的长度达到8这种情况不满足泊松分布，即出现的概率非常非常小，一般是存在恶意攻击，就是一直存入同样的值，因此此时将链表转换为红黑树）；<br>注：如果不满足后者，将会触发扩容方法</p>
-<p>链表长度大于8转化为红黑树，小于6红黑树转化为链表；为什么不直接设置成大于8转化成红黑树，小于8转化成链表；（中间有个差值7进行过渡是为了避免链表和树频繁转换，如果一个HashMap不停的插入、删除元素，链表个数在8左右徘徊，就会频繁的发生树转链表、链表转树，效率会很低）</p>
-<p>HashMap为什么要引进红黑树？为什么不用其他的平衡二叉树之类的？红黑树的优势在哪里？</p>
-<ol>
-<li>红黑树的五大特征：<br>a. 节点要么全为红色，要么为黑色<br>b. 根节点为黑色<br>c. 叶子节点为黑色<br>d. 从根节点到叶子节点不存在两个相邻的红色节点<br>e. 从任意节点到其每个叶子节点的所有路径包含相同数目的黑色节点</li>
-<li>根据红黑树的特征可知<br>a. 红黑树不追求“完全平衡”，它只要求部分地达到平衡要求，降低了对旋转的要求，从而提高了性能。红黑树的算法时间复杂度与平衡查找树相同，但统计性能比平衡二叉树更高<br>b.</li>
-</ol>
-<p>（AVL树的旋转比红黑树的旋转更加难以平衡和调试，需要更高的旋转次数）<br>HashMap扩容机制，即resize方法？（JDK 1.7 会重新计算每个元素的哈希值，JDK1.8是通过高位运算（e.hash &amp; oldCap）来确定元素是否需要移动，如果运算结果值为0，那么元素扩容后位置不变，结果值为1表示元素在扩容时位置发生了变化，新的下标位置等于原下标位置 + 原数组长度）<br>HashMap添加元素的步骤（put方法）、计算集合元素个数（size方法）<br>HashMap为什么是线程不安全的？（同时新增元素、同时扩容导致数据丢失，jdk1.7头部倒序插入出现死循环导致CPU占用100%）<br>HashMap默认的加载因子是0.75，为什么不设置成1或者0.5（从容量和性能考虑）<br>HashMap发生哈希冲突，新节点是插入到链表头部还是链表的尾部，头部倒序插入死循环是怎么产生的？（jdk1.7采用头部倒序插入，会导致死循环；jdk1.8使用尾部正序插入）<br>Hashtable怎么控制key value 不能为null？（当调用put方法时，首先会判断value是否为null，为null的话直接抛出空指针异常；对于key，由于Hashtable计算hash值是int hash &#x3D; key.hashCode();直接取对象的hashcode，key为null就会报空指针异常；而HashMap计算hash值是return (key &#x3D;&#x3D; null) ? 0 : (h &#x3D; key.hashCode()) ^ (h &gt;&gt;&gt; 16)，key为null则hash值为0）<br>ConcurrentHashMap底层采用的结构（分jdk1.7和jdk1.8），jdk1.7和jdk1.8分别采用什么方式实现线程安全？（jdk1.7采用分段锁，也就是为每一个segment加上ReentrantLock锁；jdk1.8使用的是CAS机制加上synchronized锁）<br>ConcurrentMap中的size方法是如何实现的？多线程操作下，如果一个线程在查size方法，一个线程在执行put方法，底层是如何控制每次计算出来的值是正确的？（<a target="_blank" rel="noopener" href="https://blog.csdn.net/chenyiminnanjing/article/details/82716180%EF%BC%89">https://blog.csdn.net/chenyiminnanjing/article/details/82716180）</a><br>HashSet的底层实现？（基于HashMap来实现的，new 一个 HashSet对象底层实际就是new了一个HashMap，并且使用默认的初始容量16和默认的加载因子0.75；当我们往HashSet里面添加一个元素其实就是往HashMap里面put了一个元素，并且是以key存在的，HashMap的value值都是一样的，是一个静态常量PRESENT，源码为：private static final Object PRESENT &#x3D; new Object(); ）<br>BlockingQueue（阻塞队列）如何实现生产者消费者模型？<br>线程安全的List有哪些？（Vector、CopyOnWriteArrayList、还可以使用Collections类的synchronizedList方法将线程不安全的List转为线程安全的）<br>为什么ArrayList查询速度快？（ArrayList底层是基于数组实现，可以根据元素下标进行查询，查询方式为（数组首地址+元素长度*下标，基于这个位置读取相应的字节数就可以了），如果数组存的是对象，怎么根据下标定位元素所在位置？（对象数组每个元素存放的是对象的引用，而引用类型如果开启指针压缩占用4字节，不开启则占用8字节，所以对象数组同样适用上面的公式）<br>ArrayList的扩容？（ArrayList底层是基于数组实现，所以创建ArrayList会给数组指定一个初始容量，默认值为10，因为必须指明数组的长度才能给数组分配空间；由于数组的特性，ArrayList扩容是创建一个更大的数组，然后将原来的元素拷贝到更大的数组中，扩容的核心方法是Arrays.copyOf方法）<br>ArrayList和LinkedList的区别，添加一个元素的时间复杂度各是多少，既然ArrayList添加元素效率没有LinkedList高，为什么我们平时用的比较多的还是ArrayList？<br>一般什么情况下会用ArrayList，什么情况用LinkedList？（如果只是普通的存取元素多用ArrayList，LinkedList一般用作栈、队列）<br>将一个Map集合变成栈，如何实现？（我的思路是用TreeMap去实现，key存的是要入栈的元素，value存的是可以记录他们入栈的一个先后顺序的，例如时间戳，然后重写Comparator比较器，根据value进行排序，遍历Map时，先进的后面出）<br>Map集合有迭代器吗？遍历输出Map中所有元素有哪些方法？</p>
-<h4 id="三、多线程和Java锁"><a href="#三、多线程和Java锁" class="headerlink" title="三、多线程和Java锁"></a>三、多线程和Java锁</h4><p>线程池的三大方法、七大参数、四种拒绝策略（可以顺带谈一下阿里巴巴开发手册对于线程池使用的规范）<br>创建线程的多种方式<br>最大线程数如何定义？（从CPU密集型和IO密集型考虑）<br>线程池的五种状态（Running、Shutdown、Stop、Tidying、Terminated）<br>线程池的任务执行流程、excute方法和 submit方法的区别？<br>Synchronized锁和Lock锁的区别<br>Java线程虚假唤醒（线程本应该处于wait状态却被唤醒了，解决方案是wait方法应该用while循环包裹，不用if）<br>JMM的三种特性（原子性、可见性、有序性）、主内存和线程工作内存的八种交互动作<br>volatile如何保证可见性（MESI缓存一致性协议）<br>volatile如何保证有序性（内存屏障——lock前缀指令）<br>synchronized和volatile的区别（volatile是一种非锁机制，这种机制可以避免锁机制引起的线程上下文切换和调度问题。因此，volatile的执行成本比synchronized更低；volatile只能保证可见性有序性；synchronized可以保证原子性可见性有序性）<br>JUC包中的原子类如何保证原子性？（CAS机制和自旋锁）<br>CAS机制，会引发什么问题，如何解决ABA问题？（CAS会导致ABA问题，解决ABA问题是使用版本号机制）<br>悲观锁和乐观锁的区别，应用？（java中的Synchronized关键字和lock锁使用的都是悲观锁；CAS机制是乐观锁的一种实现方式）<br>公平锁和非公平锁（公平锁按照先来先服务，不会出现饥饿；非公平锁会导致饥饿，但是效率更高，默认的锁都是非公平的）<br>自旋锁和互斥锁，自旋锁的优缺点？（优点：减少上下文切换和用户态内核态的切换带来的开销；缺点：循环等待消耗CPU）<br>可重入锁和不可重入锁（不可重入锁容易导致死锁发生，大多数锁都是可重入的，例如Synchronized锁和ReentrantLock）<br>JDK1.6 Synchronized锁升级（偏向锁—轻量级锁—重量级锁）<br>Synchronized锁的底层实现，锁的是什么，其它线程如何判断该锁已经被占用了？<br>死锁产生的四个必要条件以及死锁的处理策略</p>
-<h4 id="四、Mysql"><a href="#四、Mysql" class="headerlink" title="四、Mysql"></a>四、Mysql</h4><p>Myisam和InnoDB存储引擎的区别？（Myisam不支持外键也不支持事务，支持的是表锁，当执行select操作时，自动给涉及的表加表锁，当执行增删改操作，自动给涉及的表加写锁；InnoDB支持外键也支持事务，支持的是行锁，当执行select操作时，不加任何锁，当执行增删改操作，自动给涉及的行加写锁）<br>间隙锁是什么？行锁升级为表锁的情况？<br>InnoDB的行锁有哪些？锁住的是行还是索引？（Record Lock、Gap Lock、Next-Key Lock；锁住的是索引，而不是行）<br>为什么可重复读隔离级别也可以解决幻读？（通过Next-Key Lock可以消除幻读）<br>并发事务处理带来的四种问题和事务的隔离级别（丢失更新、脏读、不可重复读、幻读；读未提交、读已提交、可重复读、串行化）<br>如何理解Mysql默认的事务隔离级别可重复读？<br>事务的ACID属性是如何实现的？（原子性通过回滚日志undo log实现；持久性通过重做日志redo log实现；隔离性通过锁和MVCC实现；而一致性则是通过原子性、隔离性、持久性来实现，只有满足这三个特性，才能实现事务的一致性）<br>聚簇索引、非聚簇索引、回表查询、覆盖索引；<br>索引失效的情况？（违反最左前缀法则、范围查询右边的列索引失效、字符串不加单引号、对索引列进行运算、头部模糊匹配、使用不等于！&#x3D;或者&lt;&gt;）<br>explain分析执行计划、SQL语句的优化<br>mysql三大范式（1NF即原子性，2NF即消除部分依赖，3NF即消除传递依赖）<br>mysql索引的底层实现，为什么用B+树不用B树？（B+树IO次数更少、更适合范围查询、查询效率更加稳定）<br>哈希表查找速度不是更快吗，为什么不直接使用哈希表来做索引的底层数据结构？（哈希表不支持范围查找）</p>
-<h4 id="五、Redis"><a href="#五、Redis" class="headerlink" title="五、Redis"></a>五、Redis</h4><p>Redis五种基本数据类型的使用场景<br>缓存穿透、缓存击穿、缓存雪崩<br>Redis的过期策略和内存淘汰机制<br>Redis的zset底层数据结构，为什么用跳跃表而不用红黑树</p>
-<h4 id="六、框架相关"><a href="#六、框架相关" class="headerlink" title="六、框架相关"></a>六、框架相关</h4><p>Spring AOP的实现原理？（基于动态代理模式，如果目标类实现了接口，那么使用基于接口的动态代理，否则使用基于子类&#x2F;cglib的动态代理）<br>Spring AOP 的具体加载步骤？<br>AOP和OOP的区别，分别适用什么场景？<br>Spring Bean的作用域，Spring Bean的生命周期（Bean的实例化—初始化Bean—使用Bean—Bean的销毁）<br>Spring容器创建对象的两种时机，各有什么优缺点？（一是Spring容器启动时创建Bean，二是调用getBean方法时创建）<br>SpringMVC的执行流程（可以顺带讲一下适配器模式）<br>Mybatis的一级缓存和二级缓存？<br>Mybatis中#和$的区别？<br>Mybatis如何实现批量插入？<br>Mybatis的xml文件中，sql语句可以使用直接使用大于号小于号吗？应该用什么符号代替？</p>
-<h4 id="七、设计模式"><a href="#七、设计模式" class="headerlink" title="七、设计模式"></a>七、设计模式</h4><p>代理模式（应用：一是创建多线程的方式之使用Runnable接口应用了静态代理；二是Spring AOP应用了动态代理）<br>参考文章：<a target="_blank" rel="noopener" href="https://blog.csdn.net/can_chen/article/details/107827629">https://blog.csdn.net/can_chen/article/details/107827629</a></p>
-<p>适配器模式（应用：一是创建多线程的方式之使用Callable接口；二是SpringMVC中的HandleAdapter）<br>参考文章：<a target="_blank" rel="noopener" href="https://blog.csdn.net/can_chen/article/details/106968769">https://blog.csdn.net/can_chen/article/details/106968769</a></p>
-<p>工厂模式（应用：一是Spring IOC；二是Mybatis中的SqlSessionFactory就用到了简单工厂模式）<br>参考文章：<a target="_blank" rel="noopener" href="https://blog.csdn.net/can_chen/article/details/105924115">https://blog.csdn.net/can_chen/article/details/105924115</a></p>
-<p>单例模式（一般会需要手撕单例模式的代码，主要谈DCL模式关于指令重排的问题，以及反射可以破坏除枚举以外的几种方式；单例模式的应用有：一是Spring Bean的作用域默认就是使用单例模式；二是Mybatis中的ErrorContext类也使用了单例模式，这个类用于记录线程执行环境的错误信息）<br>参考文章：<a target="_blank" rel="noopener" href="https://blog.csdn.net/can_chen/article/details/105049999">https://blog.csdn.net/can_chen/article/details/105049999</a></p>
-<p>装饰器模式（应用：JAVA的IO流就用到了装饰器模式）<br>参考文章：<a target="_blank" rel="noopener" href="https://blog.csdn.net/can_chen/article/details/105786680">https://blog.csdn.net/can_chen/article/details/105786680</a></p>
-<p>装饰器模式和代理模式的区别？<br>参考文章：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/yanggb/p/10952843.html">https://www.cnblogs.com/yanggb/p/10952843.html</a></p>
-<p>策略模式（应用：Arrays类的sort方法就用到了策略模式，Comparator接口就是一个策略接口，将排序方法定义成一个策略，用户可以自定义排序策略，可以是升序也可以是降序）<br>参考文章：<a target="_blank" rel="noopener" href="https://blog.csdn.net/can_chen/article/details/106745298">https://blog.csdn.net/can_chen/article/details/106745298</a></p>
-<p>观察者模式与发布订阅模式的区别？（JDK源码已经为我们提供好了一套观察者模式，Observer就是观察者接口，Observable类是被观察者，是一个具体类，提供了一个存放所有观察者角色的集合，并且也提供了添加观察者、移除观察者、通知观察者等方法）<br>参考文章： <a target="_blank" rel="noopener" href="https://blog.csdn.net/hf872914334/article/details/88899326">https://blog.csdn.net/hf872914334/article/details/88899326</a></p>
-<h4 id="八、网络"><a href="#八、网络" class="headerlink" title="八、网络"></a>八、网络</h4><p>TCP三次握手和四次挥手的过程，每次发送的包的内容，客户端和服务端的状态？</p>
-<p>TCP三次握手可以携带数据吗？TCP协议运行时阶段？</p>
-<p>为什么是三次握手，可以四次握手或者两次握手吗？</p>
-<p>为什么握手是三次，而挥手要四次？</p>
-<p>TCP四次挥手为什么需要TIME-WAIT阶段等待2MSL，是哪一方有TIME-WAIT阶段？（主动释放释放连接的那端）</p>
-<p>TCP的长连接和短连接（<a target="_blank" rel="noopener" href="http://blog.sina.com.cn/s/blog_6d39b5be0101k6v4.html%EF%BC%89">http://blog.sina.com.cn/s/blog_6d39b5be0101k6v4.html）</a></p>
-<p>半连接队列和全连接队列，什么是syn flood攻击，如何应对syn flood攻击？（<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/ff26312e67a9%EF%BC%89">https://www.jianshu.com/p/ff26312e67a9）</a></p>
-<p>在浏览器中输入一个网址回车后发生了什么？(<a target="_blank" rel="noopener" href="https://www.cnblogs.com/tisikcci/p/5866753.html">https://www.cnblogs.com/tisikcci/p/5866753.html</a>)</p>
-<p>域名解析过程的递归查询和迭代查询（<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_42061048/article/details/80170991%EF%BC%89">https://blog.csdn.net/weixin_42061048/article/details/80170991）</a></p>
-<p>浏览器输入一个网址之后，按照TP&#x2F;IP参考模型，从应用层到网络层各使用了哪些协议？</p>
-<p>（应用层：HTTP、DNS；传输层：TCP、UDP；网络层：IP、ICMP、ARP）</p>
-<p>ICMP协议的两个应用——Ping和Traceroute（<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/32bc2749a831%EF%BC%89">https://www.jianshu.com/p/32bc2749a831）</a></p>
-<p>IP地址和MAC地址有什么区别？</p>
-<p>http和https的区别 （<a target="_blank" rel="noopener" href="https://www.php.cn/faq/418162.html%EF%BC%89">https://www.php.cn/faq/418162.html）</a></p>
-<p>网站为什么要使用cookie和session；cookie和session有什么区别？</p>
-<p>get请求和post请求的区别？</p>
-<p>TCP和UDP的区别以及各自的应用场景？</p>
-<p>epoll和select的区别？</p>
-<p>客户端和服务端通信大致分为四个步骤：①打开一个TCP连接 ②发送一个http报文 ③读取服务端返回的报文 ④关闭连接或者为后续请求重用连接</p>
-<p><img src="https://s1.328888.xyz/2022/06/11/CT92J.png" alt="CT92J.png"></p>
-<p>请求报文由以下元素组成：</p>
-<ul>
-<li>一个 HTTP 的<a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods">method</a>，经常是由一个动词像<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Methods/GET"><code>GET</code></a>, <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Methods/POST"><code>POST</code></a> 或者一个名词像<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Methods/OPTIONS"><code>OPTIONS</code></a>，<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Methods/HEAD"><code>HEAD</code></a>来定义客户端的动作行为。通常客户端的操作都是获取资源（GET 方法）或者发送<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Learn/Forms">HTML form</a>表单（POST 方法），虽然在一些情况下也会有其他操作。</li>
-<li>要获取的资源的路径，通常是上下文中就很明显的元素资源的 URL，它没有<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Glossary/Protocol">protocol</a>（<code>http://</code>），<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Glossary/Domain">domain</a>（<code>developer.mozilla.org</code>），或是 TCP 的<a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Glossary/Port">port (en-US)</a>（HTTP 一般在 80 端口）。</li>
-<li>HTTP 协议版本号。</li>
-<li>为服务端表达其他信息的可选头部<a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers">headers</a>。请求头</li>
-<li>对于一些像 POST 这样的方法，报文的 body 就包含了发送的资源，这与响应报文的 body 类似。请求体</li>
-</ul>
-<p><img src="https://s1.328888.xyz/2022/06/11/CTfJy.png" alt="CTfJy.png"></p>
-<p>响应报文包含了下面的元素：</p>
-<ul>
-<li>HTTP 协议版本号。</li>
-<li>一个状态码（<a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Status">status code</a>），来告知对应请求执行成功或失败，以及失败的原因。</li>
-<li>一个状态信息，这个信息是非权威的状态码描述信息，可以由服务端自行设定。</li>
-<li>HTTP <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers">headers</a>，与请求头部类似。</li>
-<li>可选项，比起请求报文，响应报文中更常见地包含获取的资源 body。</li>
-</ul>
-<p>http流水线</p>
-<h4 id="九、JVM"><a href="#九、JVM" class="headerlink" title="九、JVM"></a>九、JVM</h4><ol>
-<li>JVM是运行Java字节码的虚拟机。JVM有针对不同操作系统的不同实现，目的是采用相同的字节码，都会给出相同的结果。字节码和不同系统的JVM是实现“一次编译，到处运行”的关键。</li>
-<li>JVM内存模型（程序计数器、虚拟机栈、本地方法栈、堆、方法区）</li>
-</ol>
-<p>JDK1.8做了哪些变化？（JDK1.7已经将原本位于永久代的字符串常量池移到堆中了，但是永久代的概念还存在，JDK1.8才彻底废除永久代，进而用元空间代替）</p>
-<p>永久代和元空间，JDK1.8为什么要使用元空间代替永久代？</p>
-<p>元空间溢出？（元空间不属于Java虚拟机，使用的是本地内存，存放的是类及方法的一些信息，动态加载类或者频繁加载类信息，但是没有及时卸载，会导致元空间溢出）</p>
-<p>对象创建的两种方式（指针碰撞、空闲列表）、对象访问定位的两种方式（使用句柄、直接指针）</p>
-<p>栈上分配与逃逸分析（JVM层面进行java性能优化的技巧）</p>
-<p>判断对象是否存活的两种方式，引用计数法的缺点？（引用计数法、可达性分析法）</p>
-<p>关于Object类的finalize()方法（jvm自动执行，无需手动调用，只能执行一次）.</p>
-<p>java的四种引用（强引用、软引用、弱引用、虚引用）</p>
-<p>三种垃圾回收算法，各自的优缺点（标记-清除法、标记-复制法、标记-整理法）</p>
-<p>Minor GC 和 Full GC 的区别，触发条件，以及空间分配担保策略？</p>
-<p>内存溢出和内存泄露（内存泄露的堆积会导致内存溢出）</p>
-<p>JVM参数调优（-Xms、-Xmx、-Xss、-XX:NewRatio、-XX:SurvivorRatio、-XX：+PrintGCDetails、-HeapDumpOnOutOfMemory）</p>
-<p>发生OOM如何解决（首先尝试通过JVM参数调优扩大堆内存空间；再者dump出堆内存存储快照，使用JProfile工具进行分析）</p>
-<p>垃圾收集器（CMS问的居多，另外，如果谈及发生gc会给用户带来什么不好的体验，可以谈谈Stop the World）</p>
-<p>类加载机制的过程，准备阶段做了哪些工作？（准备阶段会给类的静态变量分配内存（方法区）并赋初值，如果类的静态变量被final修饰，那么初始化的值就不是零值，而是声明的值）</p>
-<p>类的双亲委派模型定义，双亲委派模型的好处？如何破坏类的双亲委派模型？</p>
-<h4 id="十、操作系统"><a href="#十、操作系统" class="headerlink" title="十、操作系统"></a>十、操作系统</h4><p>linux的僵尸进程和孤儿进程的区别，如何清理僵尸进程？（kill僵尸进程的父进程）<br>如何查看僵尸进程信息？如何统计僵尸进程数量？（ps - ef | grep defunct；ps -ef | grep defunct | wc - l）<br>并发和并行的区别？<br>进程和线程的区别？<br>进程通信的方式有哪些？（管道、消息队列、共享内存、信号量、套接字Socket）</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/06/09/java%E9%9D%A2%E7%BB%8F/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-BBS校园论坛系统" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/06/02/BBS%E6%A0%A1%E5%9B%AD%E8%AE%BA%E5%9D%9B%E7%B3%BB%E7%BB%9F/">BBS校园论坛系统</a>
-    </h1>
-  
-
-        <!--显示阅读次数-->
-        
-        <!--显示阅读次数完毕-->
-        
-        <a href="/2022/06/02/BBS%E6%A0%A1%E5%9B%AD%E8%AE%BA%E5%9D%9B%E7%B3%BB%E7%BB%9F/" class="archive-article-date">
-  	<time datetime="2022-06-02T14:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-02</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/06/02/BBS%E6%A0%A1%E5%9B%AD%E8%AE%BA%E5%9D%9B%E7%B3%BB%E7%BB%9F/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
     </nav>
   
 

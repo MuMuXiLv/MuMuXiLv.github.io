@@ -153,6 +153,264 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-java面经" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/06/09/java%E9%9D%A2%E7%BB%8F/">java面经</a>
+    </h1>
+  
+
+        <!--显示阅读次数-->
+        
+        <!--显示阅读次数完毕-->
+        
+        <a href="/2022/06/09/java%E9%9D%A2%E7%BB%8F/" class="archive-article-date">
+  	<time datetime="2022-06-09T15:28:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-09</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="一、Java基础"><a href="#一、Java基础" class="headerlink" title="一、Java基础"></a>一、Java基础</h4><h5 id="Java和C语言有什么区别？Java好在哪里？"><a href="#Java和C语言有什么区别？Java好在哪里？" class="headerlink" title="Java和C语言有什么区别？Java好在哪里？"></a><strong>Java和C语言有什么区别？Java好在哪里？</strong></h5><p><strong>内存管理</strong>：Java中不需要考虑内存的问题，如果想用一个对象，new一个就可以，当不再使用这个对象后，JVM会自动进行回收。而C需要使用malloc之类的方法申请内存，然后不想用了需要使用free去释放内存。</p>
+<p><strong>面向对象</strong>：Java是一门面向对象的编程语言，而C语言主要是面向过程的</p>
+<p><strong>解释与编译共存</strong>：Java是一门解释与编译并存的语言，而C语言是编译型语言。</p>
+<p>Java程序从源代码到运行的过程是这样的：.java文件—&gt;javac编译—&gt;.class文件—&gt;解释器和JIT即时编译器—&gt;机器码—&gt;OS</p>
+<p>.class—&gt;机器码这一步JVM<strong>加载器</strong>首先加载字节码文件，然后通过解释器逐行解释运行，但这种方式执行速度相对较慢。而且很多方法和代码块是被频繁调用的（热点代码），所以后面引进了JIT编译器，而JIT属于运行时编译，当JIT编译器完成第一次编译后，会将字节码对应的机器码保存下来，下次直接使用（也就是说热点代码基本上已经被编译成机器码保存了下来，而其他的代码可以通过解释器执行，这样就大大提高了程序运行效率）。JVM 会根据代码每次被执行的情况收集信息并相应地做出一些优化，因此执行的次数越多，它的速度就越快。</p>
+<p><strong>一次编译到处运行</strong>：Java是先从.java文件通过javac编译成字节码文件，然后这个字节码文件可以在任何操作系统的JVM上运行。当然其他语言编译成字节码文件后也可以在JVM上运行。因此Java的开发效率比较高。</p>
+<p><strong>开发效率高</strong>：C语言主要面向底层，像内存、CPU等；而Java不需要，虚拟机已经帮助解决很多底层方面的问题。</p>
+<p><strong>指针</strong>：Java 不提供指针来直接访问内存，程序内存更加安全</p>
+<h5 id="为什么Java要经过中间步骤转换为字节码，然后再用JVM执行Java字节码，而不能一步到位，直接从原始代码到执行结果？"><a href="#为什么Java要经过中间步骤转换为字节码，然后再用JVM执行Java字节码，而不能一步到位，直接从原始代码到执行结果？" class="headerlink" title="为什么Java要经过中间步骤转换为字节码，然后再用JVM执行Java字节码，而不能一步到位，直接从原始代码到执行结果？"></a><strong>为什么Java要经过中间步骤转换为字节码，然后再用JVM执行Java字节码，而不能一步到位，直接从原始代码到执行结果？</strong></h5><p>每次重新执行同样的代码都必须重新经过从源代码到机器语言之间的编译过程，而Java可以在编译成字节码后，在多平台运行。</p>
+<h5 id="怎么理解Java的跨平台性，一次编译到处运行？"><a href="#怎么理解Java的跨平台性，一次编译到处运行？" class="headerlink" title="怎么理解Java的跨平台性，一次编译到处运行？"></a><strong>怎么理解Java的跨平台性，一次编译到处运行？</strong></h5><p>简单地说就是编译后的Java程序可直接在不同的平台上的虚拟机运行，而不用重新编译。</p>
+<h5 id="面向对象和面向过程的区别？"><a href="#面向对象和面向过程的区别？" class="headerlink" title="面向对象和面向过程的区别？"></a><strong>面向对象和面向过程的区别？</strong></h5><p>​		面向过程是直接将解决问题的<strong>步骤</strong>分析出来，然后用函数把步骤<strong>一步一步</strong>实现，再<strong>依次调用</strong>就可以了；而面向对象是将构成问题的事物，分解成若干个对象，建立对象的目的不是为了完成一个步骤，而是为了<strong>描述某个事物在解决问题过程中的行为</strong>。面向过程思想偏向于我们做一件事的流程，首先做什么，其次做什么，最后做什么。面向对象思想偏向于了解一个人，这个人的性格、特长是怎么样的，有没有遗传到什么能力，有没有家族病史。</p>
+<p>​		面向过程的性能比面向对象高，因为类调用需要实例化，开销比较大，比较消耗资源。如单片机、嵌入式开发、Linux&#x2F;Unix等一般采用面向过程开发，因为在它们看来性能是最重要的因素。而面向对象易维护、易扩展（封装、继承和多态，容易设计高内聚低耦合的系统结构）、开发效率高（接近日常生活和自然的思考方式）</p>
+<h5 id="如何理解面向对象三大特性：封装、继承、多态？"><a href="#如何理解面向对象三大特性：封装、继承、多态？" class="headerlink" title="如何理解面向对象三大特性：封装、继承、多态？"></a><strong>如何理解面向对象三大特性：封装、继承、多态？</strong></h5><p><strong>封装：</strong>将类成员属性（数据）和类的方法（对数据的操作）捆绑到一起，形成对外界的隐藏，同时提供外界可以操作的接口。封装的意义在于保护或者防止代码被我们无形破坏，保护成员属性，不让类以外的程序直接访问和修改，隐藏方法细节。</p>
+<p><strong>继承：</strong>继承是在已有的类中派生出新的类，新的类能够吸收原有类的属性和行为，并能够扩展新的能力。继承能够反映现实生活中的真实关系，减少了代码冗余，对父类的代码和属性进行重写。子类不可以选择性的继承父类的属性和方法，而是要全部继承。（父类中的静态方法可以被继承但是不能被重写）</p>
+<p><strong>多态：</strong>父类引用指向不同子类实例对象。Java实现多态需要三个必要条件：继承、重写、向上转型。继承：在多态中必须存在有继承关系的子类和父类。重写：子类对父类中的某些方法进行重新定义，那么在调用方法时就会执行子类中的方法。向上转型：需要将子类的引用赋给父类对象，只有这样该引用才既能调用父类的方法，又能调用子类的方法。</p>
+<h5 id="类继承会有什么问题吗，一般什么情况下才会去用继承？"><a href="#类继承会有什么问题吗，一般什么情况下才会去用继承？" class="headerlink" title="类继承会有什么问题吗，一般什么情况下才会去用继承？"></a><strong>类继承会有什么问题吗，一般什么情况下才会去用继承？</strong></h5><p>a：子类只能继承父类所有非私有的成员(成员方法和成员变量)。但是可以通过暴力反射来获取。</p>
+<p>b：子类不能继承父类的构造方法，但是可以通过super关键字去访问父类构造方法。</p>
+<p>类继承<strong>打破了封装性</strong>，这迫使开发者要去了解超类的实现细节，导致了<strong>子类和超类的耦合</strong>，当父类改变时可能要相应地对子类做出改变。子类从父类继承的方法在编译时就确定下来了，所以无法在运行期间改变从父类继承的方法的行为。</p>
+<p><strong>继承是 is-a 的关系</strong></p>
+<h5 id="为什么重写equals方法还要重写hashcode方法？"><a href="#为什么重写equals方法还要重写hashcode方法？" class="headerlink" title="为什么重写equals方法还要重写hashcode方法？"></a><strong>为什么重写equals方法还要重写hashcode方法？</strong></h5><p>需要保证重写后的equals方法认定相同的对象的hashcode相等。</p>
+<h5 id="深克隆和浅克隆"><a href="#深克隆和浅克隆" class="headerlink" title="深克隆和浅克隆"></a><strong>深克隆和浅克隆</strong></h5><p>浅拷贝：在拷贝对象时，只对基本数据类型进行了拷贝，对于引用数据类型只是进行了引用地址的传递，而没有创建一个新的对象，这就是浅拷贝；</p>
+<p>深拷贝：相应地，对于引用数据类型进行拷贝时，创建了一个新的对象，并且复制了其内的成员变量，就叫做深拷贝。（深拷贝实现：1. 继续利用clone方法 2. 序列化这个对象）</p>
+<h5 id="反射相关"><a href="#反射相关" class="headerlink" title="反射相关"></a><strong>反射相关</strong></h5><p>反射指在运行状态时，对于任意一个类，都可以获取到这个类的全部属性和方法。对于任意一个对象，都能够调用它的任意方法和属性，并且可以改变它的属性，这种动态获取信息以及动态调用对象的方法的功能称为Java语言的反射机制。</p>
+<h5 id="注解的实现原理"><a href="#注解的实现原理" class="headerlink" title="注解的实现原理"></a><strong>注解的实现原理</strong></h5><p>注解的作用：</p>
+<p>1 生成文档。这是最常见的，也是Java 最早提供的注解。常用的有<code>@param</code> <code>@return</code> 等； 2 跟踪代码依赖性，实现替代配置文件功能。比如<code>Dagger 2</code> 依赖注入，未来java 开发，将大量注解配置，具有很大用处; 3 在编译时进行格式检查。如<code>@override</code> 放在方法前，如果你这个方法并不是覆盖了超类方法，则编译时就能检查出。</p>
+<p>注解的原理：</p>
+<p>注解本质是一个继承了<code>Annotation</code> 的特殊<strong>接口</strong>，在调用<code>getDeclaredAnnotations()</code>方法（通过反射方法获取）的时候，返回一个代理<code>$Proxy</code>对象，这个代理对象是由<code>jdk</code>动态代理创建，使用<code>Proxy</code>的<code>newProxyInstance</code>方法，传入接口和<code>InvocationHandler</code>的一个实例(也就是 <code>AnotationInvocationHandler</code>) ，最后返回一个实例。期间，在创建代理对象之前解析注解的时候，从该注解类的常量池中取出注解的信息，包括之前写到注解中的参数，然后将这些信息在创建 <code>AnnotationInvocationHandler</code> 时候，传入进去作为构造函数的参数。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">static class AnnotationInvocationHandler implements InvocationHandler&#123;</span><br><span class="line">    @Override</span><br><span class="line">    public Object invoke(Object proxy, Method method, Object[] args) throws Throwable &#123;</span><br><span class="line">   //处理注解的解析</span><br><span class="line">    &#125;    </span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">public static Object newProxyInstance(ClassLoader loader,</span><br><span class="line">                                      Class&lt;?&gt;[] interfaces,</span><br><span class="line">                                      InvocationHandler h)</span><br></pre></td></tr></table></figure>
+
+<p>newProxyInstance，方法有三个参数：<br>loader: 用哪个类加载器去加载代理对象<br>interfaces: 动态代理类需要实现的接口<br>h: 动态代理方法在执行时，会调用h里面的invoke方法去执行</p>
+<h5 id="Lambda表达式的优缺点？"><a href="#Lambda表达式的优缺点？" class="headerlink" title="Lambda表达式的优缺点？"></a><strong>Lambda表达式的优缺点？</strong></h5><p>优点：</p>
+<ul>
+<li><p>简洁。</p>
+</li>
+<li><p>非常容易并行计算。</p>
+</li>
+<li><p>结合 hashmap 的 computeIfAbsent 方法，递归运算非常快。java有针对递归的专门优化。</p>
+</li>
+</ul>
+<p>缺点：</p>
+<ul>
+<li>若不用并行计算，很多时候计算速度没有比传统的 for 循环快。（并行计算有时需要预热才显示出效率优势，并行计算目前对 Collection 类型支持的好，对其他类型支持的一般）</li>
+<li>不容易调试。</li>
+<li>若其他程序员没有学过 lambda 表达式，代码不容易让其他语言的程序员看懂。</li>
+<li>在 lambda 语句中强制类型转换貌似不方便，一定要搞清楚到底是 map 还是 mapToDouble 还是 mapToInt</li>
+</ul>
+<h5 id="Stream流式编程的好处？终止方法和延迟方法的区别是？终止方法存在的意义是什么？"><a href="#Stream流式编程的好处？终止方法和延迟方法的区别是？终止方法存在的意义是什么？" class="headerlink" title="Stream流式编程的好处？终止方法和延迟方法的区别是？终止方法存在的意义是什么？"></a><strong>Stream流式编程的好处？终止方法和延迟方法的区别是？终止方法存在的意义是什么？</strong></h5><h4 id="二、Java集合"><a href="#二、Java集合" class="headerlink" title="二、Java集合"></a>二、Java集合</h4><h5 id="HashMap底层实现"><a href="#HashMap底层实现" class="headerlink" title="HashMap底层实现"></a>HashMap底层实现</h5><p>JDK1.7使用数组+链表；JDK1.8使用数组+链表+红黑树</p>
+<p>链表会转化为红黑树的两个条件：<br>①链表的长度达到8；<br>②HashMap底层使用的table数组长度length达到64（当HashMap底层使用的table数组长度达到64时，链表的长度达到8这种情况不满足泊松分布，即出现的概率非常非常小，一般是存在恶意攻击，就是一直存入同样的值，因此此时将链表转换为红黑树）；<br>注：如果不满足后者，将会触发扩容方法</p>
+<p>链表长度大于8转化为红黑树，小于6红黑树转化为链表；为什么不直接设置成大于8转化成红黑树，小于8转化成链表；（中间有个差值7进行过渡是为了避免链表和树频繁转换，如果一个HashMap不停的插入、删除元素，链表个数在8左右徘徊，就会频繁的发生树转链表、链表转树，效率会很低）</p>
+<p>HashMap为什么要引进红黑树？为什么不用其他的平衡二叉树之类的？红黑树的优势在哪里？</p>
+<ol>
+<li>红黑树的五大特征：<br>a. 节点要么全为红色，要么为黑色<br>b. 根节点为黑色<br>c. 叶子节点为黑色<br>d. 从根节点到叶子节点不存在两个相邻的红色节点<br>e. 从任意节点到其每个叶子节点的所有路径包含相同数目的黑色节点</li>
+<li>根据红黑树的特征可知<br>a. 红黑树不追求“完全平衡”，它只要求部分地达到平衡要求，降低了对旋转的要求，从而提高了性能。红黑树的算法时间复杂度与平衡查找树相同，但统计性能比平衡二叉树更高<br>b.</li>
+</ol>
+<p>（AVL树的旋转比红黑树的旋转更加难以平衡和调试，需要更高的旋转次数）<br>HashMap扩容机制，即resize方法？（JDK 1.7 会重新计算每个元素的哈希值，JDK1.8是通过高位运算（e.hash &amp; oldCap）来确定元素是否需要移动，如果运算结果值为0，那么元素扩容后位置不变，结果值为1表示元素在扩容时位置发生了变化，新的下标位置等于原下标位置 + 原数组长度）<br>HashMap添加元素的步骤（put方法）、计算集合元素个数（size方法）<br>HashMap为什么是线程不安全的？（同时新增元素、同时扩容导致数据丢失，jdk1.7头部倒序插入出现死循环导致CPU占用100%）<br>HashMap默认的加载因子是0.75，为什么不设置成1或者0.5（从容量和性能考虑）<br>HashMap发生哈希冲突，新节点是插入到链表头部还是链表的尾部，头部倒序插入死循环是怎么产生的？（jdk1.7采用头部倒序插入，会导致死循环；jdk1.8使用尾部正序插入）<br>Hashtable怎么控制key value 不能为null？（当调用put方法时，首先会判断value是否为null，为null的话直接抛出空指针异常；对于key，由于Hashtable计算hash值是int hash &#x3D; key.hashCode();直接取对象的hashcode，key为null就会报空指针异常；而HashMap计算hash值是return (key &#x3D;&#x3D; null) ? 0 : (h &#x3D; key.hashCode()) ^ (h &gt;&gt;&gt; 16)，key为null则hash值为0）<br>ConcurrentHashMap底层采用的结构（分jdk1.7和jdk1.8），jdk1.7和jdk1.8分别采用什么方式实现线程安全？（jdk1.7采用分段锁，也就是为每一个segment加上ReentrantLock锁；jdk1.8使用的是CAS机制加上synchronized锁）<br>ConcurrentMap中的size方法是如何实现的？多线程操作下，如果一个线程在查size方法，一个线程在执行put方法，底层是如何控制每次计算出来的值是正确的？（<a target="_blank" rel="noopener" href="https://blog.csdn.net/chenyiminnanjing/article/details/82716180%EF%BC%89">https://blog.csdn.net/chenyiminnanjing/article/details/82716180）</a><br>HashSet的底层实现？（基于HashMap来实现的，new 一个 HashSet对象底层实际就是new了一个HashMap，并且使用默认的初始容量16和默认的加载因子0.75；当我们往HashSet里面添加一个元素其实就是往HashMap里面put了一个元素，并且是以key存在的，HashMap的value值都是一样的，是一个静态常量PRESENT，源码为：private static final Object PRESENT &#x3D; new Object(); ）<br>BlockingQueue（阻塞队列）如何实现生产者消费者模型？<br>线程安全的List有哪些？（Vector、CopyOnWriteArrayList、还可以使用Collections类的synchronizedList方法将线程不安全的List转为线程安全的）<br>为什么ArrayList查询速度快？（ArrayList底层是基于数组实现，可以根据元素下标进行查询，查询方式为（数组首地址+元素长度*下标，基于这个位置读取相应的字节数就可以了），如果数组存的是对象，怎么根据下标定位元素所在位置？（对象数组每个元素存放的是对象的引用，而引用类型如果开启指针压缩占用4字节，不开启则占用8字节，所以对象数组同样适用上面的公式）<br>ArrayList的扩容？（ArrayList底层是基于数组实现，所以创建ArrayList会给数组指定一个初始容量，默认值为10，因为必须指明数组的长度才能给数组分配空间；由于数组的特性，ArrayList扩容是创建一个更大的数组，然后将原来的元素拷贝到更大的数组中，扩容的核心方法是Arrays.copyOf方法）<br>ArrayList和LinkedList的区别，添加一个元素的时间复杂度各是多少，既然ArrayList添加元素效率没有LinkedList高，为什么我们平时用的比较多的还是ArrayList？<br>一般什么情况下会用ArrayList，什么情况用LinkedList？（如果只是普通的存取元素多用ArrayList，LinkedList一般用作栈、队列）<br>将一个Map集合变成栈，如何实现？（我的思路是用TreeMap去实现，key存的是要入栈的元素，value存的是可以记录他们入栈的一个先后顺序的，例如时间戳，然后重写Comparator比较器，根据value进行排序，遍历Map时，先进的后面出）<br>Map集合有迭代器吗？遍历输出Map中所有元素有哪些方法？</p>
+<h4 id="三、多线程和Java锁"><a href="#三、多线程和Java锁" class="headerlink" title="三、多线程和Java锁"></a>三、多线程和Java锁</h4><p>线程池的三大方法、七大参数、四种拒绝策略（可以顺带谈一下阿里巴巴开发手册对于线程池使用的规范）<br>创建线程的多种方式<br>最大线程数如何定义？（从CPU密集型和IO密集型考虑）<br>线程池的五种状态（Running、Shutdown、Stop、Tidying、Terminated）<br>线程池的任务执行流程、excute方法和 submit方法的区别？<br>Synchronized锁和Lock锁的区别<br>Java线程虚假唤醒（线程本应该处于wait状态却被唤醒了，解决方案是wait方法应该用while循环包裹，不用if）<br>JMM的三种特性（原子性、可见性、有序性）、主内存和线程工作内存的八种交互动作<br>volatile如何保证可见性（MESI缓存一致性协议）<br>volatile如何保证有序性（内存屏障——lock前缀指令）<br>synchronized和volatile的区别（volatile是一种非锁机制，这种机制可以避免锁机制引起的线程上下文切换和调度问题。因此，volatile的执行成本比synchronized更低；volatile只能保证可见性有序性；synchronized可以保证原子性可见性有序性）<br>JUC包中的原子类如何保证原子性？（CAS机制和自旋锁）<br>CAS机制，会引发什么问题，如何解决ABA问题？（CAS会导致ABA问题，解决ABA问题是使用版本号机制）<br>悲观锁和乐观锁的区别，应用？（java中的Synchronized关键字和lock锁使用的都是悲观锁；CAS机制是乐观锁的一种实现方式）<br>公平锁和非公平锁（公平锁按照先来先服务，不会出现饥饿；非公平锁会导致饥饿，但是效率更高，默认的锁都是非公平的）<br>自旋锁和互斥锁，自旋锁的优缺点？（优点：减少上下文切换和用户态内核态的切换带来的开销；缺点：循环等待消耗CPU）<br>可重入锁和不可重入锁（不可重入锁容易导致死锁发生，大多数锁都是可重入的，例如Synchronized锁和ReentrantLock）<br>JDK1.6 Synchronized锁升级（偏向锁—轻量级锁—重量级锁）<br>Synchronized锁的底层实现，锁的是什么，其它线程如何判断该锁已经被占用了？<br>死锁产生的四个必要条件以及死锁的处理策略</p>
+<h4 id="四、Mysql"><a href="#四、Mysql" class="headerlink" title="四、Mysql"></a>四、Mysql</h4><p>Myisam和InnoDB存储引擎的区别？（Myisam不支持外键也不支持事务，支持的是表锁，当执行select操作时，自动给涉及的表加表锁，当执行增删改操作，自动给涉及的表加写锁；InnoDB支持外键也支持事务，支持的是行锁，当执行select操作时，不加任何锁，当执行增删改操作，自动给涉及的行加写锁）<br>间隙锁是什么？行锁升级为表锁的情况？<br>InnoDB的行锁有哪些？锁住的是行还是索引？（Record Lock、Gap Lock、Next-Key Lock；锁住的是索引，而不是行）<br>为什么可重复读隔离级别也可以解决幻读？（通过Next-Key Lock可以消除幻读）<br>并发事务处理带来的四种问题和事务的隔离级别（丢失更新、脏读、不可重复读、幻读；读未提交、读已提交、可重复读、串行化）<br>如何理解Mysql默认的事务隔离级别可重复读？<br>事务的ACID属性是如何实现的？（原子性通过回滚日志undo log实现；持久性通过重做日志redo log实现；隔离性通过锁和MVCC实现；而一致性则是通过原子性、隔离性、持久性来实现，只有满足这三个特性，才能实现事务的一致性）<br>聚簇索引、非聚簇索引、回表查询、覆盖索引；<br>索引失效的情况？（违反最左前缀法则、范围查询右边的列索引失效、字符串不加单引号、对索引列进行运算、头部模糊匹配、使用不等于！&#x3D;或者&lt;&gt;）<br>explain分析执行计划、SQL语句的优化<br>mysql三大范式（1NF即原子性，2NF即消除部分依赖，3NF即消除传递依赖）<br>mysql索引的底层实现，为什么用B+树不用B树？（B+树IO次数更少、更适合范围查询、查询效率更加稳定）<br>哈希表查找速度不是更快吗，为什么不直接使用哈希表来做索引的底层数据结构？（哈希表不支持范围查找）</p>
+<h4 id="五、Redis"><a href="#五、Redis" class="headerlink" title="五、Redis"></a>五、Redis</h4><p>Redis五种基本数据类型的使用场景<br>缓存穿透、缓存击穿、缓存雪崩<br>Redis的过期策略和内存淘汰机制<br>Redis的zset底层数据结构，为什么用跳跃表而不用红黑树</p>
+<h4 id="六、框架相关"><a href="#六、框架相关" class="headerlink" title="六、框架相关"></a>六、框架相关</h4><p>Spring AOP的实现原理？（基于动态代理模式，如果目标类实现了接口，那么使用基于接口的动态代理，否则使用基于子类&#x2F;cglib的动态代理）<br>Spring AOP 的具体加载步骤？<br>AOP和OOP的区别，分别适用什么场景？<br>Spring Bean的作用域，Spring Bean的生命周期（Bean的实例化—初始化Bean—使用Bean—Bean的销毁）<br>Spring容器创建对象的两种时机，各有什么优缺点？（一是Spring容器启动时创建Bean，二是调用getBean方法时创建）<br>SpringMVC的执行流程（可以顺带讲一下适配器模式）<br>Mybatis的一级缓存和二级缓存？<br>Mybatis中#和$的区别？<br>Mybatis如何实现批量插入？<br>Mybatis的xml文件中，sql语句可以使用直接使用大于号小于号吗？应该用什么符号代替？</p>
+<h4 id="七、设计模式"><a href="#七、设计模式" class="headerlink" title="七、设计模式"></a>七、设计模式</h4><p>代理模式（应用：一是创建多线程的方式之使用Runnable接口应用了静态代理；二是Spring AOP应用了动态代理）<br>参考文章：<a target="_blank" rel="noopener" href="https://blog.csdn.net/can_chen/article/details/107827629">https://blog.csdn.net/can_chen/article/details/107827629</a></p>
+<p>适配器模式（应用：一是创建多线程的方式之使用Callable接口；二是SpringMVC中的HandleAdapter）<br>参考文章：<a target="_blank" rel="noopener" href="https://blog.csdn.net/can_chen/article/details/106968769">https://blog.csdn.net/can_chen/article/details/106968769</a></p>
+<p>工厂模式（应用：一是Spring IOC；二是Mybatis中的SqlSessionFactory就用到了简单工厂模式）<br>参考文章：<a target="_blank" rel="noopener" href="https://blog.csdn.net/can_chen/article/details/105924115">https://blog.csdn.net/can_chen/article/details/105924115</a></p>
+<p>单例模式（一般会需要手撕单例模式的代码，主要谈DCL模式关于指令重排的问题，以及反射可以破坏除枚举以外的几种方式；单例模式的应用有：一是Spring Bean的作用域默认就是使用单例模式；二是Mybatis中的ErrorContext类也使用了单例模式，这个类用于记录线程执行环境的错误信息）<br>参考文章：<a target="_blank" rel="noopener" href="https://blog.csdn.net/can_chen/article/details/105049999">https://blog.csdn.net/can_chen/article/details/105049999</a></p>
+<p>装饰器模式（应用：JAVA的IO流就用到了装饰器模式）<br>参考文章：<a target="_blank" rel="noopener" href="https://blog.csdn.net/can_chen/article/details/105786680">https://blog.csdn.net/can_chen/article/details/105786680</a></p>
+<p>装饰器模式和代理模式的区别？<br>参考文章：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/yanggb/p/10952843.html">https://www.cnblogs.com/yanggb/p/10952843.html</a></p>
+<p>策略模式（应用：Arrays类的sort方法就用到了策略模式，Comparator接口就是一个策略接口，将排序方法定义成一个策略，用户可以自定义排序策略，可以是升序也可以是降序）<br>参考文章：<a target="_blank" rel="noopener" href="https://blog.csdn.net/can_chen/article/details/106745298">https://blog.csdn.net/can_chen/article/details/106745298</a></p>
+<p>观察者模式与发布订阅模式的区别？（JDK源码已经为我们提供好了一套观察者模式，Observer就是观察者接口，Observable类是被观察者，是一个具体类，提供了一个存放所有观察者角色的集合，并且也提供了添加观察者、移除观察者、通知观察者等方法）<br>参考文章： <a target="_blank" rel="noopener" href="https://blog.csdn.net/hf872914334/article/details/88899326">https://blog.csdn.net/hf872914334/article/details/88899326</a></p>
+<h4 id="八、网络"><a href="#八、网络" class="headerlink" title="八、网络"></a>八、网络</h4><p>TCP三次握手和四次挥手的过程，每次发送的包的内容，客户端和服务端的状态？</p>
+<p>TCP三次握手可以携带数据吗？TCP协议运行时阶段？</p>
+<p>为什么是三次握手，可以四次握手或者两次握手吗？</p>
+<p>为什么握手是三次，而挥手要四次？</p>
+<p>TCP四次挥手为什么需要TIME-WAIT阶段等待2MSL，是哪一方有TIME-WAIT阶段？（主动释放释放连接的那端）</p>
+<p>TCP的长连接和短连接（<a target="_blank" rel="noopener" href="http://blog.sina.com.cn/s/blog_6d39b5be0101k6v4.html%EF%BC%89">http://blog.sina.com.cn/s/blog_6d39b5be0101k6v4.html）</a></p>
+<p>半连接队列和全连接队列，什么是syn flood攻击，如何应对syn flood攻击？（<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/ff26312e67a9%EF%BC%89">https://www.jianshu.com/p/ff26312e67a9）</a></p>
+<p>在浏览器中输入一个网址回车后发生了什么？(<a target="_blank" rel="noopener" href="https://www.cnblogs.com/tisikcci/p/5866753.html">https://www.cnblogs.com/tisikcci/p/5866753.html</a>)</p>
+<p>域名解析过程的递归查询和迭代查询（<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_42061048/article/details/80170991%EF%BC%89">https://blog.csdn.net/weixin_42061048/article/details/80170991）</a></p>
+<p>浏览器输入一个网址之后，按照TP&#x2F;IP参考模型，从应用层到网络层各使用了哪些协议？</p>
+<p>（应用层：HTTP、DNS；传输层：TCP、UDP；网络层：IP、ICMP、ARP）</p>
+<p>ICMP协议的两个应用——Ping和Traceroute（<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/32bc2749a831%EF%BC%89">https://www.jianshu.com/p/32bc2749a831）</a></p>
+<p>IP地址和MAC地址有什么区别？</p>
+<p>http和https的区别 （<a target="_blank" rel="noopener" href="https://www.php.cn/faq/418162.html%EF%BC%89">https://www.php.cn/faq/418162.html）</a></p>
+<p>网站为什么要使用cookie和session；cookie和session有什么区别？</p>
+<p>get请求和post请求的区别？</p>
+<p>TCP和UDP的区别以及各自的应用场景？</p>
+<p>epoll和select的区别？</p>
+<p>客户端和服务端通信大致分为四个步骤：①打开一个TCP连接 ②发送一个http报文 ③读取服务端返回的报文 ④关闭连接或者为后续请求重用连接</p>
+<p><img src="https://s1.328888.xyz/2022/06/11/CT92J.png" alt="CT92J.png"></p>
+<p>请求报文由以下元素组成：</p>
+<ul>
+<li>一个 HTTP 的<a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods">method</a>，经常是由一个动词像<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Methods/GET"><code>GET</code></a>, <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Methods/POST"><code>POST</code></a> 或者一个名词像<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Methods/OPTIONS"><code>OPTIONS</code></a>，<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Methods/HEAD"><code>HEAD</code></a>来定义客户端的动作行为。通常客户端的操作都是获取资源（GET 方法）或者发送<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Learn/Forms">HTML form</a>表单（POST 方法），虽然在一些情况下也会有其他操作。</li>
+<li>要获取的资源的路径，通常是上下文中就很明显的元素资源的 URL，它没有<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Glossary/Protocol">protocol</a>（<code>http://</code>），<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Glossary/Domain">domain</a>（<code>developer.mozilla.org</code>），或是 TCP 的<a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Glossary/Port">port (en-US)</a>（HTTP 一般在 80 端口）。</li>
+<li>HTTP 协议版本号。</li>
+<li>为服务端表达其他信息的可选头部<a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers">headers</a>。请求头</li>
+<li>对于一些像 POST 这样的方法，报文的 body 就包含了发送的资源，这与响应报文的 body 类似。请求体</li>
+</ul>
+<p><img src="https://s1.328888.xyz/2022/06/11/CTfJy.png" alt="CTfJy.png"></p>
+<p>响应报文包含了下面的元素：</p>
+<ul>
+<li>HTTP 协议版本号。</li>
+<li>一个状态码（<a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Status">status code</a>），来告知对应请求执行成功或失败，以及失败的原因。</li>
+<li>一个状态信息，这个信息是非权威的状态码描述信息，可以由服务端自行设定。</li>
+<li>HTTP <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers">headers</a>，与请求头部类似。</li>
+<li>可选项，比起请求报文，响应报文中更常见地包含获取的资源 body。</li>
+</ul>
+<p>http流水线</p>
+<h4 id="九、JVM"><a href="#九、JVM" class="headerlink" title="九、JVM"></a>九、JVM</h4><ol>
+<li>JVM是运行Java字节码的虚拟机。JVM有针对不同操作系统的不同实现，目的是采用相同的字节码，都会给出相同的结果。字节码和不同系统的JVM是实现“一次编译，到处运行”的关键。</li>
+<li>JVM内存模型（程序计数器、虚拟机栈、本地方法栈、堆、方法区）</li>
+</ol>
+<p>JDK1.8做了哪些变化？（JDK1.7已经将原本位于永久代的字符串常量池移到堆中了，但是永久代的概念还存在，JDK1.8才彻底废除永久代，进而用元空间代替）</p>
+<p>永久代和元空间，JDK1.8为什么要使用元空间代替永久代？</p>
+<p>元空间溢出？（元空间不属于Java虚拟机，使用的是本地内存，存放的是类及方法的一些信息，动态加载类或者频繁加载类信息，但是没有及时卸载，会导致元空间溢出）</p>
+<p>对象创建的两种方式（指针碰撞、空闲列表）、对象访问定位的两种方式（使用句柄、直接指针）</p>
+<p>栈上分配与逃逸分析（JVM层面进行java性能优化的技巧）</p>
+<p>判断对象是否存活的两种方式，引用计数法的缺点？（引用计数法、可达性分析法）</p>
+<p>关于Object类的finalize()方法（jvm自动执行，无需手动调用，只能执行一次）.</p>
+<p>java的四种引用（强引用、软引用、弱引用、虚引用）</p>
+<p>三种垃圾回收算法，各自的优缺点（标记-清除法、标记-复制法、标记-整理法）</p>
+<p>Minor GC 和 Full GC 的区别，触发条件，以及空间分配担保策略？</p>
+<p>内存溢出和内存泄露（内存泄露的堆积会导致内存溢出）</p>
+<p>JVM参数调优（-Xms、-Xmx、-Xss、-XX:NewRatio、-XX:SurvivorRatio、-XX：+PrintGCDetails、-HeapDumpOnOutOfMemory）</p>
+<p>发生OOM如何解决（首先尝试通过JVM参数调优扩大堆内存空间；再者dump出堆内存存储快照，使用JProfile工具进行分析）</p>
+<p>垃圾收集器（CMS问的居多，另外，如果谈及发生gc会给用户带来什么不好的体验，可以谈谈Stop the World）</p>
+<p>类加载机制的过程，准备阶段做了哪些工作？（准备阶段会给类的静态变量分配内存（方法区）并赋初值，如果类的静态变量被final修饰，那么初始化的值就不是零值，而是声明的值）</p>
+<p>类的双亲委派模型定义，双亲委派模型的好处？如何破坏类的双亲委派模型？</p>
+<h4 id="十、操作系统"><a href="#十、操作系统" class="headerlink" title="十、操作系统"></a>十、操作系统</h4><p>linux的僵尸进程和孤儿进程的区别，如何清理僵尸进程？（kill僵尸进程的父进程）<br>如何查看僵尸进程信息？如何统计僵尸进程数量？（ps - ef | grep defunct；ps -ef | grep defunct | wc - l）<br>并发和并行的区别？<br>进程和线程的区别？<br>进程通信的方式有哪些？（管道、消息队列、共享内存、信号量、套接字Socket）</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/06/09/java%E9%9D%A2%E7%BB%8F/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-BBS校园论坛系统" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/06/02/BBS%E6%A0%A1%E5%9B%AD%E8%AE%BA%E5%9D%9B%E7%B3%BB%E7%BB%9F/">BBS校园论坛系统</a>
+    </h1>
+  
+
+        <!--显示阅读次数-->
+        
+        <!--显示阅读次数完毕-->
+        
+        <a href="/2022/06/02/BBS%E6%A0%A1%E5%9B%AD%E8%AE%BA%E5%9D%9B%E7%B3%BB%E7%BB%9F/" class="archive-article-date">
+  	<time datetime="2022-06-02T14:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-02</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/06/02/BBS%E6%A0%A1%E5%9B%AD%E8%AE%BA%E5%9D%9B%E7%B3%BB%E7%BB%9F/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Nginx简述" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -458,12 +716,35 @@ public class JdkProxy implements InvocationHandler &#123;
 
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">@Test</span><br><span class="line">public void test2()&#123;</span><br><span class="line">    ApplicationContext context = new ClassPathXmlApplicationContext(&quot;beans.xml&quot;);</span><br><span class="line">    UserMapper mapper = (UserMapper) context.getBean(&quot;userDao&quot;);</span><br><span class="line">    List&lt;User&gt; user = mapper.selectUser();</span><br><span class="line">    System.out.println(user);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h3 id="循环依赖与三级缓存"><a href="#循环依赖与三级缓存" class="headerlink" title="循环依赖与三级缓存"></a>循环依赖与三级缓存</h3><p>单例池—第一级缓存，Map</p>
-<p>第二级缓存（earlySingletonObjects）：LubanMap</p>
-<p>三级缓存（singletonFactories）：Map&lt;beanName : 原始对象&gt; AOP的时候会用到原始对象、beandefinition、beanName</p>
-<p>实际上三级缓存的Map存的是一个lambda表达式 Map&lt;beanName : lambda(beanName, bd, 原始对象)&gt;</p>
+<h3 id="循环依赖与三级缓存"><a href="#循环依赖与三级缓存" class="headerlink" title="循环依赖与三级缓存"></a>循环依赖与三级缓存</h3><p>第一级缓存，单例池： SingletonObjects</p>
+<p>第二级缓存（earlySingletonObjects）：</p>
+<p>三级缓存（singletonFactories）：Map&lt;beanName : 原始对象&gt; AOP的时候会用到原始对象、beandefinition、beanName，实际上三级缓存的Map存的是一个lambda表达式 Map&lt;beanName : lambda(beanName, bd, 原始对象)&gt;，采用工厂方式（<strong>为什么采用工厂方式，是因为有些Bean是需要被代理的（AOP），总不能把代理前的暴露出去那就毫无意义了</strong>）</p>
+<h4 id="过程（找的顺序，先找一级，再找二级，最后找三级，三级如果有生成二级，删除三级）"><a href="#过程（找的顺序，先找一级，再找二级，最后找三级，三级如果有生成二级，删除三级）" class="headerlink" title="过程（找的顺序，先找一级，再找二级，最后找三级，三级如果有生成二级，删除三级）"></a>过程（找的顺序，先找一级，再找二级，最后找三级，三级如果有生成二级，删除三级）</h4><ol>
+<li>假设情景A依赖于B，B依赖于A，在创建A的bean时，实例化后，A bean的原始对象构造成ObjectFactory添加三级依赖singletonFactories中，这个ObjectFactory是一个函数式接口，所以支持lambda表达式：**() -&gt;getEarlyBeanReference(beanName, mbd, bean)**</li>
+<li>属性填充阶段检测到需要依赖B Bean，缓存检测下来发现容器中还没有B Bean，这时创建B Bean，同样将B Bean的Bean工厂添加到三级缓存。</li>
+<li>B Bean实例化后，在属性填充时发现需要A Bean，就从缓存中检查中是否有A Bean，因为在过程1中已经将A Bean的ObjectFactory添加进了三级缓存singletonFactories。所以能够找到A Bean的原始对象。</li>
+<li>执行三级缓存中的A Bean的原始对象ObjectFactory后，将A Bean的原始对象从三级缓存移到二级缓存，同时移除三级缓存中的对象。</li>
+<li>三级缓存中的lambda表达式会进行AOP的增强，创建代理类，因此二级缓存earlySingletonObjects存放的有可能是经过AOP增强的代理对象。</li>
+<li>在AOP增强的时候会用到缓存<strong>earlyProxyReferences</strong>，这样后面A Bean再自己走到AOP增强的时候会检测是否已经增强。</li>
+<li>这时B填充完A属性，完成B Bean的创建，便会进入单例池</li>
+<li>A Bean在单例池中取出创建好的Bean完成创建</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Nullable</span></span><br><span class="line">	<span class="keyword">protected</span> Object <span class="title function_">getSingleton</span><span class="params">(String beanName, <span class="type">boolean</span> allowEarlyReference)</span> &#123;</span><br><span class="line">		<span class="type">Object</span> <span class="variable">singletonObject</span> <span class="operator">=</span> <span class="built_in">this</span>.singletonObjects.get(beanName);</span><br><span class="line">		<span class="keyword">if</span> (singletonObject == <span class="literal">null</span> &amp;&amp; isSingletonCurrentlyInCreation(beanName)) &#123;</span><br><span class="line">			<span class="keyword">synchronized</span> (<span class="built_in">this</span>.singletonObjects) &#123;</span><br><span class="line">				singletonObject = <span class="built_in">this</span>.earlySingletonObjects.get(beanName);</span><br><span class="line">				<span class="keyword">if</span> (singletonObject == <span class="literal">null</span> &amp;&amp; allowEarlyReference) &#123;</span><br><span class="line">					ObjectFactory&lt;?&gt; singletonFactory = <span class="built_in">this</span>.singletonFactories.get(beanName);</span><br><span class="line">					<span class="keyword">if</span> (singletonFactory != <span class="literal">null</span>) &#123;</span><br><span class="line">						singletonObject = singletonFactory.getObject();</span><br><span class="line">						<span class="built_in">this</span>.earlySingletonObjects.put(beanName, singletonObject);</span><br><span class="line">						<span class="built_in">this</span>.singletonFactories.remove(beanName);</span><br><span class="line">					&#125;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> singletonObject;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+
+<p>首先A通过getBean调到doCreateBean（Spring通过getBean方法获取bean），初步实例化即调用createBeanInstance()方法后，属性注入之前进入到下边代码中</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">public <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">AbstractAutowireCapableBeanFactory</span> <span class="keyword">extends</span> <span class="title">AbstractBeanFactory</span></span></span><br><span class="line"><span class="class">        <span class="keyword">implements</span> <span class="title">AutowireCapableBeanFactory</span> </span>&#123;        </span><br><span class="line">    protected <span class="built_in">Object</span> doCreateBean(<span class="keyword">final</span> <span class="built_in">String</span> beanName, <span class="keyword">final</span> RootBeanDefinition mbd, <span class="keyword">final</span> <span class="meta">@Nullable</span> <span class="built_in">Object</span>[] args)</span><br><span class="line">            throws BeanCreationException &#123;</span><br><span class="line">        <span class="comment">//省略前面的部分代码       </span></span><br><span class="line">        <span class="comment">// even when triggered by lifecycle interfaces like BeanFactoryAware.</span></span><br><span class="line">        <span class="comment">// 7.判断是否需要提早曝光实例：单例 &amp;&amp; 允许循环依赖 &amp;&amp; 当前bean正在创建中</span></span><br><span class="line">        boolean earlySingletonExposure = (mbd.isSingleton() &amp;&amp; <span class="keyword">this</span>.allowCircularReferences &amp;&amp;</span><br><span class="line">                isSingletonCurrentlyInCreation(beanName));</span><br><span class="line">        <span class="keyword">if</span> (earlySingletonExposure) &#123;</span><br><span class="line">            <span class="keyword">if</span> (logger.isTraceEnabled()) &#123;</span><br><span class="line">                logger.trace(<span class="string">&quot;Eagerly caching bean &#x27;&quot;</span> + beanName +</span><br><span class="line">                        <span class="string">&quot;&#x27; to allow for resolving potential circular references&quot;</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">// 8.提前曝光beanName的ObjectFactory，用于解决循环引用</span></span><br><span class="line">            <span class="comment">// 8.1 应用后置处理器SmartInstantiationAwareBeanPostProcessor，允许返回指定bean的早期引用，若没有则直接返回bean</span></span><br><span class="line">            addSingletonFactory(beanName, () -&gt; getEarlyBeanReference(beanName, mbd, bean));</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// Initialize the bean instance.</span></span><br><span class="line">        <span class="comment">// 初始化bean实例。</span></span><br><span class="line">        <span class="built_in">Object</span> exposedObject = bean;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="comment">// 9.对bean进行属性填充；其中，可能存在依赖于其他bean的属性，则会递归初始化依赖的bean实例</span></span><br><span class="line">            populateBean(beanName, mbd, instanceWrapper);</span><br><span class="line">            <span class="comment">// 10.对bean进行初始化</span></span><br><span class="line">            <span class="comment">//初始化bean，过程如下：</span></span><br><span class="line">            <span class="comment">//1：判断是否实现了BeanNameAware，BeanClassLoaderAware，</span></span><br><span class="line">            <span class="comment">//   BeanFactoryAware方法，如果有，则设置相关的属性</span></span><br><span class="line">            <span class="comment">//2: 调用bean初始化的前置（BeanPostProcessor）操作</span></span><br><span class="line">            <span class="comment">//3: 执行初始化的方法。</span></span><br><span class="line">            <span class="comment">//  如果有initializingBean，则调用afterPropertiesSet</span></span><br><span class="line">            <span class="comment">//  如果有InitMethod，则调用初始方法</span></span><br><span class="line">            <span class="comment">//4: 调用bean初始化的后置（BeanPostProcessor）操作</span></span><br><span class="line">            exposedObject = initializeBean(beanName, exposedObject, mbd);</span><br><span class="line">        &#125;       </span><br><span class="line">        <span class="comment">//省略中间的部分代码        </span></span><br><span class="line">        <span class="comment">// 13.完成创建并返回</span></span><br><span class="line">        <span class="keyword">return</span> exposedObject;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>属性注入之前Spring将Bean包装成一个工厂添加进了三级缓存中，即调用addSingletonFactory()方法。</p>
+<p>当A开始属性注入，B开始实例化时，同样会通过getBean，同样会跟A一样属性注入，再次实例化A，此时再次实例化A时，getBean经过getSingleton会从三级缓存中拿出ObjectFactory，调用getObject会拿到A的对象。</p>
+<p>到此为止，循环依赖被解决。解决循环依赖后，会在doCreateBean()方法中调用populateBean()方法填充属性，完成对bean的依赖属性进行注入。</p>
+<p>即在AbstractBeanFactory类中：</p>
+<ul>
+<li>通过 getBean(String name)方法、调用doGetBean()方法、在doGetBean()方法内部调用<code>Object sharedInstance = getSingleton(beanName);</code>代码，在getSingleton()方法中会从三级缓存中拿出ObjectFactory</li>
+<li>通过ObjectFactory单例对象工厂创建的单例对象，放到早期单例对象缓存中即二级缓存earlySingletonObjects，并在三级缓存中移除beanName对应的单例对象工厂</li>
+</ul>
 <p><img src="https://s1.328888.xyz/2022/05/30/5HRag.png" alt="5HRag.png"></p>
-<h3 id="手写Spring框架"><a href="#手写Spring框架" class="headerlink" title="手写Spring框架"></a>手写Spring框架</h3><p>围绕bean的生命周期实现了一个简单的Spring框架，简单流程如下：</p>
+<h3 id="手写Spring框架"><a href="#手写Spring框架" class="headerlink" title="手写Spring框架"></a>手写Spring框架</h3><p><strong>扫描过程中每个bean生成一个beandefinition，这个beandefinition保存bean的很多信息，例如bean.class，scope，bean是否懒加载，bean的依赖关系等等，然后将beandefinition放入beandefinitionmap中作为value，key为beanname</strong></p>
+<p>围绕bean的生命周期实现了一个简单的Spring框架，简单流程如下：</p>
 <p>① 创建一个ApplicationContext类，传入一个config类，该配置类中用@ComponentScan注解声明了扫描路径</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">@ComponentScan(&quot;com.zhouyu.user&quot;)</span><br><span class="line">public class AppConfig &#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -474,20 +755,19 @@ public class JdkProxy implements InvocationHandler &#123;
 <p>​	b. 遍历beanDefinitionMap，判断Scope类型为”singleton”的beandefinition，创建单例Bean实例，对有@Autowired注解标注的类进行依赖注入，对实现Aware接口的类进行设置，对有@Transcational 注解的类将实例对象放到单例池中</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line">for (String beanName : beanDefinitionMap.keySet()) &#123;</span><br><span class="line">    BeanDefinition beanDefinition = beanDefinitionMap.get(beanName);</span><br><span class="line">    if (beanDefinition.getScope().equals(&quot;singleton&quot;) &amp;&amp; !beanDefinition.isLazy()) &#123;</span><br><span class="line">        Object bean = createBean(beanName, beanDefinition);</span><br><span class="line">        singletonObjects.put(beanName, bean);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">private Object createBean(String beanName, BeanDefinition beanDefinition)&#123;</span><br><span class="line"></span><br><span class="line">        Class clazz = beanDefinition.getType();</span><br><span class="line"></span><br><span class="line">        try &#123;</span><br><span class="line">            Object o = clazz.newInstance();</span><br><span class="line"></span><br><span class="line">            for (Field field : clazz.getDeclaredFields()) &#123;</span><br><span class="line">                if (field.isAnnotationPresent(Autowired.class)) &#123;</span><br><span class="line">                    Object bean = getBean(field.getName());</span><br><span class="line">                    field.setAccessible(true);</span><br><span class="line">                    field.set(o, bean);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            if (o instanceof BeanNameAware) &#123;</span><br><span class="line">                ((BeanNameAware)o).setBeanName(beanName);</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            if (o instanceof ApplicationContextAware) &#123;</span><br><span class="line">                ((ApplicationContextAware)o).setApplicationContext(this);</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            if (clazz.isAnnotationPresent(Transactional.class)) &#123;</span><br><span class="line">                Enhancer enhancer = new Enhancer();</span><br><span class="line">                enhancer.setSuperclass(clazz);</span><br><span class="line">                Object target = o;</span><br><span class="line">                enhancer.setCallback(new MethodInterceptor() &#123;</span><br><span class="line">                    @Override</span><br><span class="line">                    public Object intercept(Object proxy, Method method, Object[] objects, MethodProxy methodProxy) throws Throwable &#123;</span><br><span class="line">                        System.out.println(&quot;开启事务&quot;);</span><br><span class="line">                        Object result = method.invoke(target, objects);</span><br><span class="line">                        System.out.println(&quot;提交事务&quot;);</span><br><span class="line">                        return result;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;);</span><br><span class="line">                o = enhancer.create();</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            return o;</span><br><span class="line">        &#125; catch (InstantiationException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125; catch (IllegalAccessException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        return null;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<h3 id="Spring-源码"><a href="#Spring-源码" class="headerlink" title="Spring 源码"></a>Spring 源码</h3><p>1. </p>
+<ol start="2">
+<li><p>bean的加载   doGetBean()</p>
+<p>我们知道了 Spring 在容器刷新的后期，通过调用AbstractApplicationContext#finishBeanFactoryInitialization 方法来实例化了所有的非惰性bean。在这里面就通过 beanFactory.preInstantiateSingletons(); 调用了一个非常关键的方法 AbstractBeanFactory#getBean(java.lang.String)，而其实际上调用的是 <strong>AbstractBeanFactory#doGetBean</strong> 方法。doGetBean 完成了单例Bean的完整创建过程，包括bean的创建，BeanPostProcessor 的方法调用、init-method等方法的调用、Aware 等接口的实现。</p>
+<p>接下来分析<strong>AbstractBeanFactory</strong>的子类<strong>DefaultListableBeanFactory</strong>，该子类中重写了<strong>doGetBean</strong>方法；而且该类继承了<strong>DefaultSingletonBeanRegistry</strong>接口。</p>
+<p>DefaultSingletonBeanRegistry接口中有一些列的集合类型来保存Bean的相关信息。此处指出其中比较重要的几个：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/** Cache of singleton objects: bean name to bean instance. */</span></span><br><span class="line"><span class="comment">//	用于保存BeanName和创建bean实例之间的关系，即缓存bean。 beanname -&gt; instance 一级缓存</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">final</span> Map&lt;String, Object&gt; singletonObjects = <span class="keyword">new</span> <span class="title class_">ConcurrentHashMap</span>&lt;&gt;(<span class="number">256</span>);</span><br><span class="line"><span class="comment">/** Cache of singleton factories: bean name to ObjectFactory. */</span></span><br><span class="line"><span class="comment">// 用于保存BeanName和常见bean的工厂之间的关系。beanname-&gt; ObjectFactory  三级缓存</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">final</span> Map&lt;String, ObjectFactory&lt;?&gt;&gt; singletonFactories = <span class="keyword">new</span> <span class="title class_">HashMap</span>&lt;&gt;(<span class="number">16</span>);</span><br><span class="line"><span class="comment">/** Cache of early singleton objects: bean name to bean instance. */</span></span><br><span class="line"><span class="comment">// 也是保存BeanName和创建bean实例之间的关系，与singletonObjects 不同的是，如果一个单例bean被保存在此，则当bean还在创建过程中(比如 A类中有B类属性，当创建A类时发现需要先创建B类，这时候Spring又跑去创建B类，A类就会添加到该集合中，表示正在创建)，就可以通过getBean方法获取到了，其目的是用来检测循环引用。   二级缓存</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">final</span> Map&lt;String, Object&gt; earlySingletonObjects = <span class="keyword">new</span> <span class="title class_">HashMap</span>&lt;&gt;(<span class="number">16</span>);</span><br><span class="line"><span class="comment">/** Set of registered singletons, containing the bean names in registration order. */</span></span><br><span class="line"><span class="comment">// 用来保存当前所有已经注册的bean</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">final</span> Set&lt;String&gt; registeredSingletons = <span class="keyword">new</span> <span class="title class_">LinkedHashSet</span>&lt;&gt;(<span class="number">256</span>);</span><br></pre></td></tr></table></figure>
+<p>下面挑出来几个关键缓存集合来描述：</p>
+<p>singletonObjects ：ConcurrentHashMap。最简单最重要的缓存Map。保存关系是 beanName ：bean实例关系。单例的bean在创建完成后都会保存在 singletonObjects 中，后续使用直接从singletonObjects 中获取。<br>singletonFactories ：HashMap。这是为了解决循环依赖问题，用于提前暴露对象，保存形式是 beanName : ObjectFactory&lt;?&gt;。<br>earlySingletonObjects ：HashMap。这也是为了解决循环依赖问题。和 singletonFactories 互斥。因为 singletonFactories 保存的是 ObjectFactory。而earlySingletonObjects 个人认为是 singletonFactories 更进一步的缓存，保存的是 ObjectFactory#getObject的结果。<br>registeredSingletons ：LinkedHashSet，用于保存注册过的beanName</p>
+<p><img src="https://img-blog.csdnimg.cn/20210115170250207.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM2ODgyNzkz,size_16,color_FFFFFF,t_70" alt="img"></p>
+</li>
+<li></li>
+</ol>
 
       
 
@@ -1035,191 +1315,9 @@ public class JdkProxy implements InvocationHandler &#123;
 
 
   
-    <article id="post-快排" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/04/05/%E5%BF%AB%E6%8E%92/">快排</a>
-    </h1>
-  
-
-        <!--显示阅读次数-->
-        
-        <!--显示阅读次数完毕-->
-        
-        <a href="/2022/04/05/%E5%BF%AB%E6%8E%92/" class="archive-article-date">
-  	<time datetime="2022-04-05T13:50:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-04-05</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="快排"><a href="#快排" class="headerlink" title="快排"></a>快排</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line"></span><br><span class="line">​    public int[] sortArray(int[] nums) &#123;</span><br><span class="line"></span><br><span class="line">​        if(nums.length==0||nums.length==1) return nums;</span><br><span class="line"></span><br><span class="line">​        qsort(nums, 0, nums.length-1);</span><br><span class="line"></span><br><span class="line">​        return nums;</span><br><span class="line"></span><br><span class="line">​    &#125;</span><br><span class="line"></span><br><span class="line">​    public void qsort(int[] nums, int left, int right)&#123;</span><br><span class="line"></span><br><span class="line">​        if(left&gt;=right) return;</span><br><span class="line"></span><br><span class="line">​        int i = left;</span><br><span class="line"></span><br><span class="line">​        int j = right;</span><br><span class="line"></span><br><span class="line">​        int tmp = nums[left];</span><br><span class="line"></span><br><span class="line">​        while(i&lt;j)&#123;</span><br><span class="line"></span><br><span class="line">​            while(i&lt;j&amp;&amp;nums[j]&gt;=tmp) j--; //从右往左找到第一个小于标志位的数</span><br><span class="line"></span><br><span class="line">​            while(i&lt;j&amp;&amp;nums[i]&lt;=tmp) i++;//从左向右找找到第一个大于标志位（最左边的数）的数；但也有可能left指针和right指针相遇，此时由于right已经占据了小于标志位的数的位置，导致left只能移到小于标志位的数的位置，而此时其右边的数一定都大于标志位的数，这样就可以将左指针的位置的数与标志位位置的数进行交换。</span><br><span class="line"></span><br><span class="line">​            if(i&lt;j)&#123;</span><br><span class="line"></span><br><span class="line">​                swap(nums, i, j);</span><br><span class="line"></span><br><span class="line">​            &#125;</span><br><span class="line"></span><br><span class="line">​        &#125;</span><br><span class="line"></span><br><span class="line">​        nums[left] = nums[i];</span><br><span class="line"></span><br><span class="line">​        nums[i] = tmp; </span><br><span class="line"></span><br><span class="line">​        qsort(nums, left, i-1);</span><br><span class="line"></span><br><span class="line">​        qsort(nums, i+1, right);</span><br><span class="line"></span><br><span class="line">​    &#125;</span><br><span class="line"></span><br><span class="line">​    public void swap(int[] nums, int a, int b)&#123;</span><br><span class="line"></span><br><span class="line">​        int tmp = nums[a];</span><br><span class="line"></span><br><span class="line">​        nums[a] = nums[b];</span><br><span class="line"></span><br><span class="line">​        nums[b] = tmp;</span><br><span class="line"></span><br><span class="line">​    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">java数据结构—排序</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/04/05/%E5%BF%AB%E6%8E%92/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Redis的SDS和C语言自带字符串有什么不同" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/04/05/Redis%E7%9A%84SDS%E5%92%8CC%E8%AF%AD%E8%A8%80%E8%87%AA%E5%B8%A6%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%9C%89%E4%BB%80%E4%B9%88%E4%B8%8D%E5%90%8C/">Redis的SDS和C语言自带字符串有什么不同?</a>
-    </h1>
-  
-
-        <!--显示阅读次数-->
-        
-        <!--显示阅读次数完毕-->
-        
-        <a href="/2022/04/05/Redis%E7%9A%84SDS%E5%92%8CC%E8%AF%AD%E8%A8%80%E8%87%AA%E5%B8%A6%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%9C%89%E4%BB%80%E4%B9%88%E4%B8%8D%E5%90%8C/" class="archive-article-date">
-  	<time datetime="2022-04-05T06:27:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-04-05</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="Redis的SDS和C语言自带字符串有什么不同？"><a href="#Redis的SDS和C语言自带字符串有什么不同？" class="headerlink" title="Redis的SDS和C语言自带字符串有什么不同？"></a>Redis的SDS和C语言自带字符串有什么不同？</h1><p>首先介绍一下SDS，它是Redis中的动态字符串，是Redis字符串的一种编码方式。其定义为</p>
-<p><img src="https://i.bmp.ovh/imgs/2022/04/05/5f25f0bf9485ebe8.png"></p>
-<p>相较于C语言中的字符串多了两个属性，len和free。</p>
-<p>这样做有什么好处呢？</p>
-<h4 id="1-常数时间复杂度获取字符串长度"><a href="#1-常数时间复杂度获取字符串长度" class="headerlink" title="1. 常数时间复杂度获取字符串长度"></a>1. 常数时间复杂度获取字符串长度</h4><p><u>获取字符串的长度的时间复杂度为O(1)。C 语言中字符串获取自身长度需要进行遍历，因此时间复杂度为O(n)；而SDS获取长度只需要读取<code>len</code>属性，时间复杂度为O(1)。</u></p>
-<h4 id="2-避免缓冲区溢出"><a href="#2-避免缓冲区溢出" class="headerlink" title="2. 避免缓冲区溢出"></a>2. 避免缓冲区溢出</h4><p>除了获取字符串长度的复杂度高之外， C 字符串不记录自身长度带来的另一个问题是容易造成缓冲区溢出（buffer overflow）。</p>
-<p>例如，当我们使用C语言中的<code>stract()</code>函数时，一定要保证为<code>dest</code>分配足够多的内存，可以容纳<code>src</code>字符串中的所有内容，如若没有分配，就会造成缓冲区溢出。</p>
-<p><code>char *strcat(char *dest, const char *src);</code></p>
-<p>假设程序中有两个在内存中紧邻着的字符串<code>s1</code>和<code>s2</code>，其中s1保存了字符串<code>“Redis”</code>，s2保存了字符串<code>“MogoDB”</code>，如图所示：</p>
-<p><img src="https://i.bmp.ovh/imgs/2022/04/05/4db4bf59eedca518.png"></p>
-<p>而此时执行</p>
-<p><code>strcat(s1, &quot; Cluster&quot;);</code></p>
-<p>但在执行上述语句前没有给<code>s1</code>分配足够的空间，那么在<code>stract</code>函数执行后，<code>s1</code>的数据将溢出到<code>s2</code>所在的空间，导致<code>s2</code>保存的内容被意外地修改。</p>
-<p><u>而 SDS 在执行拼接操作之前会先检查字符串的长度是否足够，当发现字符串目前的空间不足以拼接时，会先将字符串空间扩展，然后进行修改，从而避免了缓冲区溢出。</u></p>
-<h4 id="3-减少修改字符串的内存重新分配次数"><a href="#3-减少修改字符串的内存重新分配次数" class="headerlink" title="3. 减少修改字符串的内存重新分配次数"></a>3. 减少修改字符串的内存重新分配次数</h4><p>正如前两个小节所说， 因为 C 字符串并不记录自身的长度， 所以对于一个包含了 <code>N</code> 个字符的 C 字符串来说， 这个 C 字符串的底层实现总是一个 <code>N+1</code> 个字符长的数组（额外的一个字符空间用于保存空字符<code>&#39;\0&#39;</code>）。</p>
-<p>因为 C 字符串的长度和底层数组的长度之间存在着这种关联性， 所以每次增长或者缩短一个 C 字符串， 程序都总要对保存这个 C 字符串的数组进行一次内存重分配操作：</p>
-<ul>
-<li>如果程序执行的是增长字符串的操作， 比如拼接操作（append）， 那么在执行这个操作之前， 程序需要先通过内存重分配来扩展底层数组的空间大小 —— 如果忘了这一步就会产生缓冲区溢出。</li>
-<li>如果程序执行的是缩短字符串的操作， 比如截断操作（trim）， 那么在执行这个操作之后， 程序需要通过内存重分配来释放字符串不再使用的那部分空间 —— 如果忘了这一步就会产生内存泄漏。</li>
-</ul>
-<p>而 SDS 由于存在 <code>len</code> 属性和 <code>free</code> 属性，对于修改 SDS 采用了空间预分配和惰性空间释放两种策略：</p>
-<ul>
-<li>空间预分配  对 SDS 字符串进行扩展时，扩展的内存比实际需要的多，这样可以避免在执行字符串连续增长操作所需的内存分配次数；</li>
-<li>惰性空间释放  对字符串进行缩短操作时， 当 SDS 的 API 需要缩短 SDS 保存的字符串时， 程序并不立即使用内存重分配来回收缩短后多出来的字节， 而是使用 <code>free</code> 属性将这些字节的数量记录起来， 并等待将来使用。</li>
-</ul>
-<h4 id="4-二进制安全"><a href="#4-二进制安全" class="headerlink" title="4. 二进制安全"></a>4. 二进制安全</h4><p>C 字符串中的字符必须符合某种编码（比如 ASCII）， 并且除了字符串的末尾之外， 字符串里面不能包含空字符， 否则最先被程序读入的空字符将被误认为是字符串结尾 —— 这些限制使得 C 字符串只能保存文本数据， 而不能保存像图片、音频、视频、压缩文件这样的二进制数据。而所有的 SDS 的 API 都是以处理二进制的方式来处理 <code>buf</code> 里面的元素，并且 SDS 不用空字符判断字符串结束，而用 <code>len</code> 属性判断。</p>
-<h4 id="5-兼容部分-C-字符串函数"><a href="#5-兼容部分-C-字符串函数" class="headerlink" title="5. 兼容部分 C 字符串函数"></a>5. 兼容部分 C 字符串函数</h4><p>虽然 SDS 的 API 都是二进制安全的， 但它们一样遵循 C 字符串以空字符结尾的惯例： 这些 API 总会将 SDS 保存的数据的末尾设置为空字符， 并且总会在为 <code>buf</code> 数组分配空间时多分配一个字节来容纳这个空字符， 这是为了让那些保存文本数据的 SDS 可以重用一部分 <code>&lt;string.h&gt;</code>库定义的函数。</p>
-<p><img src="https://i.bmp.ovh/imgs/2022/04/05/ca4991a87d3ca90b.png"></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">java redis</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/04/05/Redis%E7%9A%84SDS%E5%92%8CC%E8%AF%AD%E8%A8%80%E8%87%AA%E5%B8%A6%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%9C%89%E4%BB%80%E4%B9%88%E4%B8%8D%E5%90%8C/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+      <a class="extend prev" rel="prev" href="/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">Next &amp;raquo;</a>
     </nav>
   
 
